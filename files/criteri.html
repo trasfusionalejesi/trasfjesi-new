@@ -1,0 +1,949 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    
+<script>
+console.log("head")
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />    
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+    New Donor Eligibility Quiz
+</title>
+<meta name="Description" content="" />
+<meta name="Name" content="New Donor Eligibility Quiz" />
+<link rel="canonical" href="http://www.giveblood.ie/can-i-give-blood/blood-eligibility-quiz/new-donor-eligibility-quiz/" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.giveblood.ie/can-i-give-blood/blood-eligibility-quiz/new-donor-eligibility-quiz/" />
+<meta property="og:title" content="New Donor Eligibility Quiz" />
+    <meta property="og:image" content="http://www.giveblood.ie">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="New Donor Eligibility Quiz">
+    <meta name="twitter:image" content="http://www.giveblood.ie">
+
+ 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/core.css" />
+	<style>
+	.related-media-section .h4 {
+	  font-family: "Montserrat", sans-serif;
+	  font-size: 1.625rem;
+	  font-style: normal;
+	  font-weight: 600;
+	  line-height: normal;
+	}
+	.contenitore {
+  position: relative; /* FONDAMENTALE: permette alla linea di posizionarsi correttamente all'interno */
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  background: linear-gradient(135deg, #2a2a72 0%, #009ffd 74%);
+  padding: 10px;
+  border-radius: 0.5em;
+  z-index: 1; /* Crea un contesto di posizionamento per gestire i livelli */
+  margin: 0 0 30px 0; /* superiore, destro, inferiore, sinistro */
+}
+
+/* Questa è la linea bianca che attraversa il contenitore */
+.contenitore::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0; /* Fa estendere la linea per tutta la larghezza del contenitore */
+  top: 50%; /* La posiziona esattamente a metà altezza */
+  transform: translateY(-50%); /* Centra perfettamente lo spessore della linea */
+  height: 1px; /* Spessore della linea bianca (puoi aumentarlo o diminuirlo) */
+  background: rgba(255, 255, 255, 0.5); /* Bianco semi-trasparente per integrarsi con il gradiente 1px solid rgba(255,255,255,0.5);*/
+  z-index: -1; /* FONDAMENTALE: spinge la linea DIETRO ai bottoni/oggetti interni */
+  pointer-events: none; /* Impedisce alla linea di bloccare i click del mouse */
+}
+
+
+.oggetto {
+  width: auto; /* Ognuno è largo solo quanto il suo contenuto */
+  background-color: ;
+  padding: 20px;
+}
+
+.change-bg {
+  display: block;
+  width: fit-content;
+  margin-inline: auto;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  
+  font: inherit;
+  font-size: 1.2rem;
+  color: white;
+  line-height: 1;
+  cursor: pointer;
+
+  border: 1px solid hsl(0, 0%, 100%, 0.6);
+  background: hsl(0, 0%, 100%, 0.2);
+  backdrop-filter: blur(2px);
+  box-shadow: inset 0 0 4px 1px hsl(0, 0%, 100%, 0.6);
+}
+.com {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1em;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-right: 1px solid rgba(255,255,255,0.2);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 5px 45px rgba(0,0,0,0.1);
+  backdrop-filter: blur(2px);
+  transition: 0.5s;
+  overflow: hidden;
+}
+.com:hover {
+  transform: translateY(-20px);
+}
+.com::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 100%;
+  background: rgba(255,255,255,0.5);
+  transform: skewX(45deg) translateX(150px);
+  transition: 0.5s;
+}
+.com:hover::before {
+  transform: skewX(45deg) translateX(-150px);
+}
+	</style>
+    <!-- Matomo Tag Manager -->
+    <script>
+        var _mtm = window._mtm = window._mtm || [];
+        _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
+        (function() {
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.async=true; g.src='https://cdn.matomo.cloud/giveblood.matomo.cloud/container_TWGZVi4s.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    <!-- End Matomo Tag Manager -->
+    
+    
+
+
+</head>
+
+<body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <main id="main">
+    
+
+
+<div class="container quiz-container">
+    <div class="quiz-heading">
+         <div class="contenitore clearfix">
+
+  <div class="oggetto com">	<img src="../images/io.png" alt="Descrizione dell'immagine"> </div>
+<h1 class="oggetto change-bg" >Quiz di idoneità per i nuovi donatori</h1>
+   <a class="com" href="javascript:history.back()">        <span style="
+            color: #ffffff; 
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 36px; 
+            font-weight: 700; 
+            line-height: 1;
+            margin-right: 5px; 
+            margin-top: -4px;
+            
+            /* Sfocatura ridotta al minimo per massima nitidezza */
+            text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
+        ">&#8249;</span></a>  
+</div>
+<div></div>
+        <div id="AccordianListPanel">
+            <div id="accordian" class="panel-group">
+                        <div class="panel panel-default-quiz">
+                            <div class="panel-heading d-flex justify-content-between align-items-center" id="heading3121">
+                                <div class="panel-title-quiz mb-0 flex-grow-1">
+                                    <span class="panel-title-inner">Hai meno di 18 anni?</span>
+                                </div>
+                                <div class="check-boxes">
+                                    <div class="check-row">
+                                        <a class="check-box yes" role="button" data-bs-target="#collapse3121" aria-label="Select Yes" aria-expanded="false" href="javascript:void(0);"></a>
+                                        <span class="checkbox-label">Yes</span>
+                                    </div>
+                                    <div class="check-row">
+                                        <a class="check-box no" role="button" data-bs-target="#collapse3121" aria-label="Select No" aria-expanded="false" aria-controls="collapse3121"></a>
+                                        <span class="checkbox-label">No</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="collapse3121" class="accordion-collapse collapse" aria-labelledby="heading3121" data-bs-parent="#AccordianListPanel">
+                                <div class="panel-body-quiz">
+                                        <p><p>Al momento non puoi donare. Tuttavia, saremmo lieti di vederti quando avrai 18 anni.</p></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default-quiz">
+                            <div class="panel-heading d-flex justify-content-between align-items-center" id="heading3121">
+                                <div class="panel-title-quiz mb-0 flex-grow-1">
+                                    <span class="panel-title-inner">Hai 70 anni o più?</span>
+                                </div>
+                                <div class="check-boxes">
+                                    <div class="check-row">
+                                        <a class="check-box yes" role="button" data-bs-target="#collapse3121" aria-label="Select Yes" aria-expanded="false" href="javascript:void(0);"></a>
+                                        <span class="checkbox-label">Yes</span>
+                                    </div>
+                                    <div class="check-row">
+                                        <a class="check-box no" role="button" data-bs-target="#collapse3121" aria-label="Select No" aria-expanded="false" aria-controls="collapse3121"></a>
+                                        <span class="checkbox-label">No</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="collapse3121" class="accordion-collapse collapse" aria-labelledby="heading3121" data-bs-parent="#AccordianListPanel">
+                                <div class="panel-body-quiz">
+                                       <p><p>I donatori di età superiore ai 70 anni non possono donare</p>
+<p>Se hai più di 65 anni e non hai mai donato il sangue prima, non puoi donare. Tuttavia: - se hai un'età compresa tra 65 e 69 anni e hai donato il sangue negli ultimi 5 anni, puoi donare il sangue 2 volte all'anno.</p>
+</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default-quiz">
+                            <div class="panel-heading d-flex justify-content-between align-items-center" id="heading3121">
+                                <div class="panel-title-quiz mb-0 flex-grow-1">
+                                    <span class="panel-title-inner">Pesi meno di 50 kg?</span>
+                                </div>
+                                <div class="check-boxes">
+                                    <div class="check-row">
+                                        <a class="check-box yes" role="button" data-bs-target="#collapse3121" aria-label="Select Yes" aria-expanded="false" href="javascript:void(0);"></a>
+                                        <span class="checkbox-label">Yes</span>
+                                    </div>
+                                    <div class="check-row">
+                                        <a class="check-box no" role="button" data-bs-target="#collapse3121" aria-label="Select No" aria-expanded="false" aria-controls="collapse3121"></a>
+                                        <span class="checkbox-label">No</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="collapse3121" class="accordion-collapse collapse" aria-labelledby="heading3121" data-bs-parent="#AccordianListPanel">
+                                <div class="panel-body-quiz">
+                                        <p><p>Se pesi meno di 50 kg, al momento non puoi donare. </p></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="panel panel-default-quiz">
+                            <div class="panel-heading d-flex justify-content-between align-items-center" id="heading3121">
+                                <div class="panel-title-quiz mb-0 flex-grow-1">
+                                    <span class="panel-title-inner">Stai assumendo  farmaci? Tra questi rientrano antidolorifici con o senza prescrizione medica, aspirina, antinfiammatori ?</span>
+                                </div>
+                                <div class="check-boxes">
+                                    <div class="check-row">
+                                        <a class="check-box yes" role="button" data-bs-target="#collapse3121" aria-label="Select Yes" aria-expanded="false" href="javascript:void(0);"></a>
+                                        <span class="checkbox-label">Yes</span>
+                                    </div>
+                                    <div class="check-row">
+                                        <a class="check-box no" role="button" data-bs-target="#collapse3121" aria-label="Select No" aria-expanded="false" aria-controls="collapse3121"></a>
+                                        <span class="checkbox-label">No</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="collapse3121" class="accordion-collapse collapse" aria-labelledby="heading3121" data-bs-parent="#AccordianListPanel">
+                                <div class="panel-body-quiz">
+                                       <p><p>Alcuni farmaci possono essere dannosi per il paziente che riceve una trasfusione di sangue. Potresti non essere in grado di donare se stai assumendo farmaci per curare una malattia o un'infezione.</p><p>In generale, devi essere completamente guarito da una malattia o un'infezione e aver completato il ciclo di farmaci prima di donare.</p><p>Alcune condizioni mediche richiedono l'uso prolungato di farmaci. Per informazioni su condizioni e farmaci specifici, informatevi. Si prega di notare che non tutti i farmaci impediscono la donazione: contattaci per ulteriori informazioni. Assicurati di conoscere il nome di tutti i farmaci che stai assumendo o che hai assunto nelle ultime 4 settimane, in modo da poter valutare la tua idoneità alla donazione. </p></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default-quiz">
+                            <div class="panel-heading d-flex justify-content-between align-items-center" id="heading3121">
+                                <div class="panel-title-quiz mb-0 flex-grow-1">
+                                    <span class="panel-title-inner">Oggi o nelle ultime 2 settimane hai avuto qualche malattia o infortunio, ad esempio tosse, raffreddore, mal di gola, vomito, diarrea o una ferita aperta?</span>
+                                </div>
+                                <div class="check-boxes">
+                                    <div class="check-row">
+                                        <a class="check-box yes" role="button" data-bs-target="#collapse3121" aria-label="Select Yes" aria-expanded="false" href="javascript:void(0);"></a>
+                                        <span class="checkbox-label">Yes</span>
+                                    </div>
+                                    <div class="check-row">
+                                        <a class="check-box no" role="button" data-bs-target="#collapse3121" aria-label="Select No" aria-expanded="false" aria-controls="collapse3121"></a>
+                                        <span class="checkbox-label">No</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="collapse3121" class="accordion-collapse collapse" aria-labelledby="heading3121" data-bs-parent="#AccordianListPanel">
+                                <div class="panel-body-quiz">
+                                        <p><p>Non puoi donare se hai malattie o lesioni che potrebbero rendere non sicuro donare il tuo sangue a un paziente malato. </p></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default-quiz">
+                            <div class="panel-heading d-flex justify-content-between align-items-center" id="heading3121">
+                                <div class="panel-title-quiz mb-0 flex-grow-1">
+                                    <span class="panel-title-inner">Hai consultato un medico o ti sei sottoposto a esami o accertamenti medici negli ultimi 4 mesi, ad esempio  endoscopie?</span>
+                                </div>
+                                <div class="check-boxes">
+                                    <div class="check-row">
+                                        <a class="check-box yes" role="button" data-bs-target="#collapse3121" aria-label="Select Yes" aria-expanded="false" href="javascript:void(0);"></a>
+                                        <span class="checkbox-label">Yes</span>
+                                    </div>
+                                    <div class="check-row">
+                                        <a class="check-box no" role="button" data-bs-target="#collapse3121" aria-label="Select No" aria-expanded="false" aria-controls="collapse3121"></a>
+                                        <span class="checkbox-label">No</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="collapse3121" class="accordion-collapse collapse" aria-labelledby="heading3121" data-bs-parent="#AccordianListPanel">
+                                <div class="panel-body-quiz">
+                                       <p><p>Se sì</p>
+<p>Se ti è stata diagnosticata una condizione medica o una malattia,  contattaci per ricevere assistenza.</p>
+<p>Non puoi donare se hai effettuato un'endoscopia (endoscopia) negli ultimi 4 mesi.</p>
+<p>Le radiografie/ecografia non sono motivo di rinvio, tuttavia il motivo dell'indagine o l'esito del risultato potrebbero esserlo.</p></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default-quiz">
+                            <div class="panel-heading d-flex justify-content-between align-items-center" id="heading3121">
+                                <div class="panel-title-quiz mb-0 flex-grow-1">
+                                    <span class="panel-title-inner">Hai effettuato cure odontoiatriche nell' ultima settimana?</span>
+                                </div>
+                                <div class="check-boxes">
+                                    <div class="check-row">
+                                        <a class="check-box yes" role="button" data-bs-target="#collapse3121" aria-label="Select Yes" aria-expanded="false" href="javascript:void(0);"></a>
+                                        <span class="checkbox-label">Yes</span>
+                                    </div>
+                                    <div class="check-row">
+                                        <a class="check-box no" role="button" data-bs-target="#collapse3121" aria-label="Select No" aria-expanded="false" aria-controls="collapse3121"></a>
+                                        <span class="checkbox-label">No</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="collapse3121" class="accordion-collapse collapse" aria-labelledby="heading3121" data-bs-parent="#AccordianListPanel">
+                                <div class="panel-body-quiz">
+                                        <p><p>Hai effettuato cure odontoiatriche nell' ultima settimana?</p>
+<p>Se non si è effettuato alcun trattamento nelle ultima settimana, è possibile procedere.
+<p>In caso affermativo, si prega di notare quanto segue:</p>
+<p> - Applicazione o regolazione di apparecchi ortodontici - Donazione possibile una volta guariti.</p>
+<p> - Otturazione/detartrasi o lucidatura non complicata - È necessario attendere 1 Settimana.</p>
+<p> - Estrazione/rimozione di un dente non complicata: è necessario attendere 7 giorni.</p>
+<p> - Impianto dentale: una volta guarita la sede, è possibile donare dopo 1 mese.</p>
+<p> - Devitalizzazione: attendere il completamento del trattamento e una settimana dopo.</p>
+<p></p>
+<p></p></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default-quiz">
+                            <div class="panel-heading d-flex justify-content-between align-items-center" id="heading3121">
+                                <div class="panel-title-quiz mb-0 flex-grow-1">
+                                    <span class="panel-title-inner">Hai fatto un tatuaggio o un piercing negli ultimi 4 mesi?</span>
+                                </div>
+                                <div class="check-boxes">
+                                    <div class="check-row">
+                                        <a class="check-box yes" role="button" data-bs-target="#collapse3121" aria-label="Select Yes" aria-expanded="false" href="javascript:void(0);"></a>
+                                        <span class="checkbox-label">Yes</span>
+                                    </div>
+                                    <div class="check-row">
+                                        <a class="check-box no" role="button" data-bs-target="#collapse3121" aria-label="Select No" aria-expanded="false" aria-controls="collapse3121"></a>
+                                        <span class="checkbox-label">No</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="collapse3121" class="accordion-collapse collapse" aria-labelledby="heading3121" data-bs-parent="#AccordianListPanel">
+                                <div class="panel-body-quiz">
+                                        <p><p>Non puoi donare se hai fatto un tatuaggio o un piercing negli ultimi 4 mesi.</p></p>
+                                </div>
+                            </div>
+                        </div>
+                   
+                       
+                        <div class="panel panel-default-quiz">
+                            <div class="panel-heading d-flex justify-content-between align-items-center" id="heading3121">
+                                <div class="panel-title-quiz mb-0 flex-grow-1">
+                                    <span class="panel-title-inner">Sei stato fuori dall'Italia (per vacanza o per lavoro) negli ultimi  mesi?</span>
+                                </div>
+                                <div class="check-boxes">
+                                    <div class="check-row">
+                                        <a class="check-box yes" role="button" data-bs-target="#collapse3121" aria-label="Select Yes" aria-expanded="false" href="javascript:void(0);"></a>
+                                        <span class="checkbox-label">Yes</span>
+                                    </div>
+                                    <div class="check-row">
+                                        <a class="check-box no" role="button" data-bs-target="#collapse3121" aria-label="Select No" aria-expanded="false" aria-controls="collapse3121"></a>
+                                        <span class="checkbox-label">No</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="collapse3121" class="accordion-collapse collapse" aria-labelledby="heading3121" data-bs-parent="#AccordianListPanel">
+                                <div class="panel-body-quiz">
+                                       <p><p>Viaggiare fuori dall'Italia comporta il rischio di trasmettere malattie come la malaria, il virus del Nilo occidentale, il virus Zika e il virus della dengue (tra gli altri) ai pazienti malati.</p>
+<ul>
+<p>Per un elenco dei Paesi e dei rischi associati, clicca <a href="https://inviaggio.simti.it/">qui</a>.</p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default-quiz">
+                            <div class="panel-heading d-flex justify-content-between align-items-center" id="heading3121">
+                                <div class="panel-title-quiz mb-0 flex-grow-1">
+                                    <span class="panel-title-inner">Hai mai vissuto in una zona malarica?</span>
+                                </div>
+                                <div class="check-boxes">
+                                    <div class="check-row">
+                                        <a class="check-box yes" role="button" data-bs-target="#collapse3121" aria-label="Select Yes" aria-expanded="false" href="javascript:void(0);"></a>
+                                        <span class="checkbox-label">Yes</span>
+                                    </div>
+                                    <div class="check-row">
+                                        <a class="check-box no" role="button" data-bs-target="#collapse3121" aria-label="Select No" aria-expanded="false" aria-controls="collapse3121"></a>
+                                        <span class="checkbox-label">No</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="collapse3121" class="accordion-collapse collapse" aria-labelledby="heading3121" data-bs-parent="#AccordianListPanel">
+                                <div class="panel-body-quiz">
+                                        <p>Se hai vissuto in qualsiasi momento della tua vita in un'area endemica per la malaria per un periodo continuativo di 6 mesi o più, sei considerato residente in un'area malarica.</p>
+<p>È possibile prelevare campioni (ma non effettuare una donazione) per un test anticorpale per la malaria:</p>
+<ul>
+<li>Se sono trascorsi almeno 6 mesi da quando hai lasciato un'area malarica.</li>
+
+</ul>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                    
+                    
+                        <div class="panel panel-default-quiz">
+                            <div class="panel-heading d-flex justify-content-between align-items-center" id="heading3121">
+                                <div class="panel-title-quiz mb-0 flex-grow-1">
+                                    <span class="panel-title-inner">Soffri di asma?</span>
+                                </div>
+                                <div class="check-boxes">
+                                    <div class="check-row">
+                                        <a class="check-box yes" role="button" data-bs-target="#collapse3121" aria-label="Select Yes" aria-expanded="false" href="javascript:void(0);"></a>
+                                        <span class="checkbox-label">Yes</span>
+                                    </div>
+                                    <div class="check-row">
+                                        <a class="check-box no" role="button" data-bs-target="#collapse3121" aria-label="Select No" aria-expanded="false" aria-controls="collapse3121"></a>
+                                        <span class="checkbox-label">No</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="collapse3121" class="accordion-collapse collapse" aria-labelledby="heading3121" data-bs-parent="#AccordianListPanel">
+                                <div class="panel-body-quiz">
+                                       <p><p>È possibile donare il sangue se si soffre di asma lieve e si necessita solo di un uso occasionale di inalatori o se si segue un programma di trattamento preventivo regolare con inalatori e non si presentano sintomi attivi al momento.</p>
+<p>Non è possibile donare il sangue per 21 giorni dopo l'assunzione di compresse di steroidi orali o iniezioni di steroidi prescritte.</p>
+<p style="margin: 0cm 0cm 0pt;">Non è possibile donare il sangue se si presentano sintomi attivi.</p>
+<p style="margin: 0cm 0cm 0pt;">Non è possibile donare il sangue se si soffre di asma grave.</p></p>
+                                </div>
+                            </div>
+                        </div>
+                      
+                        
+                      
+                        
+                       
+                        <div class="panel panel-default-quiz">
+                            <div class="panel-heading d-flex justify-content-between align-items-center" id="heading3121">
+                                <div class="panel-title-quiz mb-0 flex-grow-1">
+                                    <span class="panel-title-inner">Tu o il tuo partner avete l'HIV, l'HBV o l'HCV?</span>
+                                </div>
+                                <div class="check-boxes">
+                                    <div class="check-row">
+                                        <a class="check-box yes" role="button" data-bs-target="#collapse3121" aria-label="Select Yes" aria-expanded="false" href="javascript:void(0);"></a>
+                                        <span class="checkbox-label">Yes</span>
+                                    </div>
+                                    <div class="check-row">
+                                        <a class="check-box no" role="button" data-bs-target="#collapse3121" aria-label="Select No" aria-expanded="false" aria-controls="collapse3121"></a>
+                                        <span class="checkbox-label">No</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="collapse3121" class="accordion-collapse collapse" aria-labelledby="heading3121" data-bs-parent="#AccordianListPanel">
+                                <div class="panel-body-quiz">
+                                       <p><p><strong>Non devi MAI donare il sangue se:</strong><strong></strong></p><p>Pensi di aver bisogno di un test per l'HIV o l'epatite.</p><p>Tu o il tuo partner avete l'HIV, HCV, HBV o l'HTLV.</p><p>Tu, il tuo partner o i tuoi contatti familiari stretti avete l'epatite B o l'epatite C.</p><p>Hai mai ricevuto denaro o droga in cambio di sesso.</p><p>Hai mai iniettato o ti sono state iniettate droghe non prescritte; <strong>anche una volta o molto tempo fa. </strong>Ciò include farmaci per il body building e agenti abbronzanti iniettabili.</p><p><strong>NON devi donare il sangue</strong> per almeno 4 mesi dopo l'ultimo rapporto sessuale orale, vaginale o anale con: </p><p>chiunque abbia l'HIV, l'epatite B o C o l'HTLV.</p><p>chiunque abbia la sifilide o qualsiasi altra infezione sessualmente trasmissibile.</p><p>chiunque abbia mai ricevuto denaro o droghe per fare sesso.</p><p>chiunque abbia mai iniettato o a cui siano state iniettate droghe non prescritte, anche una sola volta o molto tempo fa. Ciò include farmaci per il body building e agenti abbronzanti iniettabili.</p><p><i>Tutto quanto sopra si applica anche se è stato utilizzato un preservativo o un'altra forma di protezione.</i></p><p><strong>Non devi donare il sangue</strong> per almeno 4 mesi dopo un rapporto  con: </p><p>Un nuovo partner sessuale * O più di un partner sessuale</p><p>*Un nuovo partner sessuale è qualcuno con cui non hai avuto rapporti sessuali prima o una persona con cui hai ripreso una relazione sessuale negli ultimi 4 mesi.</p><p><strong>NON devi donare</strong> per almeno 4 mesi se:</p><p>Hai assunto farmaci per prevenire l'infezione da HIV (profilassi pre/post esposizione, PrEP/PEP)?</p><p>Il chemsex è un tipo di attività sessuale in cui le persone assumono determinate droghe (esclusi alcol, cannabis, Viagra e altri farmaci per la disfunzione erettile) per migliorare la propria esperienza sessuale e avere rapporti sessuali più lunghi o con più persone. Le droghe associate al chemsex includono metanfetamina, mefedrone e GBH.</p><p>Se hai assunto o hai ricevuto iniezioni di droghe per il chemsex, non puoi donare.</p><p><em></em></p></p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                
+             
+                        <div class="panel panel-default-quiz">
+                            <div class="panel-heading d-flex justify-content-between align-items-center" id="heading3121">
+                                <div class="panel-title-quiz mb-0 flex-grow-1">
+                                    <span class="panel-title-inner">Negli ultimi 4 mesi hai avuto un nuovo partner sessuale* o più di un partner sessuale</span>
+                                </div>
+                                <div class="check-boxes">
+                                    <div class="check-row">
+                                        <a class="check-box yes" role="button" data-bs-target="#collapse3121" aria-label="Select Yes" aria-expanded="false" href="javascript:void(0);"></a>
+                                        <span class="checkbox-label">Yes</span>
+                                    </div>
+                                    <div class="check-row">
+                                        <a class="check-box no" role="button" data-bs-target="#collapse3121" aria-label="Select No" aria-expanded="false" aria-controls="collapse3121"></a>
+                                        <span class="checkbox-label">No</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="collapse3121" class="accordion-collapse collapse" aria-labelledby="heading3121" data-bs-parent="#AccordianListPanel">
+                                <div class="panel-body-quiz">
+                                       <p><p style="margin: 0cm 0cm 10pt;"><strong>NON devi donare</strong> per almeno 4 mesi dopo un rapporto  con un nuovo partner sessuale * O più di un partner sessuale</p><p style="margin: 0cm 0cm 10pt;">*Un nuovo partner sessuale è qualcuno con cui non hai avuto rapporti sessuali prima o una persona con cui hai ripreso una relazione sessuale negli ultimi 4 mesi.</p><p><em></em></p><p></p></p>
+                                </div>
+                            </div>
+                        </div>
+          
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+
+     
+
+</div>
+
+
+
+<script>
+    $('.yes').click(function () {
+        var collapsePanel = $(this).closest('.panel-default-quiz').find('.accordion-collapse');
+        collapsePanel.slideDown();
+        collapsePanel.attr('aria-expanded', 'true');
+        $(this).parent().parent().children().children('.check-box').removeClass('checked');
+        $(this).addClass('checked');
+    });
+
+    $('.no').click(function () {
+        var collapsePanel = $(this).closest('.panel-default-quiz').find('.accordion-collapse');
+        collapsePanel.slideUp();
+        collapsePanel.attr('aria-expanded', 'false');
+        $(this).parent().parent().children().children('.check-box').removeClass('checked');
+        $(this).addClass('checked');
+    });
+</script>
+
+
+
+    
+
+
+
+
+
+
+<footer>
+    
+</footer>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js">
+	</script>
+	<script >
+	(function appWidthHeight() {
+    const doc = document.documentElement;
+    doc.style.setProperty('--app-width', `${document.documentElement.clientWidth}px`);
+    doc.style.setProperty('--app-height', `${window.innerHeight}px`);
+
+    window.addEventListener('resize', () => {
+        doc.style.setProperty('--app-width', `${document.documentElement.clientWidth}px`);
+        doc.style.setProperty('--app-height', `${window.innerHeight}px`);
+    });
+})();
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Top Offcanvas (search)
+    const searchTopOffcanvas = document.getElementById('offcanvasTop');
+    if (searchTopOffcanvas) {
+        searchTopOffcanvas.addEventListener('show.bs.offcanvas', event => {
+            const globalHeader = document.querySelector(".global-header");
+            if (globalHeader) {
+                searchTopOffcanvas.style.height = globalHeader.clientHeight + 'px';
+            }
+        });
+
+        searchTopOffcanvas.addEventListener('shown.bs.offcanvas', event => {
+            const globalSearchInput = document.querySelector(".global-search input");
+            if (globalSearchInput) {
+                globalSearchInput.focus();
+            }
+        });
+    }
+
+    // Mobile Navigation Offcanvas
+    const mobileNavOffcanvas = document.getElementById('offcanvasAside');
+    if (mobileNavOffcanvas) {
+        mobileNavOffcanvas.addEventListener('show.bs.offcanvas', event => {
+            const mobileNavLists = document.querySelectorAll(".mobile-nav ul");
+            const offcanvasHeader = document.querySelector("#offcanvasAside .offcanvas-header");
+            if (mobileNavLists && offcanvasHeader) {
+                mobileNavLists.forEach(el => {
+                    el.style.top = '157px';
+                });
+            }
+        });
+    }
+});
+
+
+/* Main Nav */
+//const mainNavList = document.querySelectorAll(".navbar-nav ul");
+//const mainNavbarCollapsible = document.getElementById('mainNavigationContent')
+//mainNavbarCollapsible.addEventListener('show.bs.collapse', event => {
+//    for (const item of mainNavList) {
+//        item.style.top = document.querySelector(".navbar-custom").clientHeight + "px"
+//    }
+//})
+//mainNavbarCollapsible.addEventListener('hide.bs.collapse', event => {
+//    for (const item of mainNavList) {
+//        item.style.top = 0
+//    }
+//})
+//const mainNavItems = document.querySelectorAll(".navbar-nav a");
+//for (const item of mainNavItems) {
+//    item.addEventListener('click', function (e) {
+//        if (document.querySelector(".navbar-toggler").getClientRects().length) {
+
+//            if (this.classList.contains("nav-go-back")) {
+//                this.closest(".has-children").classList.remove("active")
+//            }
+//            else {
+//                if (this.parentNode.classList.contains("has-children")) {
+//                    e.preventDefault();
+//                    this.parentNode.classList.add("active");
+//                }
+//                else {
+//                    return true;
+//                }
+//            }
+//        }
+//    })
+//}
+
+const mainNavItems = document.querySelectorAll(".mobile-nav a");
+for (const item of mainNavItems) {
+    item.addEventListener('click', function (e) {
+        if (document.querySelector(".mobile-nav-toggler").getClientRects().length) {
+
+            if (this.classList.contains("nav-go-back")) {
+                this.closest(".has-children").classList.remove("active")
+            }
+            else {
+                if (this.parentNode.classList.contains("has-children")) {
+                    e.preventDefault();
+                    this.parentNode.classList.add("active");
+                }
+                else {
+                    return true;
+                }
+            }
+        }
+    })
+}
+
+
+
+//Home page carosuel
+
+$(document).ready(function () {
+    if ($('.section-five-carousel').hasClass('slick-initialized')) {
+        $('.section-five-carousel').slick('unslick');
+    }
+
+    if ($('.section-five-carousel .slide').length > 0) {
+        $('.section-five-carousel').slick({
+            dots: false,
+            infinite: true,
+            slidesToShow: 5,
+            slidesToScroll: 5,
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 4,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+    }
+});
+
+
+//Blood vials
+
+$(document).ready(function () {
+    if ($(".vials").length > 0) {
+        $.each($(".vials"), function (i, ele) {
+            var amt = $(ele).find(".amount").text();
+            var maxValue = 20;
+            var h = parseFloat(amt).toFixed(2) / maxValue;
+            if (amt > maxValue) {
+                h = 1;
+            }
+            var graphic = $(ele).find(".graphic span");
+            graphic.css({ 'height': (h * 100) + "%" });
+
+        });
+    }
+});
+if ($('.graphic').length) {
+    function fillBlood() {
+
+        $('.graphic span').css({ 'max-height': '306px' });
+
+    }
+    $(window).scroll(function () {
+        var hT = $('.graphic').offset().top,
+            hH = $('.graphic').outerHeight(),
+            wH = $(window).height(),
+            wS = $(this).scrollTop();
+        if (wS > (hT + hH - wH)) {
+            fillBlood();
+        }
+    });
+}
+
+$('#calsurround ul li').each(function () {
+    var content = $(this).text();
+    $(this).siblings('li').each(function () {
+        var content2 = $(this).text();
+        if (content == content2) {
+            $(this).remove();
+        }
+    });
+});
+
+
+//Session storage for 6 day calendar (Go button)
+
+function sessionSelectedCounty() {
+    const selectedCounty = document.getElementById("clinicSelect").value;
+    sessionStorage.setItem("selectedCounty", selectedCounty);
+}
+
+function setCurrentMonth() {
+    const currentMonth = new Date().getMonth() + 1;
+    sessionStorage.setItem("selectedDate", currentMonth);
+    sessionStorage.setItem("forceCurrentMonth", "true");
+}
+
+function storeSelectedDate() {
+    const selectedDate = document.getElementById("Date").value;
+    sessionStorage.setItem("selectedDate", selectedDate);
+}
+
+$(document).ready(function () {
+    const clinicSelectElement = document.getElementById("clinicSelect");
+
+    if (clinicSelectElement) {
+        const selectedCounty = sessionStorage.getItem("selectedCounty");
+
+        if (selectedCounty) {
+            clinicSelectElement.value = selectedCounty;
+        }
+
+        updateCenterList();
+    }
+});
+
+function updateClinicList() {
+    var selectedClinicId = document.getElementById("clinicSelect").value;
+    var clinicItems = document.querySelectorAll(".clinic-item");
+
+    //Displays clinic item only if date time (day) is the same as the tab day
+    clinicItems.forEach(function (item) {
+        var startDate = new Date(item.querySelector('div:nth-child(2)').textContent.split(' ')[0]);
+
+        if ((selectedClinicId === "All" || (selectedClinicId && item.getAttribute("data-clinic-id") === selectedClinicId)) &&
+            (startDate.toISOString().split('T')[0] === selectedDay)) {
+            item.style.display = "block";
+        } else {
+            item.style.display = "none";
+        }
+    });
+}
+
+
+function updateCenterList() {
+    var selectedClinicId = document.getElementById('clinicSelect').value;
+    var clinicItems = document.querySelectorAll('.date-cell');
+    clinicItems.forEach(function (item) {
+        if (selectedClinicId === "All" || selectedClinicId === "") {
+            item.style.display = "block";
+
+        } else {
+            // Display only the children of the selected clinic
+            if (item.getAttribute('data-clinic-id') === selectedClinicId) {
+                item.style.display = "block";
+
+            } else {
+                item.style.display = "none";
+            }
+        }
+    });
+}
+
+/*Flips dropdown when going off screen*/
+$(".global-nav-item").on('mouseenter mouseleave', function (e) {
+    if ($('.dropdown-container', this).length) {
+        var elm = $('.dropdown-container:first', this);
+        var off = elm.offset();
+        var l = off.left;
+        var w = elm.outerWidth();
+        var docW = 0.9 * $(window).width();
+
+        var isEntirelyVisible = (l + w <= docW);
+
+        if (!isEntirelyVisible) {
+            elm.addClass('flip');
+        } else {
+            elm.removeClass('flip');
+        }
+    }
+});
+
+
+(function () {
+    var doc = document.documentElement;
+    var w = window;
+
+    var prevScroll = w.scrollY || doc.scrollTop;
+    var curScroll;
+    var direction = 0;
+    var prevDirection = 0;
+
+    var header = document.querySelector('.global-header');
+
+    var checkScroll = function () {
+        curScroll = w.scrollY || doc.scrollTop;
+        if (curScroll > prevScroll) {
+            //scrolled up
+            direction = 2;
+        }
+        else if (curScroll < prevScroll) {
+            //scrolled down
+            direction = 1;
+        }
+
+        if (direction !== prevDirection) {
+            toggleHeader(direction, curScroll);
+        }
+
+        prevScroll = curScroll;
+    };
+
+    var toggleHeader = function (direction, curScroll) {
+        if (curScroll > header.clientHeight) {
+            if (direction === 2) {
+                header.classList.add('global-header-hide');
+
+                prevDirection = direction;
+            }
+        }
+        else {
+        }
+
+        if (direction === 1) {
+            header.classList.remove('global-header-hide');
+            prevDirection = direction;
+        }
+    };
+    window.addEventListener('scroll', checkScroll);
+})();
+
+document.addEventListener('DOMContentLoaded', function () {
+    var toggleSearch = document.getElementById('toggleSearch');
+    var searchBar = document.getElementById('searchBar');
+    var searchBackdrop = document.getElementById('searchBackdrop');
+    var mainSearch = document.getElementById('mainSearch');
+    var searchArrow = document.getElementById('searchArrow');
+    var menuToggleButton = document.getElementById('menuToggleButton');
+
+    // Toggle search bar
+    if (toggleSearch && searchBar && searchBackdrop && mainSearch) {
+        toggleSearch.addEventListener('click', function () {
+            var isHidden = searchBar.style.display === 'none' || searchBar.style.display === '';
+
+            searchBar.style.display = isHidden ? 'block' : 'none';
+            searchBackdrop.style.display = isHidden ? 'block' : 'none';
+
+            if (isHidden) {
+                mainSearch.focus();
+            }
+        });
+    }
+
+    // Hide search bar when clicking on the backdrop
+    if (searchBackdrop && searchBar) {
+        searchBackdrop.addEventListener('click', function () {
+            searchBar.style.display = 'none';
+            searchBackdrop.style.display = 'none';
+        });
+    }
+
+    // Hide search bar when clicking on the search arrow
+    if (searchArrow && searchBar && searchBackdrop) {
+        searchArrow.addEventListener('click', function () {
+            searchBar.style.display = 'none';
+            searchBackdrop.style.display = 'none';
+        });
+    }
+
+    // Toggle menu button state
+    if (menuToggleButton) {
+        menuToggleButton.addEventListener('click', function () {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
+
+            const icon = this.querySelector('.menu-icon');
+
+            if (icon) {
+                icon.classList.toggle('fa-bars', isExpanded);
+                icon.classList.toggle('fa-times', !isExpanded);
+            }
+        });
+    }
+});
+
+</script>
+    
+
+</body>
+</html>

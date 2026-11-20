@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linee Guida Donatori DIRMT</title>
+    <style>
+        /* Reset grafico completo e gestione fluidità per iPhone e PC */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; background-color: #f4f6f9; color: #333; padding: 15px; }
+        
+        h1 { color: #b30000; font-size: 20px; margin-bottom: 8px; text-align: center; line-height: 1.3; font-weight: 700; }
+        p.info { background: #fff5f5; padding: 12px; border-left: 4px solid #b30000; border-radius: 6px; font-weight: 500; font-size: 14px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        h2 { color: #800000; margin: 25px 0 10px 0; border-bottom: 2px solid #b30000; padding-bottom: 4px; font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
+        
+        /* Struttura a schede flessibili adattiva per iPhone */
+        .griglia-indice { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+        .scheda-voce { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 12px 15px; display: flex; flex-direction: column; box-shadow: 0 2px 4px rgba(0,0,0,0.03); border-left: 4px solid #ccc; }
+        .scheda-voce:hover { border-left-color: #b30000; background-color: #fff9f9; }
+        
+        .btn-indice { color: #b30000; font-weight: bold; text-decoration: underline; cursor: pointer; background: none; border: none; padding: 0; font-size: 15px; text-align: left; width: 100%; white-space: normal; line-height: 1.4; }
+        .sotto-voce { margin-left: 15px; }
+        .sotto-sotto-voce { margin-left: 30px; }
+        
+        /* Struttura Finestra Pop-up (Modale) 100% Mobile Friendly */
+        .sfondo-pop { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(2px); }
+        .contenuto-pop { background-color: #fff; margin: 5vh auto; padding: 20px; border-radius: 12px; width: 92%; max-width: 650px; box-shadow: 0 5px 20px rgba(0,0,0,0.3); position: relative; max-height: 85vh; overflow-y: auto; }
+        .chiudi { color: #aaa; float: right; font-size: 32px; font-weight: bold; cursor: pointer; line-height: 20px; padding: 5px; }
+        .chiudi:hover { color: #000; }
+        
+        .titolo-pop { color: #b30000; border-bottom: 2px solid #e9ecef; padding-bottom: 8px; font-size: 18px; padding-right: 30px; line-height: 1.3; font-weight: 700; }
+        .blocco-testo { margin-top: 15px; font-size: 15px; color: #212529; line-height: 1.6; word-wrap: break-word; text-align: left; }
+        .blocco-testo p { margin-bottom: 12px; }
+        .blocco-testo ul { margin-left: 20px; margin-bottom: 12px; }
+        
+        /* Contenitore invisibile per i div di testo sorgente */
+        #testo-sorgente { display: none; }
+
+        @media screen and (min-width: 768px) {
+            body { max-width: 800px; margin: 0 auto; padding: 30px; }
+            h1 { font-size: 24px; text-align: left; }
+            .contenuto-pop { margin: 10vh auto; padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Gestione e Criteri di Selezione del Donatore</h1>
+    <p class="info">📋 <strong>DIRMT Marche:</strong> Clicca su qualsiasi voce dell'indice per estrarre in tempo reale il rispettivo div di testo all'interno di un pop-up fluido senza barre di scorrimento laterali.</p>
+
+    <h2>Indice Documento</h2>
+    <div class="griglia-indice">
+        <div class="scheda-voce">
+            <button class="btn-indice" data-target="testo-cap1">1 INTRODUZIONE</button>
+        </div>
+        <div class="scheda-voce">
+            <button class="btn-indice" data-target="testo-cap2">2 SCOPO E CAMPO DI APPLICAZIONE</button>
+        </div>
+        <div class="scheda-voce">
+            <button class="btn-indice" data-target="testo-cap3">3 RESPONSABILITÀ</button>
+        </div>
+        <div class="scheda-voce">
+            <button class="btn-indice" data-target="testo-cap4">4 RIFERIMENTI LEGISLATIVI</button>
+        </div>
+        <div class="scheda-voce">
+            <button class="btn-indice" data-target="testo-cap5">5 REQUISITI DI IDONEITA’</button>
+        </div>
+        <div class="scheda-voce sotto-voce">
+            <button class="btn-indice" data-target="testo-cap5-1">5.1 IDENTIFICAZIONE</button>
+        </div>
+        <div class="scheda-voce sotto-voce">
+            <button class="btn-indice" data-target="testo-cap5-2">5.2 REQUISITI FISICI E INTERVALLI PER IL DONATORE DI SANGUE INTERO</button>
+        </div>
+        <div class="scheda-voce sotto-voce sotto-sotto-voce">
+            <button class="btn-indice" data-target="testo-cap5-2-1">5.2.1 Alterazioni della ferritinemia</button>
+        </div>
+		<div class="scheda-voce sotto-voce sotto-sotto-voce">
+            <button class="btn-indice" data-target="testo-cap5-2-2">5.2.2 Alterazioni dell’emocromo</button>
+        </div>
+			<div class="scheda-voce sotto-voce sotto-sotto-voce">
+            <button class="btn-indice" data-target="testo-cap5-2-3">5.2.3 Emocromo obbligatorio ad ogni donazione</button>
+        </div>
+		<div class="scheda-voce sotto-voce">
+            <button class="btn-indice" data-target="testo-cap5-3">5.3 REQUISITI FISICI E INTERVALLI PER LA DONAZIONE DI PLASMA</button>
+        </div>
+		<div class="scheda-voce sotto-voce">
+            <button class="btn-indice" data-target="testo-cap5-4">5.4 REQUISITI FISICI ED INTERVALLI PER LA DONAZIONE DI PIASTRINE</button>
+        </div>
+		<div class="scheda-voce sotto-voce ">
+            <button class="btn-indice" data-target="testo-cap5-5">5.5 ALTERAZIONE DEI TEST DELLA COAGULAZIONE</button>
+        </div>
+		<div class="scheda-voce sotto-voce ">
+            <button class="btn-indice" data-target="testo-cap5-6">5.6	TABELLA RIASSUNTIVA INTERVALLI CONSIGLIATI PER LE DONAZIONI DI SANGUE INTERO, PLASMA E PLT</button>
+        </div>
+		<div class="scheda-voce sotto-voce ">
+            <button class="btn-indice" data-target="testo-cap5-7">5.7	REQUISITI FISICI ED INTERVALLI PER LA DONAZIONE MULTICOMPONENTE</button>
+        </div>
+		<div class="scheda-voce sotto-voce ">
+            <button class="btn-indice" data-target="testo-cap5-8">5.8	TABELLA	RIASSUNTIVA	INTERVALLI	CONSIGLIATI	PER	LE	DONAZIONI MULTICOMPONENTE</button>
+        </div>
+		<div class="scheda-voce">
+            <button class="btn-indice" data-target="testo-cap6">6 CRITERI DI ESCLUSIONE PERMANENTE E TEMPORANEA AI FINI DELLA PROTEZIONE DELLA SALUTE DEL RICEVENTE 13’</button>
+        </div>
+		<div class="scheda-voce sotto-voce ">
+            <button class="btn-indice" data-target="testo-cap6-1">6.1	VACCINAZIONI</button>
+        </div>
+		<div class="scheda-voce sotto-voce">
+            <button class="btn-indice" data-target="testo-cap6-2">6.2	EPATITE VIRALE</button>
+        </div>
+		<div class="scheda-voce sotto-voce">
+            <button class="btn-indice" data-target="testo-cap6-3">6.3	MALATTIE INFETTIVE</button>
+        </div>
+		<div class="scheda-voce sotto-voce">
+            <button class="btn-indice" data-target="testo-cap6-4">6.4	VIAGGI/SOGGIORNI IN PAESE ESTERO</button>
+        </div>
+		<div class="scheda-voce sotto-voce ">
+            <button class="btn-indice" data-target="testo-cap6-5">6.5-6.8	TRASFUSIONI TRAPIANTI CELL. STAMINALI</button>
+        </div>
+		<div class="scheda-voce sotto-voce">
+            <button class="btn-indice" data-target="testo-cap6-10">6.10 ALCOOLISMO CRONICO </button>
+        </div>
+		<div class="scheda-voce sotto-voce ">
+            <button class="btn-indice" data-target="testo-cap6-11">6.11 CULTURA FISICA  </button>
+        </div>
+		<div class="scheda-voce sotto-voce ">
+            <button class="btn-indice" data-target="testo-cap6-12">6.12 MANOVRE A RISCHIO </button>
+        </div>
+		<div class="scheda-voce sotto-voce ">
+            <button class="btn-indice" data-target="testo-cap6-13">6.13 INTERVENTI CHIRURGICI  </button>
+        </div>
+		<div class="scheda-voce sotto-voce ">
+            <button class="btn-indice" data-target="testo-cap6-14">6.14 ESAMI ENDOSCOPICI </button>
+        </div>
+		<div class="scheda-voce sotto-voce ">
+            <button class="btn-indice" data-target="testo-cap6-15">6.15 TERAPIE ODONTOIATRICHE E IGIENE DENTALE </button>
+        </div>
+		<div class="scheda-voce sotto-voce ">
+            <button class="btn-indice" data-target="testo-cap6-16">6.16 RAPPORTI SESSUALI A RISCHIO  </button>
+        </div>
+		<div class="scheda-voce sotto-voce ">
+            <button class="btn-indice" data-target="testo-cap6-17">6.17 FARMACI- INTEGRATORI  </button>
+        </div>
+		<div class="scheda-voce">
+            <button class="btn-indice" data-target="testo-cap7-1">7.1 NEOPLASIE  </button>
+        </div>
+		<div class="scheda-voce ">
+            <button class="btn-indice" data-target="testo-cap7-2">7.2 PATOLOGIE NON NEOPLASTICHE  </button>
+        </div>
+		<div class="scheda-voce">
+            <button class="btn-indice" data-target="testo-cap7-3">7.3 GRAVIDANZA  </button>
+        </div>
+    </div>
+
+    <!-- Struttura Unica del Pop-up Modale -->
+    <div id="popVaccino" class="sfondo-pop">
+        <div class="contenuto-pop">
+            <span class="chiudi">&times;</span>
+            <h3 id="popTitolo" class="titolo-pop">Voce Indice</h3>
+            <div id="popTesto" class="blocco-testo">Il testo estratto apparirà qui...</div>
+        </div>
+    </div>
+
+    <!-- INIZIO CONTENITORE GENERALE SORGENTE -->
+    <div id="testo-sorgente">
+        <!-- Div specifico per Capitolo 1 -->
+        <div id="testo-cap1">
+            <p>Questo documento è stato redatto dal gruppo di lavoro Linee guida e Buon uso del sangue, per definire, tenendo conto della Normativa cogente, un protocollo comune e condiviso fra i Servizi trasfusionali del DIRMT per la gestione del donatore garantendo uguali comportamenti.</p>
+            <p>La verifica e l’approvazione è del Direttore del Dipartimento, il Comitato di Dipartimento lo condivide.</p>
+        </div>
+
+        <!-- Div specifico per Capitolo 2 -->
+        <div id="testo-cap2">
+            <p>Lo scopo di queste Linee guida è quello di fornire un aiuto pratico al Medico trasfusionista rendendo il più possibile uniformi i criteri di selezione del donatore, soprattutto in casi particolari in cui è necessario prendere decisioni univoche.</p>
+            <p>Si applica in tutte le UUOO del DIRMT della Regione Marche.</p>
+        </div>
+
+        <!-- Div specifico per Capitolo 3 -->
+        <div id="testo-cap3">
+            <p>Il Medico trasfusionista è l’unico soggetto giuridico avente diritto, capacità e responsabilità di definire il giudizio di idoneità, per ogni singolo donatore.</p>
+            <p>Per la stesura di queste Linee Guida si è fatto riferimento alle attuali conoscenze della medicina, nel rispetto delle specifiche Normative vigenti. Ogni evoluzione della conoscenza o modifiche legislative daranno immediatamente luogo ad una nuova revisione di questo documento.</p>
+        </div>
+
+        <!-- Div specifico per Capitolo 4 -->
+        <div id="testo-cap4">
+            <p>Vedere Documenti di origine esterna.</p>
+        </div>
+
+        <!-- Div specifico per Capitolo 5 -->
+        <div id="testo-cap5">
+            <p>I criteri di idoneità descritti nelle sezioni seguenti definiscono i parametri fisici, ematologici e i protocolli identificativi standard applicati in modo unificato su tutto il territorio DIRMT Marche.</p>
+        </div>
+
+        <!-- Div specifico per Capitolo 5.1 -->
+        <div id="testo-cap5-1">
+            <p>Il donatore deve essere formalmente e univocamente identificato attraverso un documento di identità in corso di validità, ovvero carta d'identità o “Documenti equipollenti":</p>
+            <ul>
+                <li>passaporto</li>
+                <li>patente di guida</li>
+                <li>patente nautica</li>
+                <li>libretto di pensione</li>
+                <li>patentino di abilitazione alla conduzione d'impianti termici</li>
+                <li>porto d'armi</li>
+                <li>tessere di riconoscimento, purché munite di fotografia e di timbro o di altra segnatura equivalente, rilasciate da un'amministrazione dello Stato.</li>
+            </ul>
+            <p>Per quanto detto, si chiarisce che il tesserino dell’AVIS non è un documento di identità valido.</p>
+            <p>Nell’anagrafica del Sistema Gestionale Informatico (SGI) deve essere effettuato l’inserimento delle seguenti informazioni:</p>
+            <p><b>Informazioni di I livello</b>, finalizzate alla identificazione univoca del donatore:<br>
+            • Cognome, nome<br>• Sesso<br>• Luogo di nascita<br>• Data di nascita<br>• Nazionalità (obbligatorio)<br>• Codice Fiscale (lettura del barcode presente sulla Tessera Sanitaria)</p>
+            <p><b>Informazioni di II livello</b>, al fine di garantire la reperibilità del donatore e del Medico di Medicina Generale (MMG):<br>
+            • Dati residenziali (indirizzo di residenza e/o di domicilio, recapito/i telefonico/i, indirizzo e-mail)<br>• Cognome e nome del MMG</p>
+            <p><b>Comprensione della lingua italiana scritta e orale:</b> il donatore di nazionalità straniera deve essere in grado di comprendere la lingua italiana parlata e scritta al fine di rispondere in modo corretto alle domande del questionario e del Medico durante la visita pre - donazione.</p>
+        </div>
+        <!-- Div specifico per Capitolo 5.2 -->
+        <div id="testo-cap5-2">
+            <p>Ad ogni donazione devono essere valutati i seguenti requisiti:</p>
+            <ul>
+                <li>Età compresa tra 18 e 65 anni</li>
+                <li>Peso non inferiore a 50 Kg (se 50 kg, va monitorato ad ogni donazione), tenendo conto dell’altezza e del sesso dell’aspirante/periodico</li>
+                <li>PA sistolica ≤ 180 mmHg</li>
+                <li>PA diastolica ≤ 100 mmHg, ma almeno 60 mmHg</li>
+                <li>FC regolare, compresa tra 50 e 100 battiti/minuto</li>
+                <li>Hb ≥ 13,5 g/dL nell’uomo per la donazione di sangue intero</li>
+                <li>Hb ≥ 12,5 g/dL nella donna per la donazione di sangue intero.</li>
+            </ul>
+            <p><i>Nota: valori minimi di pressione sistolica e diastolica non sono previsti dal Decreto 2 nov. 2015, pertanto è a discrezione del Medico stabilire l’idoneità caso per caso.</i></p>
+        </div>
+
+        <!-- Div specifico per Capitolo 5.2.1 Integrale con tabelle Ferritina -->
+        <div id="testo-cap5-2-1">
+            <p><b>Volume di prelievo:</b> 450 ml al netto della soluzione anticoagulante impiegata. Eccezionalmente, in casi particolari e motivati, è possibile accettare uno scostamento del 10% del volume. Quando il donatore è sottoposto ad esami annuali in concomitanza con la donazione, il volume di prelievo aggiuntivo non deve superare 40 ml.</p>
+            <p><b>Durata del prelievo:</b> di norma tempo complessivo inferiore a 10 minuti.<br>
+             Se la sua durata è superiore a 12 minuti, ma inferiore a 15 minuti, il buffy coat non deve essere utilizzato per la preparazione delle piastrine da pool.<br>
+             Se la sua durata è superiore a 15 minuti il sistema blocca in automatico la donazione con arresto della bilancia, pertanto se il volume di sangue intero prelevato è ≥ a 405 ml, le emazie possono essere utilizzate, mentre devono essere eliminati il buffy coat e il plasma.</p>
+            <p><b>Frequenza delle donazioni:</b> il numero massimo di donazioni di sangue intero nell'anno non deve essere superiore a 4 per l'uomo e per la donna non in età fertile, a 2 per la donna in età fertile; l'intervallo tra due donazioni non deve essere inferiore a 90 giorni.</p>
+            <p>a) La donazione di sangue intero da parte di donatori periodici di età superiore a 65 anni fino a 70 anni può essere consentita, previa valutazione clinica dei principali fattori di rischio età-correlati, con indice di donazione pari a 2 donazioni/anno.<br>
+            b) Persone che esprimono la volontà di donare per la prima volta dopo i 60 anni possono essere accettati a discrezione del Medico responsabile della selezione.<br>
+            c) I donatori che pratichino attività sportiva agonistica o intensa possono essere accettati anche con frequenza cardiaca inferiore ai valori di riferimento indicati.<br>
+            d) Il donatore che risponde “SI” alla domanda 2.10 del questionario (ovvero svolge attività lavorativa che comporta rischio per la sua o per l’altrui salute o pratica hobby rischiosi) è invitato ad attenersi a quanto dichiarato nel consenso alla donazione, “che nelle 24 ore successive alla donazione non svolgerà attività o hobby rischiosi” (ovvero guida di aerei, di treni, immersioni subacquee, deltaplano, alpinismo ecc.).<br>
+            e) I donatori eterozigoti per alfa o beta talassemia possono essere accepted per la donazione di sangue intero, con valori di emoglobina non inferiori a 13 g/dL nell’uomo e 12 g/dL nella donna.<br>
+            f) I soggetti portatori di Emocromatosi ereditaria, con documentazione clinica di assenza di danno d’organo, possono essere accettati per la donazione di sangue intero. Il numero di donazioni nell'anno non deve essere superiore a 4 per l'uomo e per la donna non in età fertile, a 2 per la donna in età fertile.<br>
+            g) Le donatrici non possono effettuare la donazione sia di sangue intero che di plasma in aferesi durante il periodo mestruale.<br>
+            h) L’esame emocromocitometrico e il dosaggio della ferritina sono sistematicamente utilizzati al fine della prevenzione della riduzione patologica delle riserve marziali nel donatore/donatrice e della personalizzazione della tipologia di donazione e degli intervalli.</p>
+            
+            <p><b>ALTERAZIONI DELLA FERRITINEMIA</b><br>
+            Un parametro importante per salvaguardare i depositi di ferro del donatore è la ferritinemia: 10 mcg/L di ferritina corrispondono a 80-100 mg di ferro depositato. Il ferro sottratto con la donazione di sangue intero è pari a 200-250 mg.</p>
+            <p><b> Valori di ferritinemia al di sopra del range di normalità:</b><br>
+            Gli aspiranti donatori con Emocromatosi ereditaria, in assenza di danno d’organo, possono essere accettati anche con pregressa storia di salassoterapia.</p>
+            <p><b> Valori di ferritinemia al di sotto del range di normalità:</b></p>
+            
+            <p><b>Caso A:</b> Ferritinemia &lt; al range del Laboratorio di riferimento con: Hb ≥ 13,5 g/dL nell’uomo, Hb ≥ 12,5 g/dL nella donna.<br>
+            <i>Provvedimento:</i> Il donatore può donare sangue intero con intervalli di donazione superiori a 90 giorni, a discrezione del medico trasfusionista. E’ consigliabile l’assunzione di integratori a base di ferro.</p>
+            
+            <p><b>Caso B:</b> Ferritinemia &lt; al range del Laboratorio di riferimento con: Hb &lt; 13,5 ≥ 12,5 g/dL nell'uomo, Hb &lt; 12,5 ≥ 11,5 g/dL nella donna.<br>
+            <i>Provvedimento:</i> Solo plasmaferesi con intervalli superiori a 90 giorni. E’ consigliabile l’assunzione di integratori a base di ferro.</p>
+            
+            <p><b>Caso C:</b> Ferritinemia &lt; al range del Laboratorio di riferimento con: Hb &lt; 12,5 g/dL nell’uomo, Hb &lt; 11,5 g/dL nella donna.<br>
+            <i>Provvedimento:</i> Sospensione dalla donazione, prescrizione di idonea terapia marziale e invio al MMG per approfondimento diagnostico delle cause di anemia.</p>
+        </div>
+		 <!-- Div specifico per Capitolo 5.2.2 Integrale con tabelle Ferritina -->
+        <div id="testo-cap5-2-2">
+<ol>
+<li style="text-align:justify;">Alterazioni&nbsp;dell’emocromo</li>
+</ol>
+<p style="text-align:justify;">In caso di <strong>Ematocrito&nbsp;</strong>(Hct) ripetutamente maggiore del valore massimo dato dal Laboratorio analisi&nbsp;di&nbsp;riferimento&nbsp;è&nbsp;consigliabile&nbsp;indirizzare&nbsp;il&nbsp;donatore&nbsp;al&nbsp;MMG&nbsp;per&nbsp;una&nbsp;valutazione&nbsp;clinica&nbsp;più approfondita.</p>
+<p style="text-align:justify;">Il&nbsp;donatore&nbsp;può&nbsp;donare&nbsp;neglialtri&nbsp;casi:&nbsp;eritrocitosi&nbsp;idiopatica,&nbsp;da&nbsp;stress,relativa&nbsp;o&nbsp;falsa,iatrogena (diuretici) e da fumo.</p>
+<p style="text-align:justify;">Quando la <strong>conta piastrinica&nbsp;</strong>è <strong>&lt;120</strong>✕<strong>103/µl </strong>(ricontrollata anche in CPT, in presenza di aggregati), il donatore deve essere sospeso temporaneamente da ogni tipo di donazione ed inviato al MMG e/o allo specialista per la valutazione del caso.</p>
+<p style="text-align:justify;">Quando la <strong>conta piastrinica&nbsp;</strong>è <strong>&gt;400</strong>✕<strong>103/µl </strong>il donatore viene sospeso, richiamato per la ripetizione&nbsp;del&nbsp;prelievo&nbsp;e,&nbsp;se&nbsp;necessario,&nbsp;inviato&nbsp;al&nbsp;MMG&nbsp;e/o&nbsp;allo&nbsp;specialista&nbsp;per&nbsp;la&nbsp;valutazione&nbsp;del caso.</p>
+<p style="text-align:justify;">Se il <strong>valore assoluto dei leucociti&nbsp;</strong>è <strong>≥11</strong>✕<strong>103/µl&nbsp;</strong>(<strong>leucocitosi</strong>) o <strong>≤3,0</strong>✕<strong>103/µl&nbsp;</strong>(<strong>leucopenia</strong>), il donatore deve essere temporaneamente sospeso e ricontrollato per il dato anomalo,&nbsp;anche&nbsp;se&nbsp;la&nbsp;formulaleucocitaria&nbsp;è&nbsp;normale.Ugualmente&nbsp;in&nbsp;caso&nbsp;di&nbsp;<strong>neutrofilia </strong>103/µl) o <strong>neutropenia&nbsp;</strong>(neutrofili ≤ 1,5✕103/ µl) e <strong>linfocitosi&nbsp;</strong>(linfociti ≥ 4✕&nbsp;103/ µl) o <strong>linfopenia&nbsp;</strong>(linfociti≤1✕103/µl).</p>
+<p style="text-align:justify;">In presenza di neutropenia, si raccomanda il controllo clinico longitudinale del donatore, a dimostrazione della natura idiopatica benigna della neutropenia stessa.</p>
+<p style="text-align:justify;">Quando la <strong>formula leucocitaria&nbsp;</strong>è <strong>invertita</strong>, se il numero assoluto di neutrofili e di linfociti rientra&nbsp;nel&nbsp;rangedi&nbsp;normalità&nbsp;(<strong>linfocitosi&nbsp;relativa</strong>),&nbsp;il&nbsp;donatore&nbsp;può&nbsp;essere&nbsp;considerato&nbsp;idoneo, a giudizio del Medico trasfusionista, in assenza di sintomi o segni associati.</p>
+<p style="text-align:justify;">In caso di <strong>eosinofilia&nbsp;</strong>o <strong>basofilia&nbsp;</strong>il donatore viene sospeso, richiamato per la ripetizione del prelievo e per effettuare l’indagine anamnestica per allergie o altre possibili cause e, se necessario, inviato al MMG e/o allo specialista per la valutazione del caso.</p>
+<p>In&nbsp;caso&nbsp;di&nbsp;<strong>monocitosi</strong>il&nbsp;donatore&nbsp;viene&nbsp;sospeso,&nbsp;richiamato&nbsp;per&nbsp;la&nbsp;ripetizione&nbsp;del&nbsp;prelievo&nbsp;e&nbsp;per effettuare l’indagine sulle possibili cause (infettive, infiammatorie) e, se necessario, inviato al MMG e/o allo specialista per la valutazione del caso.</p>
+
+Intervalli di riferimento per leucociti e sottoclassi:
+
+<figure class="table">
+<table style=";">
+<tbody>
+<tr>
+<td style="border:1.5pt solid black;height:24.65pt;padding:0cm;vertical-align:top;width:84.95pt;">
+<strong>Leucociti</strong>
+</td>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:none;border-right-style:solid;border-top-style:solid;border-width:1.5pt;height:24.65pt;padding:0cm;vertical-align:top;width:92.15pt;">3,0-11✕103/µl</td>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:none;border-right-style:solid;border-top-style:solid;border-width:1.5pt;height:24.65pt;padding:0cm;vertical-align:top;width:80.65pt;">
+<strong>Leucopenia Leucocitosi</strong>
+</td>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:none;border-right-style:solid;border-top-style:solid;border-width:1.5pt;height:24.65pt;padding:0cm;vertical-align:top;width:43.45pt;">
+<p>≤3,0</p>
+<p>≥11,0</p>
+</td>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:none;border-right-style:solid;border-top-style:solid;border-width:1.5pt;height:24.65pt;padding:0cm;vertical-align:top;width:77.9pt;">
+<p>✕103/µl</p>
+<p>✕103/µl</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:24.8pt;padding:0cm;vertical-align:top;width:84.95pt;">
+<strong>Neutrofili</strong>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:24.8pt;padding:0cm;vertical-align:top;width:92.15pt;">50-70%</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:24.8pt;padding:0cm;vertical-align:top;width:80.65pt;">
+<strong>Neutropenia Neutrofilia</strong>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:24.8pt;padding:0cm;vertical-align:top;width:43.45pt;">
+<p>≤1,5</p>
+<p>≥7,5</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:24.8pt;padding:0cm;vertical-align:top;width:77.9pt;">
+<p>✕103/µl</p>
+<p>✕103/µl</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:24.65pt;padding:0cm;vertical-align:top;width:84.95pt;">
+<strong>Linfociti</strong>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:24.65pt;padding:0cm;vertical-align:top;width:92.15pt;">30-40%</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:24.65pt;padding:0cm;vertical-align:top;width:80.65pt;">
+<strong>Linfopenia Linfocitosi</strong>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:24.65pt;padding:0cm;vertical-align:top;width:43.45pt;">
+<p>≤1,0</p>
+<p>≥4,0</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:24.65pt;padding:0cm;vertical-align:top;width:77.9pt;">
+<p>✕103/µl</p>
+<p>✕103/µl</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:14.95pt;padding:0cm;vertical-align:top;width:84.95pt;">
+<strong>Eosinofili</strong>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:14.95pt;padding:0cm;vertical-align:top;width:92.15pt;">1-3%</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:14.95pt;padding:0cm;vertical-align:top;width:80.65pt;">
+<strong>Eosinofilia</strong>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:14.95pt;padding:0cm;vertical-align:top;width:43.45pt;">≥0,7</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:14.95pt;padding:0cm;vertical-align:top;width:77.9pt;">✕103/µl</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:15.05pt;padding:0cm;vertical-align:top;width:84.95pt;">
+<strong>Basofili</strong>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:15.05pt;padding:0cm;vertical-align:top;width:92.15pt;">0-2%</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:15.05pt;padding:0cm;vertical-align:top;width:80.65pt;">
+<strong>Basofilia</strong>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:15.05pt;padding:0cm;vertical-align:top;width:43.45pt;">≥0,3</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:15.05pt;padding:0cm;vertical-align:top;width:77.9pt;">✕103/µl</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:14.95pt;padding:0cm;vertical-align:top;width:84.95pt;">
+<strong>Monociti</strong>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:14.95pt;padding:0cm;vertical-align:top;width:92.15pt;">3-8%</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:14.95pt;padding:0cm;vertical-align:top;width:80.65pt;">
+<strong>Monocitosi</strong>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:14.95pt;padding:0cm;vertical-align:top;width:43.45pt;">≥1,0</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:14.95pt;padding:0cm;vertical-align:top;width:77.9pt;">✕103/µl</td>
+</tr>
+</tbody>
+</table>
+</figure>
+        </div>
+		 <div id="testo-cap5-2-3">
+		 <ol>
+<li>Emocromo&nbsp;obbligatorio&nbsp;ad&nbsp;ogni&nbsp;donazione</li>
+</ol>
+<p style="text-align:justify;">
+<i>L’emocromo&nbsp;è&nbsp;un&nbsp;esame&nbsp;obbligatorio&nbsp;per&nbsp;legge&nbsp;ad&nbsp;ogni&nbsp;donazione</i>,&nbsp;finalizzato&nbsp;non&nbsp;solo&nbsp;alla&nbsp;tutela della salute&nbsp;del donatore, ma anche&nbsp;alla qualificazione&nbsp;biologica degli emocomponenti derivanti dalla donazione. Infatti, pur non essendo test obbligatorio ai fini della validazione degli emocomponenti, alcune alterazioni di tale test possono indicare:</p>
+<ul>
+<li style="text-align:justify;">fatti patologici clinicamente silenti che possono rappresentare potenziali elementi di rischio per il ricevente (ad esempio, una leucocitosi neutrofila può sottendere una batteriemia);</li>
+<li style="text-align:justify;">inadeguatezza a garantire i requisiti qualitativi degli emocomponenti prodotti (ad esempio, una conta piastrinica significativamente inferiore alla norma).</li>
+</ul>
+<p style="text-align:justify;">Pertanto i risultati dell’emocromo sono gestiti secondo quanto definito nella seguente <strong>Tabella</strong>:</p>
+<figure class="table">
+<table style=";">
+<tbody>
+<tr>
+<td style="border:1.0pt solid black;height:24.2pt;padding:0cm;vertical-align:top;width:152.05pt;">
+<strong>PARAMETRI EMOCROMOCITOMETRICI</strong>
+</td>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:none;border-right-style:solid;border-top-style:solid;border-width:1.0pt;height:24.2pt;padding:0cm;vertical-align:top;width:174.95pt;">
+<p style="text-align:center;">
+<strong>UNITA’&nbsp;PRELEVATA</strong>
+</p>
+</td>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:none;border-right-style:solid;border-top-style:solid;border-width:1.0pt;height:24.2pt;padding:0cm;vertical-align:top;width:169.2pt;">
+<strong>DONATORE SOSPESO E CHIAMATO&nbsp;A&nbsp;CONTROLLO</strong>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:24.3pt;padding:0cm;vertical-align:top;width:152.05pt;">
+<strong>Hb&nbsp;&lt;&nbsp;12&nbsp;g/dLnella&nbsp;donna Hb &lt; 13 g/dL nell’uomo</strong>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:24.3pt;padding:0cm;vertical-align:top;width:174.95pt;">CE NON IDONEO SEHB&lt;&nbsp;40&nbsp;GR/UNITA’</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:24.3pt;padding:0cm;vertical-align:top;width:169.2pt;">
+<p style="text-align:center;">SI</p>
+<p style="text-align:center;">(valutareidoneità&nbsp;plasmaferesi)</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:12.2pt;padding:0cm;vertical-align:top;width:152.05pt;">
+<strong>PLT&nbsp;&lt;&nbsp;120000/µl</strong>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:12.2pt;padding:0cm;vertical-align:top;width:174.95pt;">
+<p style="text-align:center;">BC&nbsp;NON&nbsp;IDONEOPER&nbsp;POOL PLT</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:12.2pt;padding:0cm;vertical-align:top;width:169.2pt;">
+<p style="text-align:center;">SI</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:13.85pt;padding:0cm;vertical-align:top;width:152.05pt;">
+<strong>LEUCOPENIA&nbsp;&lt;3000/µl</strong>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:13.85pt;padding:0cm;vertical-align:top;width:174.95pt;">
+<p style="text-align:center;">IDONEA</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:13.85pt;padding:0cm;vertical-align:top;width:169.2pt;">
+<p style="text-align:center;">SI</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:13.9pt;padding:0cm;vertical-align:top;width:152.05pt;">
+<strong>LEUCOCITOSI&nbsp;&gt;11000/µl</strong>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:13.9pt;padding:0cm;vertical-align:top;width:174.95pt;">
+<p style="text-align:center;">NON&nbsp;IDONEA</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:13.9pt;padding:0cm;vertical-align:top;width:169.2pt;">
+<p style="text-align:center;">SI</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:13.85pt;padding:0cm;vertical-align:top;width:152.05pt;">
+<strong>NEUTROPENIA&nbsp;&lt;&nbsp;1500/µl</strong>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:13.85pt;padding:0cm;vertical-align:top;width:174.95pt;">
+<p style="text-align:center;">IDONEA</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:13.85pt;padding:0cm;vertical-align:top;width:169.2pt;">
+<p style="text-align:center;">SI</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:13.85pt;padding:0cm;vertical-align:top;width:152.05pt;">
+<strong>NEUTROFILIA&nbsp;&gt;7500/µl</strong>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:13.85pt;padding:0cm;vertical-align:top;width:174.95pt;">
+<p style="text-align:center;">NON&nbsp;IDONEA</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:13.85pt;padding:0cm;vertical-align:top;width:169.2pt;">
+<p style="text-align:center;">SI</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:13.85pt;padding:0cm;vertical-align:top;width:152.05pt;">
+<strong>LINFOPENIA&nbsp;&lt;1000/µl</strong>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:13.85pt;padding:0cm;vertical-align:top;width:174.95pt;">
+<p style="text-align:center;">IDONEA</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:13.85pt;padding:0cm;vertical-align:top;width:169.2pt;">
+<p style="text-align:center;">SI</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:13.85pt;padding:0cm;vertical-align:top;width:152.05pt;">
+<strong>LINFOCITOSI&nbsp;&gt;4000/µl</strong>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:13.85pt;padding:0cm;vertical-align:top;width:174.95pt;">
+<p style="text-align:center;">NON&nbsp;IDONEA</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:13.85pt;padding:0cm;vertical-align:top;width:169.2pt;">
+<p style="text-align:center;">SI</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:13.9pt;padding:0cm;vertical-align:top;width:152.05pt;">
+<strong>EOSINOFILIA&nbsp;&gt;700/µl</strong>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:13.9pt;padding:0cm;vertical-align:top;width:174.95pt;">
+<p style="text-align:center;">NON&nbsp;IDONEA</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:13.9pt;padding:0cm;vertical-align:top;width:169.2pt;">
+<p style="text-align:center;">SI</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:14.6pt;padding:0cm;vertical-align:top;width:152.05pt;">
+<strong>MONOCITOSI&nbsp;&gt;1000/µl</strong>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:14.6pt;padding:0cm;vertical-align:top;width:174.95pt;">
+<p style="text-align:center;">IDONEA</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:14.6pt;padding:0cm;vertical-align:top;width:169.2pt;">
+<p style="text-align:center;">SI</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:14.7pt;padding:0cm;vertical-align:top;width:152.05pt;">
+<strong>BASOFILIA&nbsp;&gt;300/µl</strong>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:14.7pt;padding:0cm;vertical-align:top;width:174.95pt;">
+<p style="text-align:center;">IDONEA</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:14.7pt;padding:0cm;vertical-align:top;width:169.2pt;">
+<p style="text-align:center;">SI</p>
+</td>
+</tr>
+</tbody>
+</table>
+</figure>
+		 </div>
+		 <div id="testo-cap5-3">
+		 <ol>
+<li>REQUISITI&nbsp;FISICIE&nbsp;INTERVALLI&nbsp;PER&nbsp;LA&nbsp;DONAZIONE&nbsp;DI&nbsp;PLASMA</li>
+</ol>
+<p style="text-align:justify;">Il donatore di plasma mediante aferesi deve possedere gli stessi requisiti previsti per l'idoneità alla donazione di sangue intero.</p>
+<ul>
+<li style="text-align:justify;">In caso di plasmaferesi attuate con <u>intervalli di tempo superiori a 90 giorni</u>, il donatore può essere&nbsp;considerato&nbsp;idoneocon&nbsp;valori&nbsp;di&nbsp;Hb&nbsp;non&nbsp;inferiori&nbsp;a&nbsp;11,5&nbsp;g/dL&nbsp;nella&nbsp;donna&nbsp;e&nbsp;a&nbsp;12,5&nbsp;g/dL nell'uomo, 11 g/dL e 12 g/dL <i>
+<u>se portatori di trait talassemico</u>
+</i>.</li>
+<li style="text-align:justify;">Il&nbsp;donatoreinserito&nbsp;in&nbsp;un&nbsp;<u>programma&nbsp;intensivodi&nbsp;plasmaferesi</u>&nbsp;(ovverocon&nbsp;il&nbsp;minimo&nbsp;intervallo consentito di 14 giorni, fino a raggiungimento del volume massimo annuo consentito) deve possedere,&nbsp;in&nbsp;aggiuntaai&nbsp;requisiti&nbsp;previstiper&nbsp;l'idoneità&nbsp;alla&nbsp;donazione&nbsp;di&nbsp;sangue&nbsp;intero&nbsp;(quindi Hb ≥12,5 g/dL nella donna e≥13,5 g/dL nell'uomo), i seguenti requisiti:<ul>
+<li style="text-align:justify;">
+<u>età&nbsp;compresa&nbsp;fra&nbsp;18&nbsp;e&nbsp;60&nbsp;anni</u>;</li>
+<li style="text-align:justify;">
+<u>protidemia&nbsp;totalenon&nbsp;inferiore&nbsp;a&nbsp;6&nbsp;g/dL&nbsp;e&nbsp;quadroelettroforetico&nbsp;normale</u>.</li>
+</ul>
+</li>
+</ul>
+<p style="text-align:justify;">Inoltre&nbsp;deve&nbsp;essere&nbsp;sottoposto&nbsp;a&nbsp;controlli&nbsp;periodicicon&nbsp;cadenza&nbsp;almenosemestrale&nbsp;del&nbsp;quadro protidemico&nbsp;ed essere attentamente valutato&nbsp;dal Medico&nbsp;esperto&nbsp;in medicina&nbsp;trasfusionale&nbsp;in ordine a possibili significativi decrementi dei valori di protidemia e anomalie del quadro elettroforetico.</p>
+<p style="text-align:justify;">Il valore delle gammaglobuline non deve essere inferiore al valore minimo normale dato dal Laboratorio analisi di riferimento. In caso di ipogammaglobulinemia, sospendere il donatore per 6 mesi, poi ripetere un controllo. Nel caso in cui venga evidenziata una banda monoclonale, il donatore deve essere sospeso definitivamente e inviato al proprio MMG.</p>
+<p>
+<strong>Volume di prelievo</strong>: Volume minimo di 600 mL, massimo di 700 mL, al netto della soluzione anticoagulante impiegata, con un volume massimo complessivo di 1,5 litri al mese e 12 litri nell’anno.</p>
+		 </div>
+		 <div id="testo-cap5-4">
+		 <ol>
+<li>REQUISITI&nbsp;FISICI&nbsp;ED&nbsp;INTERVALLI&nbsp;PER&nbsp;LA&nbsp;DONAZIONE&nbsp;DI&nbsp;PIASTRINE</li>
+</ol>
+<p style="text-align:justify;">Il donatore di piastrine&nbsp;mediante&nbsp;aferesi deve&nbsp;possedere, oltre ai requisitiprevisti per&nbsp;l’idoneità alla&nbsp;donazione&nbsp;di sangue&nbsp;intero,&nbsp;un&nbsp;conteggio&nbsp;piastrinico&nbsp;pre-aferesi&nbsp;eseguito&nbsp;subito&nbsp;prima&nbsp;della donazione non&lt;180 x 109/L.</p>
+<p style="text-align:justify;">
+<u>Alla&nbsp;prima&nbsp;donazionee&nbsp;successivamente&nbsp;ogni&nbsp;anno&nbsp;deve&nbsp;essere&nbsp;verificata&nbsp;la&nbsp;normalità&nbsp;di&nbsp;PT/INRe aPTT/Ratio</u>.</p>
+<p style="text-align:justify;">
+<i>
+<strong>Nota&nbsp;Bene</strong>:&nbsp;</i>sono&nbsp;<strong>esclusi&nbsp;</strong>i&nbsp;donatori&nbsp;che&nbsp;hanno&nbsp;assuntoin&nbsp;modo&nbsp;occasionale&nbsp;<u>acido&nbsp;acetilsalicilico</u>
+<u>o FANS negli ultimi 7 giorni</u>.</p>
+
+		 </div>
+		  <div id="testo-cap5-5">
+		 <ol>
+<li>ALTERAZIONE&nbsp;DEI&nbsp;TEST&nbsp;DELLA&nbsp;COAGULAZIONE</li>
+</ol>
+<ul>
+<li style="text-align:justify;">Confermare&nbsp;i&nbsp;test&nbsp;alteratisu&nbsp;nuovo&nbsp;prelievo.</li>
+<li style="text-align:justify;">Escludere errori nella fase preanalitica: modalità di prelievo (evitare applicazione prolungata del laccio, contaminazione da infusione venosa, provetta con anticoagulante non&nbsp;idoneo,&nbsp;erratoriempimento&nbsp;o&nbsp;errataidentificazione&nbsp;della&nbsp;provetta),&nbsp;tempo&nbsp;intercorso dal&nbsp;prelievo(&lt;1&nbsp;ora),&nbsp;conservazione&nbsp;(T&nbsp;ambiente)&nbsp;e&nbsp;condizioni&nbsp;di&nbsp;trasporto&nbsp;(evitareposta pneumatica).</li>
+<li style="text-align:justify;">Confrontare&nbsp;con&nbsp;i&nbsp;dati&nbsp;precedenti&nbsp;(testcoagulativi&nbsp;alterati),&nbsp;se&nbsp;disponibili.</li>
+<li style="text-align:justify;">Indagare su pregressi episodi emorragici, tempo di insorgenza, tipo di sanguinamento (spontaneo, post-traumatico, post-chirurgico), presenza di manifestazioni emorragiche in altri membri della famiglia.</li>
+</ul>
+<p>Qualora emerga un deficit coagulativo inviare il donatore presso un Centro specialistico. Si&nbsp;ricordaa&nbsp;tale&nbsp;scopo&nbsp;che&nbsp;il&nbsp;<i>Centro&nbsp;Regionale&nbsp;per&nbsp;la&nbsp;diagnosie&nbsp;il&nbsp;trattamento&nbsp;dell’emofilia e&nbsp;delle&nbsp;coagulopatie&nbsp;emorragiche&nbsp;congenite&nbsp;ed&nbsp;acquisite&nbsp;</i>delSIT&nbsp;di&nbsp;Macerata&nbsp;rappresenta una eccellenza del DIRMT</p>
+		 </div>
+		  <div id="testo-cap5-6">
+		  5.6	TABELLA RIASSUNTIVA INTERVALLI CONSIGLIATI PER LE DONAZIONI DI SANGUE INTERO, PLASMA E PLT
+		 <figure class="table">
+<table style=";">
+<tbody>
+<tr>
+<td style="border:1.0pt solid black;height:14.95pt;padding:0cm;vertical-align:top;width:474.85pt;" colspan="4">
+<strong>18-60&nbsp;anni</strong>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:14.95pt;padding:0cm;vertical-align:top;width:248.05pt;" rowspan="3">
+<p>&nbsp;</p>
+<p>Sangue&nbsp;intero&nbsp;o Eritroplasmaferesi</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:14.95pt;padding:0cm;vertical-align:top;width:41.4pt;" rowspan="3">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:14.95pt;padding:0cm;vertical-align:top;width:102.0pt;" rowspan="2">Sangue&nbsp;intero</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:14.95pt;padding:0cm;vertical-align:top;width:83.4pt;">M&nbsp;90&nbsp;giorni</td>
+</tr>
+<tr>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:15.45pt;padding:0cm;vertical-align:top;width:83.4pt;">F&nbsp;~180&nbsp;giorni</td>
+</tr>
+<tr>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:25.4pt;padding:0cm;vertical-align:top;width:102.0pt;">Plasmaferesi Piastrinoaferesi</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:25.4pt;padding:0cm;vertical-align:top;width:83.4pt;">30 giorni</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:50.95pt;padding:0cm;vertical-align:top;width:248.05pt;">
+<p>&nbsp;</p>
+<p>Plasmaferesi&nbsp;o&nbsp;piastrinoaferesi</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:50.95pt;padding:0cm;vertical-align:top;width:41.4pt;">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:50.95pt;padding:0cm;vertical-align:top;width:102.0pt;">
+<p style="text-align:center;">Sangue intero Eritroplasmaferesi Plasmaferesi Piastrinoaferesi</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:50.95pt;padding:0cm;vertical-align:top;width:83.4pt;">
+<p>&nbsp;</p>
+<p>30 giorni</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:15.1pt;padding:0cm;vertical-align:top;width:474.85pt;" colspan="4">
+<strong>Dopo&nbsp;i&nbsp;60 anni</strong>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:39.7pt;padding:0cm;vertical-align:top;width:248.05pt;">Sangue intero Plasmaferesi Piastrinoaferesi</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:39.7pt;padding:0cm;vertical-align:top;width:41.4pt;">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:39.7pt;padding:0cm;vertical-align:top;width:102.0pt;">
+<p style="text-align:center;">Sangue intero Plasmaferesi Piastrinoaferesi</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:39.7pt;padding:0cm;vertical-align:top;width:83.4pt;">
+<p>&nbsp;</p>
+<p>90 giorni</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:14.95pt;padding:0cm;vertical-align:top;width:474.85pt;" colspan="4">
+<strong>Dai&nbsp;65&nbsp;ai&nbsp;70&nbsp;anni</strong>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:44.25pt;padding:0cm;vertical-align:top;width:248.05pt;">
+<p>&nbsp;</p>
+<p>Sangue&nbsp;intero</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:44.25pt;padding:0cm;vertical-align:top;width:41.4pt;">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:44.25pt;padding:0cm;vertical-align:top;width:102.0pt;">
+<p>&nbsp;</p>
+<p>Sangue&nbsp;intero</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:44.25pt;padding:0cm;vertical-align:top;width:83.4pt;">
+<p>&nbsp;</p>
+<p>180&nbsp;giorni</p>
+</td>
+</tr>
+</tbody>
+</table>
+</figure>
+		 </div>
+		  <div id="testo-cap5-7">
+		 <ol>
+<li style="text-align:justify;">REQUISITI&nbsp;FISICIED&nbsp;INTERVALLI&nbsp;PER&nbsp;LA&nbsp;DONAZIONEMULTICOMPONENTE</li>
+</ol>
+<p style="text-align:justify;">Per l'idoneità alla donazione multipla di emocomponenti il donatore deve possedere i requisiti previsti&nbsp;per&nbsp;la&nbsp;donazione&nbsp;di&nbsp;sangue&nbsp;interoe/o&nbsp;dei&nbsp;singoliemocomponenti&nbsp;in&nbsp;aferesi;deve&nbsp;inoltre avere un <u>peso corporeo ≥ a kg 60, se la donazione prevede la raccolta di un componente</u>
+<u>eritrocitario e ≥ 70 Kg, se la donazione prevede la raccolta di due componenti eritrocitari.</u>
+</p>
+<p style="text-align:justify;">
+<strong>Volume di prelievo:&nbsp;</strong>il volume complessivo degli emocomponenti raccolti non deve essere superiore a 700 ml al netto del volume della soluzione anticoagulante impiegata.</p>
+<h2 style="text-align:justify;">Criteri di protezione del donatore specifici per ogni tipologia di donazione multicomponente:</h2>
+<ol>
+<li style="text-align:justify;">Eritroplasmaferesi</li>
+</ol>
+<p style="text-align:justify;">Intervallo&nbsp;minimoconsentito&nbsp;tra&nbsp;due&nbsp;eritroplasmaferesi:&nbsp;90&nbsp;giorni.</p>
+<p style="text-align:justify;">Numero&nbsp;massimo&nbsp;di&nbsp;donazioni&nbsp;non&nbsp;superiore&nbsp;a&nbsp;4&nbsp;all’annoper&nbsp;l'uomo/donna&nbsp;in&nbsp;età&nbsp;non&nbsp;fertile&nbsp;e&nbsp;2 per la donna in età fertile.</p>
+<p style="text-align:justify;">
+<strong>Volume&nbsp;di&nbsp;prelievo:&nbsp;</strong>volume&nbsp;di&nbsp;globuli&nbsp;rossi,risospesi&nbsp;in&nbsp;soluzione&nbsp;additiva,&nbsp;pari&nbsp;ad&nbsp;almeno&nbsp;280 ml, e di plasma pari a 450 ml, per un volume complessivo massimo di 730 mL, al netto della soluzione anticoagulante impiegata.</p>
+<ol>
+<li style="text-align:justify;">Eritropiastrinoaferesi</li>
+</ol>
+<p style="text-align:justify;">Intervallo&nbsp;minimoconsentito&nbsp;tra&nbsp;due&nbsp;eritropiastrinoaferesi:&nbsp;90&nbsp;giorni</p>
+<p>Numero&nbsp;massimo&nbsp;di&nbsp;donazioni&nbsp;non&nbsp;superiore&nbsp;a&nbsp;4&nbsp;all'annoper&nbsp;l'uomo/donna&nbsp;in&nbsp;età&nbsp;non&nbsp;fertile&nbsp;e&nbsp;2 all'anno per la donna in età fertile <strong>Volume&nbsp;di&nbsp;prelievo:&nbsp;</strong>volume&nbsp;di&nbsp;globuli&nbsp;rossi,risospesi&nbsp;in&nbsp;soluzione&nbsp;additiva,&nbsp;pari&nbsp;ad&nbsp;almeno&nbsp;280 ml edi una unità di concentrato piastrinicocontenente almeno 2,0 x 1011&nbsp;piastrine&nbsp;risospese&nbsp;in un&nbsp;volume&nbsp;di&nbsp;soluzione&nbsp;additiva&nbsp;adeguato&nbsp;a&nbsp;mantenere&nbsp;le&nbsp;caratteristiche&nbsp;biologiche&nbsp;delle&nbsp;piastrine stesse, con la minima necessaria presenza residua di plasma.</p>
+<ol>
+<li style="text-align:justify;">Plasmapiastrinoaferesi</li>
+</ol>
+<p style="text-align:justify;">
+<strong>Volume di prelievo:&nbsp;</strong>il volume massimo complessivo deve essere di 700 ml al netto della soluzione anticoagulante impiegata: il plasma non deve essere inferiore a 450 ml; l’unità di concentrato piastrinico deve contenere almeno 2,0 x 1011piastrine risospese in un volume di soluzione&nbsp;additivaadeguato&nbsp;a&nbsp;mantenere&nbsp;le&nbsp;caratteristiche&nbsp;biologiche&nbsp;delle&nbsp;piastrine&nbsp;stesse,con la minima necessaria presenza residua di plasma.</p>
+<ol>
+<li style="text-align:justify;">Donazione&nbsp;di&nbsp;due&nbsp;unitàdi&nbsp;concentrato&nbsp;piastrinico</li>
+</ol>
+<p style="text-align:justify;">Conta&nbsp;piastrinica&nbsp;pre-donazione&nbsp;non&nbsp;inferiore&nbsp;a&nbsp;200&nbsp;x&nbsp;109/L.&nbsp;Ogni&nbsp;unità&nbsp;deve&nbsp;avere&nbsp;un&nbsp;contenuto piastrinico non inferiore a 2,0 x 1011&nbsp;piastrine risospese in un volume di soluzione additiva adeguato a mantenere le caratteristiche biologiche delle piastrine stesse, con la minima necessaria presenza residua di plasma</p>
+<ol>
+<li style="text-align:justify;">Donazione&nbsp;di&nbsp;due&nbsp;unità&nbsp;di&nbsp;globuli rossi</li>
+</ol>
+<p style="text-align:justify;">Peso&nbsp;minimodel&nbsp;donatore&nbsp;70&nbsp;kg&nbsp;e&nbsp;valore&nbsp;di&nbsp;emoglobina&nbsp;pre-donazione&nbsp;≥&nbsp;15&nbsp;g/dl.</p>
+<p style="text-align:justify;">L’intervallo minimo tra due donazioni successive di due unità di globuli rossi in aferesi e tra questa tipologia di donazione e altra donazione che determina sottrazione di globuli rossi è di 180 giorni. Intervallo minimo consentito tra una donazione di due unità di globuli rossi e altra donazione che non determina sottrazione di globuli rossi è di 30 giorni. Ogni unità deve avere un contenuto minimo di emoglobina pari a 40g.</p>
+<p style="text-align:justify;">Numero&nbsp;massimoconsentito&nbsp;di&nbsp;donazioni&nbsp;non&nbsp;superiore&nbsp;a&nbsp;2&nbsp;per&nbsp;anno.</p>
+		 </div>
+		  <div id="testo-cap5-8">
+		  5.8	TABELLA	RIASSUNTIVA	INTERVALLI	CONSIGLIATI	PER	LE	DONAZIONI MULTICOMPONENTE
+		 <figure class="table">
+<table style=";">
+<tbody>
+<tr>
+<td style="border:1.0pt solid black;height:28.25pt;padding:0cm;vertical-align:top;width:409.45pt;">
+<p>
+<i>
+<strong>Eritroplasmaferesi&nbsp;-&nbsp;eritroplasmaferesi</strong>
+</i>
+</p>
+<p>(Max.&nbsp;4&nbsp;donazioni&nbsp;all’anno&nbsp;per&nbsp;l’uomo,&nbsp;due&nbsp;per&nbsp;la&nbsp;donna&nbsp;in&nbsp;età&nbsp;fertile)</p>
+</td>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:none;border-right-style:solid;border-top-style:solid;border-width:1.0pt;height:28.25pt;padding:0cm;vertical-align:top;width:65.3pt;">
+<p style="text-align:center;">90 giorni</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:28.4pt;padding:0cm;vertical-align:top;width:409.45pt;">
+<p>
+<i>
+<strong>Eritropiastrinoaferesi&nbsp;–&nbsp;eritropiastrinoaferes</strong>
+</i>i</p>
+<p>(Max.&nbsp;4&nbsp;donazioni&nbsp;all’anno&nbsp;per&nbsp;l’uomo,&nbsp;due&nbsp;per&nbsp;la&nbsp;donna&nbsp;in&nbsp;età&nbsp;fertile)</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:28.4pt;padding:0cm;vertical-align:top;width:65.3pt;">
+<p style="text-align:center;">90 giorni</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:28.3pt;padding:0cm;vertical-align:top;width:409.45pt;">
+<p>
+<i>
+<strong>Plasmapiastrinoaferesi&nbsp;-&nbsp;plasmapiastrinoaferesi</strong>
+</i>
+</p>
+<p>(Max.&nbsp;6&nbsp;plasmapiastrinoaferesi&nbsp;all’anno).</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:28.3pt;padding:0cm;vertical-align:top;width:65.3pt;">
+<p style="text-align:center;">30 giorni</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:28.25pt;padding:0cm;vertical-align:top;width:409.45pt;">
+<i>
+<strong>Donazione&nbsp;con&nbsp;raccolta&nbsp;di&nbsp;GR&nbsp;–&nbsp;plasmapiastrinoaferesi</strong>
+</i>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:28.25pt;padding:0cm;vertical-align:top;width:65.3pt;">
+<p style="text-align:center;">30 giorni</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:28.4pt;padding:0cm;vertical-align:top;width:409.45pt;">
+<p>
+<i>
+<strong>Aferesi&nbsp;PLT&nbsp;in&nbsp;due&nbsp;sacche-&nbsp;aferesi&nbsp;PLTin&nbsp;due&nbsp;sacche</strong>
+</i>
+</p>
+<p>(max.&nbsp;3&nbsp;all’anno)</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:28.4pt;padding:0cm;vertical-align:top;width:65.3pt;">
+<p style="text-align:center;">30 giorni</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:28.3pt;padding:0cm;vertical-align:top;width:409.45pt;">
+<i>
+<strong>Aferesi&nbsp;PLT&nbsp;in&nbsp;due&nbsp;sacche-&nbsp;donazione&nbsp;con&nbsp;raccolta&nbsp;di&nbsp;GR&nbsp;e/o&nbsp;PLT</strong>
+</i>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:28.3pt;padding:0cm;vertical-align:top;width:65.3pt;">
+<p style="text-align:center;">30 giorni</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:28.4pt;padding:0cm;vertical-align:top;width:409.45pt;">
+<i>
+<strong>Donazione&nbsp;di&nbsp;2&nbsp;unità&nbsp;di&nbsp;GR&nbsp;–&nbsp;donazione&nbsp;di&nbsp;2&nbsp;unitàdi&nbsp;GR</strong>
+</i>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:28.4pt;padding:0cm;vertical-align:top;width:65.3pt;">
+<p style="text-align:center;">180&nbsp;giorni</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:28.25pt;padding:0cm;vertical-align:top;width:409.45pt;">
+<i>
+<strong>Donazione&nbsp;di&nbsp;2&nbsp;unità&nbsp;di&nbsp;GR&nbsp;–&nbsp;sangue intero</strong>
+</i>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:28.25pt;padding:0cm;vertical-align:top;width:65.3pt;">
+<p style="text-align:center;">180&nbsp;giorni</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:28.4pt;padding:0cm;vertical-align:top;width:409.45pt;">
+<i>
+<strong>Donazione&nbsp;di&nbsp;2&nbsp;unità&nbsp;di&nbsp;GR&nbsp;–&nbsp;altra&nbsp;donazione&nbsp;senza&nbsp;GR</strong>
+</i>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:28.4pt;padding:0cm;vertical-align:top;width:65.3pt;">
+<p style="text-align:center;">30 giorni</p>
+</td>
+</tr>
+</tbody>
+</table>
+</figure>
+		 </div>
+	<div id="testo-cap6-1">
+		 <ol>
+<li>VACCINAZIONI</li>
+</ol>
+<ol style="list-style-type:lower-alpha;">
+<li>
+<strong>Virus,&nbsp;batterio&nbsp;rickettsie&nbsp;inattivati/uccisi&nbsp;e&nbsp;tossoidi:&nbsp;</strong>sospensione&nbsp;di&nbsp;<strong>48&nbsp;ore</strong>,&nbsp;se&nbsp;i soggetti vaccinati risultano asintomatici e afebbrili<ul>
+<li>Tetano</li>
+<li>Peste</li>
+<li>Paratifo</li>
+<li>Tifo</li>
+<li>Influenza</li>
+<li>Febbre&nbsp;dellemontagne&nbsp;rocciose</li>
+<li>Pertosse</li>
+<li>Difterite</li>
+<li>Colera</li>
+<li>Poliomielite&nbsp;(vaccinosottocute)</li>
+<li>Anti-meningococcico&nbsp;(Neisseria&nbsp;Meningitidis)</li>
+<li>Anti-pneumococco</li>
+<li>Rabbia,&nbsp;se&nbsp;il&nbsp;soggettoè asintomatico&nbsp;e&nbsp;se&nbsp;non&nbsp;vi&nbsp;è&nbsp;stata&nbsp;esposizione.</li>
+</ul>
+</li>
+</ol>
+<p>Se&nbsp;il&nbsp;vaccino&nbsp;è&nbsp;stato&nbsp;somministrato&nbsp;<u>dopo&nbsp;esposizione</u>,&nbsp;<u>ovveromorso&nbsp;di&nbsp;animale</u>,&nbsp;<u>esclusione</u>
+<u>per 1 anno</u>. In caso di morso di primate non umano, esclusione definitiva.</p>
+<ol style="list-style-type:lower-alpha;">
+<li>
+<strong>Virus&nbsp;o&nbsp;batterivivi&nbsp;o&nbsp;attenuati:&nbsp;</strong>sospensione&nbsp;di&nbsp;<strong>4&nbsp;settimane</strong>
+<ul>
+<li>Morbillo</li>
+<li>Parotite</li>
+<li>Febbre&nbsp;gialla</li>
+<li>Influenza</li>
+<li>Poliomielite&nbsp;(vaccinoorale)</li>
+<li>Rosolia</li>
+<li>Tbc</li>
+<li>Tifo</li>
+<li>Paratifo</li>
+<li>Varicella/Zoster</li>
+</ul>
+</li>
+</ol>
+<p>
+<strong>Nota</strong>: alcuni vaccini compresi negli elenchi a) e b) sono disponibili sia in forma inattivata, che attenuata.</p>
+<ol style="list-style-type:lower-alpha;">
+<li>Vaccini&nbsp;ricombinanti:<ul>
+<li>HBV:&nbsp;sospensione&nbsp;di&nbsp;7&nbsp;giorni,&nbsp;se&nbsp;il&nbsp;soggettoè&nbsp;asintomatico&nbsp;e&nbsp;se&nbsp;non&nbsp;vi&nbsp;è&nbsp;stata&nbsp;esposizione</li>
+<li>HAV:&nbsp;sospensione&nbsp;di&nbsp;48&nbsp;ore,&nbsp;se&nbsp;il&nbsp;soggettoè&nbsp;asintomatico&nbsp;e&nbsp;se&nbsp;non&nbsp;vi&nbsp;è&nbsp;stata&nbsp;esposizione</li>
+<li>HPV&nbsp;(Papilloma&nbsp;virus):&nbsp;sospensione&nbsp;di&nbsp;48&nbsp;ore,&nbsp;se&nbsp;il&nbsp;soggetto&nbsp;è&nbsp;asintomatico</li>
+<li>Sars-CoV2:&nbsp;sospensione&nbsp;di&nbsp;48&nbsp;ore,&nbsp;se&nbsp;il&nbsp;soggetto&nbsp;è&nbsp;asintomatico.</li>
+</ul>
+</li>
+<li>
+<strong>Vaccini dell’encefalite da zecche</strong>: nessuna sospensione se il soggetto sta bene e se non vi è stata esposizione.</li>
+</ol>
+		 </div>
+		  <div id="testo-cap6-2">
+		 <ol>
+<li>EPATITE&nbsp;VIRALE</li>
+</ol>
+<p style="text-align:justify;">
+<strong>Epatite&nbsp;A&nbsp;</strong>ed&nbsp;<strong>Epatite&nbsp;E</strong>:&nbsp;esclusione&nbsp;temporanea&nbsp;per&nbsp;4&nbsp;mesi&nbsp;dallaguarigione&nbsp;clinica.</p>
+<p style="text-align:justify;">
+<strong>Epatite B:&nbsp;</strong>il donatore con <strong>positività dei markers di epatite B</strong>, clinicamente o non clinicamente manifesta, o che presenta quale marker isolato <strong>HBcAb&nbsp;</strong>è escluso definitivamente dalla donazione; sono ammessi invece i donatori <strong>vaccinati </strong>che presentano HBsAb<strong>.</strong>
+</p>
+<p>
+<strong>Epatite&nbsp;C:&nbsp;</strong>ildonatore&nbsp;che&nbsp;presentaanticorpi&nbsp;anti-HCV&nbsp;è&nbsp;escluso&nbsp;definitivamente.</p>
+<h2>Convivenza</h2>
+<ul>
+<li style="text-align:justify;">
+<u>Prolungata e abituale con soggetto, non partner sessuale, con positività per HBsAg e/o anti</u>
+<u>HCV</u>: sospensione fino a 4 mesi dopo la cessazione della convivenza. Si applica anche se il donatore è vaccinato per l’epatite B e anche se il convivente è diventato negativo al test molecolare dopo terapia antivirale.</li>
+<li style="text-align:justify;">
+<u>Occasionale con soggetto, non partner sessuale, con positività per HBsAg e/o anti HCV</u>: sospensione di 4 mesi dall’ultima esposizione. Si applica anche se il donatore è vaccinato per l’epatite B.</li>
+</ul>
+<p style="text-align:justify;">
+<strong>Rapporti&nbsp;sessuali&nbsp;</strong>con <u>partner&nbsp;con&nbsp;positività&nbsp;per&nbsp;HBsAg&nbsp;e/o&nbsp;anticorpi anti&nbsp;HCV</u>:&nbsp;sospensione&nbsp;di 4 mesi dall’ultima esposizione.</p>
+		 </div>
+		  <div id="testo-cap6-3">
+		 <ol>
+<li>MALATTIE&nbsp;INFETTIVE</li>
+</ol>
+<ul>
+<li>
+<strong>Convivenza&nbsp;o&nbsp;contatto&nbsp;&nbsp;&nbsp;&nbsp; </strong>con&nbsp;&nbsp; pazienti&nbsp;&nbsp; affetti&nbsp; da&nbsp;&nbsp; malattie&nbsp;&nbsp; esantematiche,&nbsp;&nbsp; parotite,&nbsp;mononucleosi infettiva ecc.: sospensione di 1 mese.</li>
+<li>
+<strong>Febbre&nbsp;superiorea&nbsp;37,5°C&nbsp;o&nbsp;malattia&nbsp;infettivadi&nbsp;tipo&nbsp;virale&nbsp;</strong>(affezioni&nbsp;influenzali, gastroenterite virale): sospensione di 15 giorni dalla scomparsa dei sintomi.</li>
+<li>
+<strong>Brucellosi,&nbsp;TBC,&nbsp;FebbreQ:&nbsp;</strong>sospensione&nbsp;di&nbsp;2&nbsp;anni&nbsp;dalla&nbsp;guarigione&nbsp;completa.</li>
+<li>
+<strong>Osteomielite:&nbsp;</strong>sospensione&nbsp;di&nbsp;2&nbsp;anni&nbsp;dopo&nbsp;la&nbsp;completaguarigione.</li>
+<li>
+<strong>Gonorrea:&nbsp;</strong>sospensione&nbsp;di&nbsp;12&nbsp;mesi&nbsp;dal&nbsp;termine&nbsp;della&nbsp;terapia.</li>
+<li>
+<strong>Infezione&nbsp;da&nbsp;HPV:&nbsp;</strong>nessuna&nbsp;sospensione.</li>
+<li>
+<strong>Uretriti&nbsp;non&nbsp;specifiche&nbsp;e&nbsp;herpes&nbsp;genitale:</strong>sospensione&nbsp;fino&nbsp;a&nbsp;completaguarigione.</li>
+<li>
+<strong>Sifilide:&nbsp;</strong>ildonatore&nbsp;che&nbsp;abbiacontratto&nbsp;la&nbsp;sifilideo&nbsp;il&nbsp;cui&nbsp;partner&nbsp;sessualeè&nbsp;affetto&nbsp;o&nbsp;presenta marcatori sierologici di pregressa sifilide è escluso definitivamente.</li>
+<li>
+<strong>Malattia&nbsp;di&nbsp;Lyme</strong>:&nbsp;sospensione&nbsp;di&nbsp;12&nbsp;mesi&nbsp;dalla&nbsp;guarigione.</li>
+<li>
+<strong>Toxoplasmosi,&nbsp;Mononucleosi&nbsp;Infettiva:&nbsp;</strong>sospensione&nbsp;di&nbsp;6&nbsp;mesi&nbsp;dallaguarigione.</li>
+<li>CMV:</li>
+</ul>
+<p>
+<strong>Infezione&nbsp;primaria&nbsp;da&nbsp;CMV:&nbsp;</strong>sospensione&nbsp;di&nbsp;6&nbsp;mesi.</p>
+<ul>
+<li style="text-align:justify;">
+<strong>In&nbsp;caso&nbsp;di&nbsp;riattivazione/reinfezione&nbsp;da&nbsp;CMV&nbsp;</strong>con&nbsp;test&nbsp;IgM&nbsp;indeterminato/positivo: sospensione di 3 mesi.</li>
+</ul>
+<p style="text-align:justify;">Prima della riammissione eseguire di nuovo il test se negativo il donatore è confermato idoneo&nbsp;alla&nbsp;donazione,&nbsp;se&nbsp;invece&nbsp;il&nbsp;test&nbsp;è&nbsp;positivo&nbsp;la&nbsp;sospensione&nbsp;prosegueper&nbsp;altri&nbsp;6&nbsp;mesi, se indeterminato il medico trasfusionista valuta caso per caso la riammissione senza ulteriori controlli.</p>
+<ul>
+<li style="text-align:justify;">In&nbsp;caso&nbsp;di&nbsp;<strong>punturadi&nbsp;zecca,&nbsp;</strong>inassenza&nbsp;di&nbsp;malattia,sospensione&nbsp;di&nbsp;3&nbsp;mesi.</li>
+<li style="text-align:justify;">Malaria:&nbsp;criteri per l'accettazione per la donazione di emocomponenti cellulari e plasma per uso clinico.</li>
+</ul>
+<ol>
+<li style="text-align:justify;">
+<strong>soggetti che hanno vissuto per un periodo di 6 mesi o più (continuativi) in zona endemica&nbsp;in&nbsp;qualsiasi&nbsp;momento&nbsp;della&nbsp;loro&nbsp;vita&nbsp;</strong>(questi&nbsp;soggettinon&nbsp;possono&nbsp;donarefino a&nbsp;quando&nbsp;non&nbsp;venga&nbsp;effettuato&nbsp;uno&nbsp;specifico&nbsp;test&nbsp;immunologico,&nbsp;con&nbsp;esito&nbsp;negativo,in&nbsp;quanto a rischio di essere diventati portatori asintomatici del parassita malarico):<ul>
+<li style="text-align:justify;">Devono&nbsp;essere&nbsp;sospesidalle&nbsp;donazioni&nbsp;per&nbsp;almeno&nbsp;6&nbsp;mesi&nbsp;dall’ultimo&nbsp;soggiorno&nbsp;di&nbsp;qualsiasi durata in zona ad endemia malarica;</li>
+<li style="text-align:justify;">Possono essere accettati come donatori se risulta negativo un test immunologico per la ricerca di anticorpi anti-malarici, eseguito almeno 6 mesi dopo l’ultima visita in area ad endemia malarica;</li>
+<li style="text-align:justify;">Se&nbsp;il&nbsp;test&nbsp;risulta&nbsp;ripetutamente&nbsp;reattivo,&nbsp;il&nbsp;donatoreè&nbsp;sospeso&nbsp;per&nbsp;3&nbsp;anni;&nbsp;successivamente può essere rivalutato e accettato per la donazione se il test risulta negativo.</li>
+</ul>
+</li>
+<li style="text-align:justify;">soggetti che hanno sofferto di malaria, soggetti che hanno sofferto di episodi febbrili non diagnosticati compatibili con la diagnosi di malaria, durante un soggiorno in area ad endemia malarica o nei 6 mesi successivi al rientro:<ul>
+<li style="text-align:justify;">Devono essere sospesi dalle donazioni per almeno 6 mesi dalla cessazione dei sintomi e dalla sospensione della terapia;</li>
+<li style="text-align:justify;">Possono essere accettati come donatori se risulta negativo un test immunologico per la ricercadi anticorpi anti-malarici,&nbsp;eseguito&nbsp;almeno6 mesi dopo&nbsp;la cessazione&nbsp;dei sintomi&nbsp;e la sospensione della terapia;</li>
+<li style="text-align:justify;">Se&nbsp;il&nbsp;test&nbsp;risulta&nbsp;ripetutamente&nbsp;reattivo,&nbsp;il&nbsp;donatoreè&nbsp;sospeso&nbsp;per&nbsp;3&nbsp;anni;&nbsp;successivamente può essere rivalutato e accettato per la donazione se il test risulta negativo.</li>
+</ul>
+</li>
+<li style="text-align:justify;">Tutti gli altri soggetti che hanno visitato un'area ad endemia malarica e che non hanno&nbsp;sofferto&nbsp;di&nbsp;episodi&nbsp;febbrilio&nbsp;di&nbsp;altra&nbsp;sintomatologia&nbsp;compatibile&nbsp;con&nbsp;la&nbsp;diagnosi di malaria durante il soggiorno o nei 6 mesi successivi al rientro:<ul>
+<li style="text-align:justify;">Possono essere accettati come donatori se sono passati almeno 6 mesi dall'ultima visita in un'areaad&nbsp;endemia&nbsp;malaricae&nbsp;se&nbsp;risultano&nbsp;negativi&nbsp;a&nbsp;un&nbsp;test&nbsp;immunologico&nbsp;per&nbsp;la&nbsp;ricercadi anticorpi anti-malarici;</li>
+<li style="text-align:justify;">Se&nbsp;il test risulta ripetutamente reattivo, il donatoreè sospeso per 3 anni; successivamente può essere rivalutato e accettato per la donazione se il test risulta negativo;</li>
+<li style="text-align:justify;">Se il test non viene effettuato, il soggetto può donare se sono passati almeno 12 mesi dall'ultima visita in un'area ad endemia malarica</li>
+<li style="text-align:justify;">Malaria:&nbsp;plasmada&nbsp;avviare&nbsp;alla&nbsp;produzione&nbsp;industriale&nbsp;di&nbsp;farmaci&nbsp;emoderivati:</li>
+</ul>
+</li>
+</ol>
+<p style="text-align:justify;">Possono&nbsp;essere&nbsp;evitati&nbsp;i&nbsp;test&nbsp;e&nbsp;i&nbsp;periodidi&nbsp;sospensione&nbsp;sopra&nbsp;descritti.</p>
+<ul>
+<li style="text-align:justify;">Virus&nbsp;del&nbsp;Nilo&nbsp;Occidentale&nbsp;(WNV):</li>
+</ul>
+<ul style="list-style-type:square;">
+<li style="text-align:justify;">28&nbsp;giornidopo&nbsp;aver&nbsp;soggiornato&nbsp;per&nbsp;almeno&nbsp;una&nbsp;notte&nbsp;in&nbsp;un’area&nbsp;ove&nbsp;siano&nbsp;presenticasi&nbsp;di malattia nell'uomo e limitatamente ai periodi di comprovata circolazione del virus. La sospensione non si applica nel caso in cui venga eseguito lo specifico test NAT;</li>
+<li style="text-align:justify;">4&nbsp;mesi&nbsp;dalla&nbsp;completaguarigione&nbsp;in&nbsp;caso&nbsp;di&nbsp;soggettocon&nbsp;diagnosi&nbsp;di&nbsp;infezione.</li>
+</ul>
+<ul>
+<li style="text-align:justify;">
+<strong>Tracoma</strong>:&nbsp;6&nbsp;mesi&nbsp;di&nbsp;sospensione&nbsp;dalla&nbsp;guarigione&nbsp;e&nbsp;riammissione&nbsp;previavisita&nbsp;infettivologica.</li>
+<li style="text-align:justify;">
+<strong>Tifo&nbsp;esantematico&nbsp;e&nbsp;murino:&nbsp;</strong>sospensione&nbsp;di&nbsp;6&nbsp;mesi&nbsp;dalla&nbsp;guarigione&nbsp;e&nbsp;riammissione&nbsp;previa visita infettivologica.</li>
+<li style="text-align:justify;">
+<strong>Legionellosi e Leptospirosi:&nbsp;</strong>esclusione fino a guarigione. Riammissione previa visita infettivologica.</li>
+</ul>
+<p>
+<strong>Malattia di Chagas o tripanosomiasi americana:&nbsp;</strong>i soggetti nati (o con madre nata) in Paesi&nbsp;dove&nbsp;la&nbsp;malattia&nbsp;è&nbsp;endemica,&nbsp;o&nbsp;che&nbsp;sono&nbsp;stati&nbsp;trasfusiin&nbsp;tali&nbsp;Paesi,&nbsp;o&nbsp;che&nbsp;hanno&nbsp;viaggiato in&nbsp;aree&nbsp;a&nbsp;rischio(rurali)&nbsp;e&nbsp;soggiornato&nbsp;in&nbsp;condizioni&nbsp;ambientali&nbsp;favorenti&nbsp;l’infezione&nbsp;(camping, trekking) possono essere ammessi alla donazione <i>
+<strong>solo&nbsp;</strong>
+</i>in presenza di un test per anticorpi anti-Tripanosoma Cruzi negativo.</p>
+<p>&nbsp;</p>
+		 </div>
+		  <div id="testo-cap6-4">
+		 <p>VIAGGI/SOGGIORNI&nbsp;IN&nbsp;PAESE&nbsp;ESTERO</p>
+<p>Consultare&nbsp;<a href="http://inviaggio.simti.it/">http://inviaggio.simti.it/</a> &nbsp; &nbsp;:<i>
+<u>Il&nbsp;donatore&nbsp;che&nbsp;viaggia</u>
+</i>
+</p>
+<p>&nbsp;</p>
+<ul>
+<li>Viaggi&nbsp;in&nbsp;paese&nbsp;europeo:nessuna&nbsp;sospensione</li>
+<li>Viaggi in paesi extraeuropei a rischio di malattie trasmissibili con alimenti o acqua o tramite insetti o animali: sospensione di 1 mese dal rientro</li>
+<li>Viaggi&nbsp;in&nbsp;paesi&nbsp;a&nbsp;endemia&nbsp;malarica:vedi&nbsp;malaria</li>
+<li style="text-align:justify;">Viaggi in aree tropicali: sospensione di 6 mesi dal rientro; valutare lo stato di salute del donatore con particolare attenzione ad episodi febbrili dopo il rientro</li>
+<li style="text-align:justify;">Viaggi&nbsp;in&nbsp;paesi&nbsp;al&nbsp;di&nbsp;fuori&nbsp;delle&nbsp;aree&nbsp;tropicali,&nbsp;dove&nbsp;è&nbsp;segnalatala&nbsp;presenza&nbsp;di&nbsp;malattie&nbsp;tropicali: si applica un periodo di sospensione stabilito sulla base della specifica malattia infettiva presente.</li>
+<li style="text-align:justify;">Soggiorno nel Regno Unito nel periodo dal 1980 al 1996 per più di 6 mesi cumulativi: esclusione definitiva.</li>
+</ul>
+		 </div>
+		  <div id="testo-cap6-5">
+		<p>TRASFUSIONI&nbsp;DI&nbsp;EMOCOMPONENTI&nbsp;ED&nbsp;EMODERIVATI</p>
+<ul>
+<li style="text-align:justify;">Trasfusioni di concentrati eritrocitari, plasma, piastrine, fattori della coagulazione, albumina e immunoglobuline<strong>:&nbsp;</strong>sospensione di 4 mesi, subordinatamente alla patologia di base.</li>
+<li style="text-align:justify;">Sono escluse permanentemente le persone che hanno ricevuto trasfusioni allogeniche nel Regno Unito dopo il 1980.<ol>
+<li style="text-align:justify;">TRAPIANTI</li>
+</ol>
+</li>
+<li>Trapianto&nbsp;di&nbsp;organo&nbsp;solido,&nbsp;di&nbsp;CSE:&nbsp;sono&nbsp;esclusi&nbsp;tutti&nbsp;i&nbsp;soggettiche&nbsp;hanno&nbsp;ricevutoil&nbsp;trapianto.</li>
+<li>Trapianti&nbsp;di&nbsp;tessutie/o&nbsp;cellule&nbsp;di&nbsp;origine&nbsp;umana:sospensione&nbsp;di&nbsp;4&nbsp;mesi,&nbsp;compatibilmente&nbsp;con la patologia di base;</li>
+<li>Trapianto&nbsp;di&nbsp;cornea/dura&nbsp;madre:esclusione.XENOTRAPIANTI</li>
+</ul>
+<p>Tutti&nbsp;i&nbsp;soggetti&nbsp;che&nbsp;hanno&nbsp;ricevutouno&nbsp;xenotrapianto&nbsp;sono&nbsp;esclusi&nbsp;definitivamente.</p>
+<p>Non&nbsp;si&nbsp;applica&nbsp;all’utilizzo&nbsp;di&nbsp;preparati&nbsp;ossei/tissutali&nbsp;di&nbsp;origine&nbsp;animaleall’uopo&nbsp;autorizzati&nbsp;e, laddove è previsto, certificati esenti da BSE, da parte delle autorità competenti.</p>
+<p>DONAZIONE&nbsp;DI&nbsp;CELLULESTAMINALI&nbsp;EMOPOIETICHE&nbsp;(CSE)</p>
+<p>Sospensione temporanea di 1 anno dall’espianto di midollo osseo e/o dalla raccolta di CSE con utilizzo di fattori di crescita.</p>
+		 </div>
+		 <div id="testo-cap6-9">
+		<figure class="table">
+<table style=";">
+<tbody>
+<tr>
+<td style="border:1.0pt solid black;height:34.05pt;padding:0cm;vertical-align:top;width:281.9pt;">
+<strong>Assunzione&nbsp;di&nbsp;drogheper&nbsp;via&nbsp;parenterale&nbsp;</strong>(IV&nbsp;o IM), anche una sola volta in passato</td>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:none;border-right-style:solid;border-top-style:solid;border-width:1.0pt;height:34.05pt;padding:0cm;vertical-align:top;width:196.7pt;">Esclusione&nbsp;definitiva</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:44.95pt;padding:0cm;vertical-align:top;width:281.9pt;">
+<p style="text-align:justify;">
+<strong>Tossicodipendenza&nbsp;</strong>da droghe per via parenterale, per&nbsp;os&nbsp;o&nbsp;per&nbsp;inalazione&nbsp;(eroina,&nbsp;cocaina,&nbsp;anfetamine, ecstasy, sostanze allucinogene)</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:44.95pt;padding:0cm;vertical-align:top;width:196.7pt;">
+<p>&nbsp;</p>
+<p>Esclusionedefinitiva</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:44.95pt;padding:0cm;vertical-align:top;width:281.9pt;">
+<p>
+<strong>Assunzione&nbsp;pregressa,&nbsp;occasionale&nbsp;e&nbsp;sporadica di droghe solo per os o per inalazione&nbsp;</strong>(cocaina,</p>
+<p>anfetamine,&nbsp;ecstasy,&nbsp;sostanze&nbsp;allucinogene)</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:44.95pt;padding:0cm;vertical-align:top;width:196.7pt;">
+<p>Ammissione&nbsp;se&nbsp;sono&nbsp;passati&nbsp;almeno</p>
+<p>4 mesi dall’assunzione e se non c’è reiterazione</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:33.9pt;padding:0cm;vertical-align:top;width:281.9pt;">
+<p>
+<strong>Assunzione&nbsp;occasionale&nbsp;e&nbsp;sporadica&nbsp;di&nbsp;Cannabis</strong>
+</p>
+<p>(“spinelli”)</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:33.9pt;padding:0cm;vertical-align:top;width:196.7pt;">Idoneità&nbsp;se&nbsp;sonopassate&nbsp;48&nbsp;h</td>
+</tr>
+<tr>
+<td style="border-bottom-style:solid;border-color:black;border-left-style:solid;border-right-style:solid;border-top-style:none;border-width:1.0pt;height:60.05pt;padding:0cm;vertical-align:top;width:281.9pt;">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>
+<strong>Assunzione&nbsp;abituale&nbsp;di&nbsp;Cannabis&nbsp;</strong>(“spinelli”)</p>
+</td>
+<td style="border-bottom:1.0pt solid black;border-left-style:none;border-right:1.0pt solid black;border-top-style:none;height:60.05pt;padding:0cm;vertical-align:top;width:196.7pt;">
+<p style="text-align:justify;">Sospensione di almeno 4 mesi dall’ultima assunzione e riammissione dopo interruzione definitiva</p>
+</td>
+</tr>
+</tbody>
+</table>
+</figure>
+		 </div>
+		 
+ <div id="testo-cap6-10">
+<p>ALCOOLISMO&nbsp;CRONICO</p>
+<p>Alcoolismo&nbsp;cronico:esclusione&nbsp;permanente.</p>
+</div>
+ <div id="testo-cap6-11">
+<p>CULTURA&nbsp;FISICA</p>
+<p>Utilizzo&nbsp;di&nbsp;sostanze&nbsp;anabolizzanti,&nbsp;steroidi&nbsp;o&nbsp;ormonia&nbsp;scopo&nbsp;di&nbsp;culturismo&nbsp;fisico:esclusione.</p>
+</div>
+ <div id="testo-cap6-12">
+<p>MANOVRE&nbsp;A&nbsp;RISCHIO</p>
+<p>
+<strong>Agopuntura&nbsp;Mesoterapia&nbsp;Elettromiografia:&nbsp;</strong>eseguite&nbsp;da&nbsp;Medici&nbsp;con&nbsp;aghi&nbsp;"usa&nbsp;e&nbsp;getta": nessuna sospensione, altrimenti sospensione di 4 mesi.</p>
+<p>
+<strong>Foratura&nbsp;lobi&nbsp;auricolari&nbsp;–&nbsp;Body&nbsp;piercing–&nbsp;Tatuaggi:&nbsp;</strong>sospensione&nbsp;di&nbsp;4&nbsp;mesi.</p>
+<p>
+<strong>Puntura&nbsp;accidentale&nbsp;con&nbsp;aghi&nbsp;o&nbsp;strumenti&nbsp;potenzialmente&nbsp;infetti</strong>:&nbsp;sospensione&nbsp;di&nbsp;4&nbsp;mesi.</p>
+<p>
+<strong>Contaminazione&nbsp;delle&nbsp;mucose&nbsp;con&nbsp;il&nbsp;sangue</strong>:&nbsp;sospensione&nbsp;di&nbsp;4&nbsp;mesi.</p>
+<p>
+<strong>Rischio&nbsp;biologico</strong>:&nbsp;se&nbsp;contattocon&nbsp;sangue,&nbsp;o&nbsp;liquidi&nbsp;biologici,&nbsp;o&nbsp;lesioni&nbsp;da&nbsp;ago&nbsp;o&nbsp;da&nbsp;altri strumenti, potenzialmente infetti, sospensione di 4 mesi</p>
+</div>
+ <div id="testo-cap6-13">
+<p>INTERVENTI&nbsp;CHIRURGICI</p>
+<ul>
+<li style="text-align:justify;">
+<strong>Interventi chirurgici maggiori e interventi eseguiti in endoscopia e laparoscopia: sospensione&nbsp;</strong>di 4 mesi, subordinatamente alla patologia di base;</li>
+<li style="text-align:justify;">
+<strong>Interventi chirurgici minori (ambulatoriali o in day-surgery), infiltrazioni intraarticolari,iniezioni&nbsp;sclerosanti:&nbsp;</strong>sospensione&nbsp;di&nbsp;1&nbsp;mese&nbsp;e&nbsp;comunquesino&nbsp;a&nbsp;guarigione delle ferite conseguenti all’atto chirurgico;</li>
+<li style="text-align:justify;">
+<strong>Diatermocoagulazione&nbsp;e&nbsp;laserterapia&nbsp;(anche&nbsp;refrattiva):&nbsp;</strong>sospensione&nbsp;di&nbsp;1&nbsp;mese.</li>
+</ul>
+</div>
+ <div id="testo-cap6-14">
+<p>ESAMI&nbsp;ENDOSCOPICI</p>
+<p>Esofago-gastro-duodeno&nbsp;scopia,colonscopia,&nbsp;rettoscopia,&nbsp;artroscopia,&nbsp;cistoscopia,&nbsp;isteroscopia: sospensione di 4 mesi, subordinatamente alla eventuale patologia riscontrata.</p>
+
+
+ <div id="testo-cap6-15">
+<p>TERAPIE&nbsp;ODONTOIATRICHE&nbsp;E&nbsp;IGIENE&nbsp;DENTALE</p>
+<p>Cure&nbsp;odontoiatriche,&nbsp;estrazione&nbsp;dentaria&nbsp;non&nbsp;complicata,&nbsp;devitalizzazione,&nbsp;igiene&nbsp;dentale:&nbsp;sospensione di 1 settimana.</p>
+<p>Impianti&nbsp;dentali:&nbsp;sospensione&nbsp;di&nbsp;15&nbsp;gg.</p>
+<p>Innesto&nbsp;di&nbsp;tessuto&nbsp;osseo&nbsp;autologo&nbsp;o&nbsp;omologo:&nbsp;sospensione&nbsp;di&nbsp;4&nbsp;mesi.</p>
+</div>
+
+ <div id="testo-cap6-16">
+<p>RAPPORTI&nbsp;SESSUALI&nbsp;A&nbsp;RISCHIO</p>
+<p style="text-align:justify;">Sono esclusi i soggetti il cui <strong>comportamento sessuale abituale e reiterato&nbsp;</strong>(promiscuità, occasionalità, rapporti sessuali con scambio di denaro o droga) li espone ad elevato rischio di contrarre malattie infettive trasmissibili con il sangue.</p>
+<p style="text-align:justify;">
+<strong>Rapporti sessuali a rischio</strong>: esclusione per 4 mesi dall’ultima esposizione ad una o più delle condizioni di rischio, rappresentate da rapporti eterosessuali/omosessuali/ bisessuali:</p>
+<ul>
+<li>con partner risultato&nbsp;positivo al test per HBsAg e/o HCV Ab e/o HIV1-2 Ab o a rischio di esserlo</li>
+<li>con&nbsp;partnerche&nbsp;ha&nbsp;avuto&nbsp;precedenti&nbsp;comportamenti&nbsp;sessuali&nbsp;a&nbsp;rischioo&nbsp;del&nbsp;quale&nbsp;il donatore ignora le abitudini sessuali</li>
+<li>con&nbsp;partner&nbsp;occasionale</li>
+<li>con&nbsp;più&nbsp;partner&nbsp;sessuali</li>
+<li>con&nbsp;soggetti&nbsp;tossicodipendenti</li>
+<li>con&nbsp;scambio&nbsp;di&nbsp;denaroe&nbsp;droga</li>
+<li>con partner, di cui non sia noto lo stato sierologico, nato o proveniente da paesi esteri dove l’AIDS è una malattia diffusa.</li>
+</ul>
+</div>
+		 <div id="testo-cap6-17">
+		<ol>
+<li>FARMACI</li>
+</ol>
+<p style="text-align:justify;">L’assunzione di farmaci comporta una serie di valutazioni che riguardano sia la patologia di base che le caratteristiche del farmaco: principio attivo, farmacocinetica, farmacodinamica, tossicità, effetto teratogeno, diluizione post-trasfusione, effetti sulla qualità degli emocomponenti (PLT) e via di somministrazione. I prodotti di erboristeria possono avere effetti embrio e feto tossici e meritano pertanto un’attenta valutazione individuale.<BR>
+Non sono inclusi trattamenti locali, della cute o delle unghie e neppure ovuli vaginali, gocce o preparati per occhi, naso o orecchio che presentano scarso assorbimento sistemico.</p>
+<p>Non sono inclusi trattamenti locali, della cute o delle unghie e neppure ovuli vaginali, gocce o preparati per occhi, naso o orecchio che presentano scarso assorbimento sistemico</p>
+<ol style="list-style-type:lower-alpha;">
+<li>Anabolizzanti:&nbsp;esclusione</li>
+<li>Anoressizzanti:&nbsp;sospensione&nbsp;temporanea&nbsp;di&nbsp;3&nbsp;mesi&nbsp;dalla&nbsp;fine&nbsp;del&nbsp;trattamento</li>
+<li>Aspirina:<ul>
+<li style="text-align:justify;">assunta saltuariamente: si possono donare piastrine in aferesi dopo 7 giorni dalla assunzione. In caso di donazione di sangue intero, nei 7 giorni successivi all’assunzione, il buffy coat deve essere eliminato;</li>
+<li style="text-align:justify;">assunta&nbsp;in&nbsp;modo&nbsp;continuativo,&nbsp;come&nbsp;antiaggregante:&nbsp;esclusione&nbsp;permanente.</li>
+</ul>
+</li>
+<li style="text-align:justify;">Anti-infiammatori&nbsp;non&nbsp;steroidei&nbsp;(FANS):<ul>
+<li style="text-align:justify;">Assunti&nbsp;saltuariamente:&nbsp;si&nbsp;possono&nbsp;donarepiastrine&nbsp;in&nbsp;aferesise&nbsp;sono&nbsp;passati7&nbsp;giorni&nbsp;dalla assunzione. In caso di donazione di sangue intero, nei 7 giorni successivi all’assunzione, il buffy coat deve essere eliminato.</li>
+<li style="text-align:justify;">Assunti&nbsp;in&nbsp;modo&nbsp;continuativo:&nbsp;esclusione&nbsp;permanente,&nbsp;in&nbsp;relazione&nbsp;alla&nbsp;malattia&nbsp;di&nbsp;base.</li>
+</ul>
+</li>
+<li style="text-align:justify;">Antiaggreganti&nbsp;piastrinici:&nbsp;esclusione&nbsp;definitiva</li>
+<li style="text-align:justify;">Antibiotici,&nbsp;anti-malarici&nbsp;e&nbsp;antimicotici&nbsp;per&nbsp;os o&nbsp;per&nbsp;via&nbsp;parenterale:&nbsp;sospensione&nbsp;temporanea per almeno 15 giorni</li>
+<li style="text-align:justify;">Antibiotici&nbsp;e&nbsp;antimicotici&nbsp;per&nbsp;uso&nbsp;topico,inclusi&nbsp;ovuli&nbsp;vaginali:nessuna&nbsp;sospensione,&nbsp;purchéle lesioni trattate non si trovino nella sede della venipuntura</li>
+<li style="text-align:justify;">Anti-ipertensivi:&nbsp;vedi&nbsp;ipertensione&nbsp;arteriosa(cap.&nbsp;9)</li>
+<li style="text-align:justify;">Antistaminici: nessuna sospensione, compatibilmente con la patologia di base e purchè non sia in atto la sintomatologia allergica.</li>
+<li style="text-align:justify;">Corticosteroidi:</li>
+</ol>
+<ul>
+<li style="text-align:justify;">per&nbsp;uso&nbsp;topico:nessuna&nbsp;sospensione</li>
+<li style="text-align:justify;">per&nbsp;via&nbsp;orale&nbsp;o&nbsp;sistemica:&nbsp;sospensione&nbsp;temporanea&nbsp;di&nbsp;2&nbsp;settimaneo&nbsp;esclusione&nbsp;permanente a seconda della patologia di base</li>
+</ul>
+<ol style="list-style-type:lower-alpha;">
+<li>Estroprogestinici:&nbsp;nessunasospensione</li>
+<li>Eutirox:&nbsp;nessuna&nbsp;sospensione&nbsp;(compatibilmente&nbsp;con&nbsp;la&nbsp;patologia&nbsp;diagnosticata)</li>
+<li>Farmaci&nbsp;per&nbsp;ipertrofia&nbsp;prostatica:&nbsp;nessuna&nbsp;sospensione</li>
+<li>Finasteride&nbsp;(inibitore&nbsp;del&nbsp;testosterone&nbsp;5&nbsp;alfa&nbsp;reduttasi)&nbsp;e&nbsp;derivati&nbsp;(dutasteride,&nbsp;ecc.): sospensione di 2 mesi dalla fine della terapia (effetto teratogeno).</li>
+<li>Bifosfonati:&nbsp;nessunasospensione</li>
+<li>ANTICORPI&nbsp;MONOCLONALI&nbsp;(esempio)PROLIA:&nbsp;sospensione&nbsp;per&nbsp;6&nbsp;mesi&nbsp;dalla&nbsp;fine&nbsp;della&nbsp;terapia</li>
+<li>Gastroprotettori:&nbsp;inibitori&nbsp;della&nbsp;pompa&nbsp;protonicae&nbsp;H2&nbsp;antagonisti:&nbsp;nessuna&nbsp;sospensione</li>
+<li>Gonadotropine&nbsp;corioniche&nbsp;di&nbsp;origine&nbsp;umana:&nbsp;il&nbsp;periododi&nbsp;sospensione&nbsp;è&nbsp;quello&nbsp;previstoper&nbsp;gli emoderivati</li>
+<li>Psicofarmaci:</li>
+</ol>
+<ul>
+<li>
+<i>Sedativi&nbsp;</i>(ansiolitici&nbsp;e&nbsp;ipnotici):&nbsp;ammissione&nbsp;se&nbsp;usati&nbsp;per&nbsp;insonnia;&nbsp;neglialtri&nbsp;casi&nbsp;a&nbsp;giudizio del medico in base alla patologia (vedere anche pag. 27).</li>
+<li>
+<i>Anti-depressivi&nbsp;</i>(SSRI,&nbsp;triciclici):<ul style="list-style-type:circle;">
+<li>Uso temporaneo: a giudizio del medico, a seconda della diagnosi di assunzione e della dose</li>
+<li>Uso&nbsp;abituale:&nbsp;esclusione&nbsp;permanente</li>
+<li>
+<i>Tranquillanti&nbsp;maggiori&nbsp;</i>(neurolettici,&nbsp;anti-psicotici):&nbsp;esclusione&nbsp;permanente.</li>
+<li>Roaccutan (Isotretinoina): retinoide per il trattamento sistemico dell’acne) sospensione di 2 mesi dalla fine della terapia.</li>
+<li>Neotigason&nbsp;(Acitretina):&nbsp;retinoideper&nbsp;il&nbsp;trattamento&nbsp;della&nbsp;psoriasi)&nbsp;sospensione&nbsp;di&nbsp;3&nbsp;anni&nbsp;dalla fine della terapia.</li>
+<li>Tamoxifene&nbsp;(usato&nbsp;per&nbsp;ginecomastia):&nbsp;sospensione&nbsp;di&nbsp;2&nbsp;mesi&nbsp;dalla&nbsp;fine&nbsp;della&nbsp;terapia.</li>
+<li>Tapazole&nbsp;(metimazolo):&nbsp;esclusione&nbsp;se&nbsp;usato&nbsp;per&nbsp;il&nbsp;trattamento&nbsp;del&nbsp;Morbo&nbsp;di&nbsp;Basedow.</li>
+<li>Vasodilatatori&nbsp;arteriosi:&nbsp;esclusione&nbsp;se&nbsp;la&nbsp;stenosiè&nbsp;emodinamicamente&nbsp;significativa.</li>
+<li>Clomifene&nbsp;(terapia&nbsp;dell’infertilità&nbsp;femminile):&nbsp;sospensione&nbsp;di&nbsp;2&nbsp;mesi&nbsp;dalla&nbsp;fine&nbsp;della&nbsp;terapia</li>
+<li>Vismodegib&nbsp;(trattamento&nbsp;del&nbsp;carcinoma&nbsp;basocellulare):&nbsp;sospensione&nbsp;di&nbsp;24&nbsp;mesi&nbsp;dalla&nbsp;fine&nbsp;della terapia.<ol>
+<li>INTEGRATORI</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<p>Sono esclusi temporaneamente dalla donazione, fino a cessazione dell’utilizzo, i donatori che&nbsp;fanno&nbsp;uso&nbsp;di&nbsp;integratori&nbsp;acquistati&nbsp;via&nbsp;Interneto&nbsp;al&nbsp;di&nbsp;fuori&nbsp;della&nbsp;distribuzione&nbsp;autorizzata,&nbsp;ovvero non compresi nell’elenco, periodicamente aggiornato, degli integratori autorizzati, consultabile nel sito: <a href="http://www.salute.gov.it/portale/temi/p2_6.jsp?id=3668&amp;area=Alimenti%20particolari%20e%20integratori&amp;menu=registri">
+<span style="color:windowtext;">http://www.salute.gov.it/portale/temi/p2_6.jsp?id=3668&amp;area=Alimenti%20particolari%20e%&nbsp;20integratori&amp;menu=registri</span>
+</a>
+</p>
+		 </div>
+		 <div id="testo-cap7-1">
+		<ol>
+<li>NEOPLASIE</li>
+</ol>
+<p style="text-align:justify;">Sono esclusi tutti i soggetti con storia di neoplasie maligne, neoplasie ematologiche (comprese le gammapatie monoclonali), neoplasie associate a condizioni viremiche.</p>
+<p style="text-align:justify;">Possono essere accettati donatori con storia&nbsp;di carcinoma&nbsp;basocellulare&nbsp;(vedereanche&nbsp;pag.&nbsp;22) o carcinoma in situ della cervice uterina, dopo la rimozione della neoplasia e comunque fino al termine del follow-up oncologico.</p>
+<p style="text-align:justify;">La&nbsp;Prostatic&nbsp;Intraepithelial&nbsp;Neoplasia&nbsp;(PIN)&nbsp;e&nbsp;l’Atypical&nbsp;Small&nbsp;Acinar&nbsp;Proliferation&nbsp;(ASAP)&nbsp;devono essere considerate neoplasie e i donatori debbono essere esclusi in modo permanente dalla donazione.</p>
+		 </div>
+		 <div id="testo-cap7-2">
+		<ol>
+<li>PATOLOGIE&nbsp;NON&nbsp;NEOPLASTICHE</li>
+</ol>
+<p>In&nbsp;generalesono&nbsp;esclusi&nbsp;i&nbsp;soggetti&nbsp;affettida&nbsp;patologie&nbsp;in&nbsp;forma&nbsp;<u>attiva</u>,&nbsp;<u>cronica</u>,&nbsp;<u>recidivante,</u>&nbsp;o&nbsp;che abbiano causato <u>permanenti danni d’organo</u>.</p>
+<ol>
+<li>Patologie&nbsp;ematologiche</li>
+</ol>
+<p>Sono&nbsp;causa&nbsp;di&nbsp;esclusione&nbsp;permanente:</p>
+<ul>
+<li>tutte le patologie oncoematologiche, i disordini linfoproliferativi, inclusa la M-GUS e le&nbsp;sindromi mielodisplastiche;</li>
+<li>le&nbsp;emoglobinopatie:&nbsp;talassemia&nbsp;major&nbsp;e&nbsp;anemia&nbsp;falciforme&nbsp;(possonoessere&nbsp;accettati portatori eterozigoti di trait beta o alfa talassemico);</li>
+<li>le&nbsp;enzimopatie:&nbsp;deficitdi&nbsp;glucoso-6-fosfato&nbsp;deidrogenasi&nbsp;(G6PD)&nbsp;e&nbsp;di&nbsp;piruvato-chinasi;</li>
+<li>i&nbsp;difetti&nbsp;di&nbsp;membrana&nbsp;dei&nbsp;Globuli&nbsp;Rossi:sferocitosi&nbsp;ereditaria&nbsp;ecc.;</li>
+<li>le&nbsp;trombocitopenie&nbsp;autoimmuni&nbsp;o&nbsp;associate&nbsp;a&nbsp;patologie&nbsp;ematologiche&nbsp;o&nbsp;sistemiche;</li>
+<li>l’anemia&nbsp;cronica&nbsp;da&nbsp;causa&nbsp;sconosciuta&nbsp;o&nbsp;associata&nbsp;a&nbsp;patologie&nbsp;sistemiche.</li>
+</ul>
+<p style="text-align:justify;">Sono sospesi temporaneamente i soggetti con anemia fino a che la causa non sia identificata e l’anemia&nbsp;trattata&nbsp;con&nbsp;successo.&nbsp;Individui&nbsp;con&nbsp;una&nbsp;pregressaanemia&nbsp;sideropenica,&nbsp;con&nbsp;una&nbsp;causa conosciuta che non controindichi la donazione, possono essere accettati dopo completa guarigione.</p>
+<p style="text-align:justify;">Sono&nbsp;esclusi&nbsp;dalla&nbsp;donazione&nbsp;di&nbsp;plasma&nbsp;i&nbsp;soggetti&nbsp;con&nbsp;ipogammaglobulinemia&nbsp;&lt;&nbsp;600&nbsp;mg/dL,da tutti i tipi di donazione se IgG &lt; 550 mg/dL.</p>
+<ol>
+<li style="text-align:justify;">Diatesi&nbsp;emorragiche&nbsp;e&nbsp;coagulopatie</li>
+</ol>
+<p style="text-align:justify;">Sono&nbsp;esclusii&nbsp;soggetti&nbsp;con&nbsp;tendenza&nbsp;anomalaall’emorragia.</p>
+<ol>
+<li>Patologie&nbsp;cardiovascolari&nbsp;“maggiori”</li>
+</ol>
+<ul>
+<li>Reumatismo&nbsp;Articolare&nbsp;Acuto:&nbsp;sospensione&nbsp;di&nbsp;2&nbsp;anni&nbsp;dalla&nbsp;guarigione&nbsp;definitiva</li>
+<li>Cardiopatia&nbsp;ischemica(angina,&nbsp;infarto,&nbsp;ischemiasilente&nbsp;ecc.):&nbsp;esclusione&nbsp;permanente</li>
+<li>Cardiomiopatie:&nbsp;esclusione&nbsp;permanente</li>
+<li>Insufficienza&nbsp;arteriosadi&nbsp;qualsiasi&nbsp;distrettose&nbsp;stenosi&nbsp;emodinamicamente&nbsp;significativi: esclusione permanente</li>
+<li>Aneurismi:&nbsp;esclusione&nbsp;permanente</li>
+<li>Cardiopatie&nbsp;congenite&nbsp;(eccetto&nbsp;quelle&nbsp;correttechirurgicamente):&nbsp;esclusione&nbsp;permanente</li>
+<li>Endocarditi, miocarditi, pericarditi: valutazione cardiologica ed esclusione in presenza di reliquati</li>
+<li>Valvulopatie&nbsp;&nbsp;&nbsp; (stenosi&nbsp;&nbsp;&nbsp; o&nbsp;&nbsp;&nbsp; insufficienza)&nbsp;&nbsp;&nbsp; emodinamicamente&nbsp;&nbsp;&nbsp; rilevanti&nbsp;&nbsp;&nbsp; (valutazione ecocardiografica e colordoppler): esclusione permanente</li>
+<li>Disturbi del ritmo clinicamente rilevanti (flutter/fibrillazione atriale, Blocchi A-V III&nbsp;grado, aritmie ventricolari minacciose, ecc.): esclusione permanente</li>
+<li>Blocco&nbsp;A-V&nbsp;II&nbsp;grado:&nbsp;eseguire&nbsp;visita&nbsp;cardiologica&nbsp;ed&nbsp;ecocardiogramma&nbsp;per&nbsp;escludere cardiopatia</li>
+<li>Sindrome&nbsp;di&nbsp;WPW:&nbsp;esclusione&nbsp;permanente</li>
+<li>Blocco&nbsp;di&nbsp;Branca&nbsp;Sinistra:&nbsp;visita&nbsp;cardiologica&nbsp;per&nbsp;escludere&nbsp;cardiopatia</li>
+<li>Vasculopatie&nbsp;periferiche:&nbsp;esclusione&nbsp;permanente&nbsp;se&nbsp;emodinamicamente&nbsp;significative.</li>
+</ul>
+<ol>
+<li>Patologie&nbsp;cardiovascolari&nbsp;“minori”</li>
+</ol>
+<ul>
+<li>Prolasso&nbsp;mitralico&nbsp;senza&nbsp;rigurgito&nbsp;emodinamicamente&nbsp;significativo:&nbsp;idoneità</li>
+<li>Blocchi&nbsp;di&nbsp;Branca&nbsp;Destranon&nbsp;secondari&nbsp;a&nbsp;cardiopatia:&nbsp;idoneità</li>
+<li>Trombosi&nbsp;VenoseProfonde&nbsp;ricorrenti:&nbsp;esclusione&nbsp;definitiva.</li>
+</ul>
+<ol>
+<li>Patologie&nbsp;respiratorie</li>
+</ol>
+<ul>
+<li>Pneumotorace&nbsp;traumatico&nbsp;o&nbsp;spontaneo:&nbsp;sospensione&nbsp;di&nbsp;4&nbsp;mesi&nbsp;dalla&nbsp;guarigione</li>
+<li>Malattie granulomatose croniche (sarcoidosi) e pneumoconiosi: da valutare in relazione&nbsp;alla sintomatologia e alla terapia</li>
+<li>BPCO,&nbsp;enfisema:&nbsp;esclusione</li>
+<li>Asma:&nbsp;vedere&nbsp;al&nbsp;punto&nbsp;7.2.18</li>
+<li>S.&nbsp;da&nbsp;apnee&nbsp;ostruttive&nbsp;del&nbsp;sonno&nbsp;(OSAS):ammissione</li>
+<li>Pregressa&nbsp;atelectasia&nbsp;o&nbsp;pleurite:&nbsp;idoneitàse&nbsp;guarigione&nbsp;radiologica&nbsp;e&nbsp;in&nbsp;assenzadi&nbsp;una patologia cronica di base</li>
+<li>Tubercolosi:<ul>
+<li>Guarigione&nbsp;completa:sospensione&nbsp;di&nbsp;2&nbsp;anni</li>
+<li>Cronica:&nbsp;esclusione</li>
+<li>Guarigione&nbsp;con&nbsp;gravi&nbsp;reliquati:&nbsp;esclusione.<ol>
+<li>Patologie&nbsp;renali</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>Valori&nbsp;di&nbsp;creatininemia&nbsp;ripetutamente&nbsp;aumentati&nbsp;rispettoai&nbsp;valori&nbsp;di&nbsp;riferimento:&nbsp;esclusione</li>
+<li>Glomerulonefrite&nbsp;acuta&nbsp;post-streptococcica:&nbsp;5&nbsp;anni&nbsp;dalla&nbsp;completa&nbsp;guarigione</li>
+<li>Nefropatie&nbsp;&nbsp;&nbsp; glomerulari&nbsp;&nbsp;&nbsp; a&nbsp;&nbsp;&nbsp; patogenesi&nbsp;&nbsp;&nbsp; immunitaria,&nbsp;&nbsp;&nbsp; comprovate&nbsp;&nbsp;&nbsp; da&nbsp;&nbsp;&nbsp; adeguata&nbsp;documentazione clinica: esclusione</li>
+<li>Pielonefriti:&nbsp;valutazione&nbsp;nefrologica&nbsp;(esclusione&nbsp;in&nbsp;presenza&nbsp;di&nbsp;reliquati)</li>
+<li>Nefropatie&nbsp;vascolari&nbsp;se&nbsp;emodinamicamente&nbsp;significative:&nbsp;esclusione.</li>
+<li>Litiasi&nbsp;renale:idoneità&nbsp;in&nbsp;assenzadi&nbsp;idronefrosi&nbsp;e&nbsp;con&nbsp;funzionerenale&nbsp;conservata</li>
+<li>Cisti&nbsp;renali:&nbsp;idoneitàcon&nbsp;funzione&nbsp;renaleconservata</li>
+<li>Rene&nbsp;policistico:&nbsp;esclusione&nbsp;definitiva.</li>
+</ul>
+<ol>
+<li>Patologie&nbsp;gastrointestinali<u>:</u>
+</li>
+</ol>
+<p>Tutte le malattie di origine immune <u>eccetto la malattia celiaca&nbsp;</u>(se in remissione completa con dieta priva di glutine) o che determinano perdite croniche di ferro comportano l’esclusione.</p>
+<p>In&nbsp;particolare:</p>
+<ul>
+<li>Morbo&nbsp;di&nbsp;Crohn&nbsp;(anche&nbsp;in&nbsp;remissione&nbsp;clinica):&nbsp;esclusione</li>
+<li>Retto-Colite&nbsp;Ulcerosa(anche&nbsp;in&nbsp;remissione&nbsp;clinica):&nbsp;esclusione</li>
+<li>Pancreatite&nbsp;acuta:&nbsp;idoneità&nbsp;se&nbsp;guarita&nbsp;senza&nbsp;reliquati</li>
+<li>Pancreatite&nbsp;cronica:esclusione</li>
+<li>Sindrome&nbsp;da&nbsp;malassorbimento:&nbsp;esclusione</li>
+<li>Malattia&nbsp;diverticolare&nbsp;complicata&nbsp;(diverticolite,&nbsp;sanguinamento,&nbsp;ecc.):&nbsp;esclusione</li>
+<li>Varici&nbsp;esofagee:&nbsp;esclusione</li>
+<li>Ulcera in fase attiva: sospensione fino a&nbsp;4 mesi dopo EGDS comprovante la guarigione&nbsp;completa</li>
+<li>Gastrite&nbsp;acuta:sospensione&nbsp;fino&nbsp;a&nbsp;risoluzione&nbsp;dellasintomatologia</li>
+<li>Gastrite&nbsp;cronica:nessuna&nbsp;sospensione,&nbsp;se&nbsp;escluse&nbsp;lesioniorganiche&nbsp;mediante&nbsp;EGDS (gastrite cronica attiva, metaplasia intestinale ecc.)</li>
+<li>S.&nbsp;del&nbsp;colon&nbsp;irritabile:&nbsp;nessuna&nbsp;sospensione</li>
+<li>Gastroenteriti&nbsp;virali:sospensione&nbsp;di&nbsp;15&nbsp;giorni&nbsp;dopo&nbsp;la&nbsp;risoluzione</li>
+<li>Gastrite&nbsp;da&nbsp;H.P.:&nbsp;sospensione&nbsp;per&nbsp;tutta&nbsp;la&nbsp;durata&nbsp;dellaterapia&nbsp;e&nbsp;fino&nbsp;a&nbsp;15&nbsp;giorni&nbsp;dalla&nbsp;fine, riammissione dopo guarigione.</li>
+</ul>
+<ol>
+<li>Patologie&nbsp;epato-biliari</li>
+</ol>
+<ul>
+<li>S.&nbsp;di&nbsp;Gilbert:&nbsp;idoneità</li>
+<li>Litiasi&nbsp;biliare:idoneità&nbsp;se&nbsp;non&nbsp;complicata</li>
+</ul>
+<ol>
+<li>Malattie&nbsp;endocrine&nbsp;dell'ipofisi,&nbsp;del&nbsp;corticosurrene&nbsp;e&nbsp;feocromocitoma</li>
+</ol>
+<p>Comportano&nbsp;esclusione&nbsp;permanente</p>
+<ol>
+<li>Malattie&nbsp;endocrine&nbsp;della&nbsp;tiroide</li>
+</ol>
+<ul>
+<li>Ipotiroidismo&nbsp;trattatocon&nbsp;ormoni&nbsp;sostitutivi:&nbsp;nessuna&nbsp;sospensione</li>
+<li>Tiroidite&nbsp;di&nbsp;Hashimoto:&nbsp;idoneitàin&nbsp;assenza&nbsp;di&nbsp;danno&nbsp;d’organo</li>
+<li>Morbo&nbsp;di&nbsp;Basedow&nbsp;(Ab&nbsp;anti&nbsp;recettoredel&nbsp;TSH):&nbsp;esclusione</li>
+<li>Tiroiditi&nbsp;viraliacute&nbsp;e&nbsp;subacute:&nbsp;sospensione&nbsp;temporanea&nbsp;fino&nbsp;a&nbsp;completaguarigione.</li>
+</ul>
+<ol>
+<li>Malattie&nbsp;neurologiche</li>
+</ol>
+<ul>
+<li>Epilessia:<ul>
+<li>In&nbsp;trattamento:&nbsp;esclusione;</li>
+<li>Ammissione&nbsp;se&nbsp;sono&nbsp;trascorsi&nbsp;3&nbsp;anni&nbsp;dall’ultima&nbsp;terapia&nbsp;anticonvulsivante&nbsp;senza ricadute</li>
+</ul>
+</li>
+<li>Convulsioni&nbsp;febbriliinfantili:&nbsp;idoneità</li>
+<li>Vertigini&nbsp;e/o&nbsp;labirintiti:&nbsp;idoneitàdopo&nbsp;guarigione</li>
+<li style="text-align:justify;">Meningite:&nbsp;idoneitàin&nbsp;assenza&nbsp;di&nbsp;reliquati.</li>
+<li style="text-align:justify;">Encefalopatia&nbsp;spongiforme&nbsp;trasmissibile&nbsp;(TSE)&nbsp;ovveroMorbo&nbsp;di&nbsp;Creutzfeld-Jakob&nbsp;e&nbsp;nuova variante del M. di Creutzfeld-Jakob: sono permanentemente esclusi i soggetti che:<ul>
+<li style="text-align:justify;">hanno&nbsp;ricevuto&nbsp;trapianto&nbsp;di&nbsp;cornea,&nbsp;sclerao&nbsp;dura&nbsp;madre,</li>
+<li style="text-align:justify;">sono&nbsp;stati&nbsp;trattaticon&nbsp;estratti&nbsp;della&nbsp;ghiandola&nbsp;pituitaria,</li>
+<li style="text-align:justify;">hanno&nbsp;antecedenti&nbsp;medicio&nbsp;familiari&nbsp;che&nbsp;comportano&nbsp;un&nbsp;rischio&nbsp;di&nbsp;contrarre&nbsp;TSE (demenza&nbsp;a&nbsp;rapida&nbsp;progressione,&nbsp;malattie&nbsp;neurologiche&nbsp;degenerative&nbsp;comprese le patologie di origine sconosciuta);</li>
+<li style="text-align:justify;">hanno soggiornato per più di sei mesi cumulativi nel Regno Unito nel periodo 1980-1996;</li>
+</ul>
+</li>
+</ul>
+<ul style="list-style-type:square;">
+<li style="text-align:justify;">&nbsp;hanno subito intervento chirurgico o trasfusione di sangue o somministrazione di emoderivati nel Regno Unito dal 1980 al 1996.</li>
+</ul>
+<ol>
+<li style="text-align:justify;">Malattie&nbsp;muscolari&nbsp;di&nbsp;qualsiasi&nbsp;tipo</li>
+</ol>
+<p style="text-align:justify;">Comportano&nbsp;la&nbsp;esclusione&nbsp;definitiva.</p>
+<ol>
+<li style="text-align:justify;">Malattie&nbsp;autoimmuni</li>
+</ol>
+<p style="text-align:justify;">Sono esclusi soggetti con malattia autoimmunitaria che coinvolge più organi. Sono esclusi soggetti con malattia autoimmunitaria, anche mono-organo, se candidati a procedure che prevedano la somministrazione di fattori di crescita.</p>
+<ol>
+<li style="text-align:justify;">Diabete&nbsp;mellito</li>
+</ol>
+<ul>
+<li style="text-align:justify;">In&nbsp;terapia&nbsp;con&nbsp;insulina:&nbsp;esclusione&nbsp;permanente.</li>
+<li style="text-align:justify;">In terapia con ipoglicemizzanti orali, s.c. e anticorpi monoclonali: idoneità se ben controllato dalla terapia.</li>
+</ul>
+<ol>
+<li>Fratture</li>
+</ol>
+<ul>
+<li>Semplici:&nbsp;idoneità</li>
+<li>Esposte,&nbsp;complicate,&nbsp;che&nbsp;richiedono&nbsp;introduzione&nbsp;di&nbsp;mezzi&nbsp;di&nbsp;sintesi:&nbsp;sospensione temporanea per 4 mesi.</li>
+</ul>
+<ol>
+<li>Infezione&nbsp;erpetica</li>
+</ol>
+<ul>
+<li>Herpes&nbsp;Simplexe&nbsp;genitale:&nbsp;idoneitàdopo&nbsp;guarigione;</li>
+<li>Varicella:&nbsp;sospensione&nbsp;di&nbsp;4&nbsp;settimanedalla&nbsp;guarigione;</li>
+<li>Herpes&nbsp;Zoster:sospensione&nbsp;di&nbsp;4&nbsp;settimane&nbsp;dalla&nbsp;guarigione&nbsp;senza&nbsp;complicanze.</li>
+</ul>
+<ol>
+<li>Malattie&nbsp;dermatologiche</li>
+</ol>
+<ul>
+<li>Psoriasi:&nbsp;esclusione&nbsp;se&nbsp;in&nbsp;forma&nbsp;estesa&nbsp;e&nbsp;con&nbsp;complicanze&nbsp;articolari&nbsp;(artrite&nbsp;psoriasica)</li>
+<li>Eczema:&nbsp;sospensione&nbsp;se&nbsp;nella&nbsp;sede&nbsp;della&nbsp;venipuntura.</li>
+<li>Dermatite&nbsp;atopica:sospensione&nbsp;per&nbsp;6&nbsp;mesi&nbsp;dallaterapia&nbsp;con&nbsp;anticorpi&nbsp;monoclonali&nbsp;in assenza di segni e sintomi compatibili con la S. di Vidal-Wright.</li>
+</ul>
+<ol>
+<li>Malattie&nbsp;allergiche</li>
+</ol>
+<ul>
+<li>Documentata storia di anafilassi (shock anafilattico, edema della glottide): esclusione&nbsp;definitiva.</li>
+<li>Manifestazioni&nbsp;allergiche&nbsp;gravi:&nbsp;sospensione&nbsp;di&nbsp;2&nbsp;mesi&nbsp;dall'ultima&nbsp;esposizione</li>
+<li>Rinite&nbsp;e&nbsp;rinocongiuntivite&nbsp;allergica:&nbsp;idoneo</li>
+<li>Immunoterapia&nbsp;specificainiettiva&nbsp;(SCIT):&nbsp;sospensione&nbsp;di&nbsp;72&nbsp;ore&nbsp;dall’ultima&nbsp;iniezione.</li>
+<li>Immunoterapia&nbsp;specificaorale&nbsp;(SLIT):&nbsp;nessunasospensione</li>
+<li>Immunoterapia&nbsp;specifica&nbsp;per&nbsp;imenotteri:&nbsp;esclusione&nbsp;definitiva,&nbsp;in&nbsp;caso&nbsp;di&nbsp;pregressa anafilassi.</li>
+<li>Asma&nbsp;allergico:&nbsp;in&nbsp;caso&nbsp;di&nbsp;asma&nbsp;sporadico&nbsp;il&nbsp;soggetto&nbsp;è&nbsp;idoneo.</li>
+</ul>
+<ol>
+<li>Malattie&nbsp;psichiatriche</li>
+</ol>
+<ul>
+<li>Depressione:<ul>
+<li>Forme&nbsp;endogene&nbsp;e&nbsp;s.&nbsp;bipolare:&nbsp;esclusione</li>
+</ul>
+</li>
+<li>Forme&nbsp;psicotiche:&nbsp;esclusione;</li>
+<li>Lievi&nbsp;forme&nbsp;ansiose,controllate&nbsp;terapeuticamente,&nbsp;sono&nbsp;ammesse.</li>
+</ul>
+<p>Attacchi&nbsp;di&nbsp;panico:&nbsp;sospensione&nbsp;temporanea,&nbsp;fino&nbsp;a&nbsp;guarigione</p>
+		 </div>
+		 <div id="testo-cap7-3">
+		GRAVIDANZA<BR>
+
+In atto: sospensione temporanea;<BR>
+
+Dopo il parto: sospensione temporanea per 6 mesi;Non in Allattamento<BR>
+
+Interruzione di gravidanza: sospensione temporanea per 6 mesi.
+		 </div>
+		  <div id="testo-cap7-4">
+		
+		 </div>
+    </div> <!-- CHIUSURA DI TESTO-SORGENTE -->
+    <!-- Inclusione sicura della libreria jQuery via CDN per la gestione responsive su iPhone -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Rileva il click o il tocco sui pulsanti dell'indice
+            $(".btn-indice").on("click", function() {
+                var titoloVoce = $(this).text();
+                var targetDivId = $(this).attr("data-target");
+
+                // Estrae direttamente l'HTML all'interno del div corrispondente
+                var contenutoHtml = $("#" + targetDivId).html();
+
+                if (contenutoHtml) {
+                    // Carica l'HTML formattato all'interno del pop-up e lo mostra
+                    $("#popTitolo").text(titoloVoce);
+                    $("#popTesto").html(contenutoHtml);
+                    $("#popVaccino").fadeIn(200);
+                } else {
+                    alert("Errore: Il div di testo per questa sezione non è stato trovato nella pagina.");
+                }
+            });
+
+            // Chiude il pop-up premendo sulla "X"
+            $(".chiudi").on("click", function() {
+                $("#popVaccino").fadeOut(150);
+            });
+
+            // Chiude la finestra modale se si tocca lo sfondo grigio (molto comodo su iPhone)
+            $("#popVaccino").on("click", function(event) {
+                if (event.target === this) {
+                    $(this).fadeOut(150);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

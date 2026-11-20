@@ -1,0 +1,834 @@
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}body{margin:0;}
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+/* il prima serve per essere tutto compreso nella pagina */
+body {
+	/* --color-text: #fff;
+	--color-bg: #101010; background-color: #fff;
+	background-color: var(--color-bg); */
+		
+	--color-link: #fff;
+	--color-link-hover: #0b44fb;
+	
+	font-family: "Niramit", Arial, sans-serif;
+	min-height: 100vh;
+	color: #57585c;
+	color: #fff;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow: scroll;
+	overflow-x: hidden;
+}
+
+.frame, .nav {
+  z-index: 2;
+}
+/* =========================================================
+   2. PANNELLO OSCILLANTE IN LOOP (EFFETTO APPLE GLASS) background
+   ========================================================= */
+.apple-pan-bg {
+    position: fixed !important;
+    /* Ingrandiamo il pannello oltre i bordi dello schermo per non mostrare strisce bianche durante il movimento */
+    top: -10%;
+    left: -10%;
+    width: 120vw;
+    height: 120vh;
+    
+    z-index: -9999 !important; /* Spinto tassativamente dietro a tutto */
+    pointer-events: none;       /* Evita di bloccare i click sui bottoni della griglia */
+    
+    /* Carica la tua immagine liquida rossa */
+    background-image: url('../imG/T.jpg') !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+      filter: blur(3px) saturate(1.2) !important;         /* Sfoca e aumenta leggermente l'intensità del rosso */
+    -webkit-filter: blur(3px) saturate(1.2) !important; /* Garantisce il funzionamento su Safari e iPhone */
+    /* 
+       AVVIA L'ANIMAZIONE DI OSCILLAZIONE:
+       - 30s: Movimento estremamente lento e rilassante
+       - ease-in-out: Rallenta dolcemente prima di invertire la rotta
+       - alternate: Dice al browser di andare avanti e POI tornare indietro (loop perfetto)
+    */
+    animation: oscillaSfondoApple 30s ease-in-out infinite alternate !important;
+    
+    /* Forza l'accelerazione hardware 3D della scheda video (Risolve ogni blocco) */
+    transform: translate3d(0,0,0);
+    backface-visibility: hidden;
+    will-change: transform;
+}
+
+/* =========================================================
+   3. MOVIMENTO DI FLUTTUAZIONE MATEMATICO 3D
+   ========================================================= */
+@keyframes oscillaSfondoApple {
+    0% {
+        /* Stato iniziale: immagine al naturale, centrata */
+        transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    }
+    50% {
+        /* A metà strada: si sposta leggermente in diagonale e si ingrandisce del 4% */
+        transform: translate3d(2vw, 3vh, 0) scale(1.04) rotate(1deg);
+    }
+    100% {
+        /* Fine corsa: si sposta nell'altro angolo e si inclina leggermente nell'altro verso */
+        transform: translate3d(-2vw, -2vh, 0) scale(1.02) rotate(-1deg);
+    }
+}
+
+
+
+@keyframes loaderAnim {
+	to {
+		opacity: 1;
+		transform: scale3d(0.5,0.5,1);
+	}
+}
+
+
+a {
+	text-decoration: none;
+	color: var(--color-link);
+	outline: none;
+}
+
+a:hover,
+a:focus {
+	color: var(--color-link-hover);
+}
+
+button:focus,
+a:focus {
+	outline: none;
+}
+
+.hidden {
+	position: absolute;
+	overflow: hidden;
+	width: 0;
+	height: 0;
+	pointer-events: none;
+}
+
+/* Icons */
+.icon {
+	display: block;
+	width: 1.5em;
+	height: 1.5em;
+	margin: 0 auto;
+	fill: currentColor;
+}
+
+main {
+	position: relative;
+	width: 100%;
+}
+
+.frame {
+	padding: 2rem 1rem 0;
+	text-align: center;
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+.content {
+	text-align: center;
+}
+
+/* Header */
+.frame-header {
+	position: relative;
+	
+}
+
+.frame-header__links a {
+	display: inline-block;
+	text-transform: lowercase;
+}
+
+.frame-header__links a:nth-child(2) {
+	margin: 0 0.5rem;
+}
+
+.frame-header__title {
+	font-size: 1rem;
+	line-height: 1;
+	margin: 0 0 0.75rem 0;
+}
+/* non */
+.pageheader {
+	font-size: 1rem;
+	margin: 1rem 0;
+	font-family: "Niramit", Arial, sans-serif;
+}
+/* non */
+.menutop__item {
+	pointer-events: auto;
+	font-weight: bold;
+	cursor: pointer;
+	margin: 0 0.5rem;
+}
+
+.menutop__item--social {
+	color: #323232;
+}
+
+
+/* Contenitore del menu relativo per posizionare l'indicatore */
+.menu {
+ position: fixed; /* Mantiene il menu fisso in alto durante lo scroll */
+  top: 9.6875rem;       /* Distanza dal bordo superiore */
+  left: 50%;
+  transform: translateX(-50%); /* Centra il menu orizzontalmente */
+
+  gap: 15px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+   flex-wrap: wrap; /* Rende il menu responsive! */
+  /* CRITICO: Forza il menu sopra la griglia di immagini di frame ERA 9999 */
+  z-index: 2 !important; 
+  width: 100%;
+	height: calc(100% - 9.6875rem);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start; /* I link partono dall'alto, NON dal centro! */
+	pointer-events: none;
+}
+/* Assicurati che il testo del menu rimanga sopra l'effetto */
+.menu__item {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	pointer-events: auto;
+	 z-index: 2;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.menu--closed .menu__item {
+	pointer-events: none;
+}
+
+.menu__item-number {
+	display: none;
+	font-size: 0.85rem;
+}
+
+.menu__item-textwrap {
+	position: relative;
+	overflow: hidden;
+	line-height: 1;
+	margin: 1rem 0 0 0;
+}
+
+.menu__item-text {
+	font-family: "Anton", Arial, sans-serif;
+	text-transform: uppercase;
+	-webkit-text-stroke: 2px #fff;
+	text-stroke: 2px #fff;
+	-webkit-text-fill-color: transparent;
+	text-fill-color: transparent;
+	color: transparent;
+	font-size: 2rem;
+	padding: 0 1rem;
+	cursor: pointer;
+	display: inline-block;
+}
+
+.menu__item--current .menu__item-text {
+	-webkit-text-fill-color: #fff;
+	text-fill-color: #fff;
+	color: #fff;
+	-webkit-text-stroke: 2px transparent;
+	text-stroke: 2px transparent;
+}
+
+.menu__item-link {
+	pointer-events: none;
+	font-weight: bold;
+	align-self: flex-end;
+	opacity: 0;
+	width: 100%;
+	cursor: pointer;
+	text-align: center;
+}
+
+.menu__item--current .menu__item-link {
+	pointer-events: auto;
+}
+
+.gridwrap {
+	display: grid;
+	max-width: 1300px;
+	margin: 0 auto;
+	grid-template-columns: 100%;
+	grid-template-rows: 1.75rem calc(100% - 1.75rem);
+	position: relative;
+	padding: 12rem 5vw 2rem;
+	pointer-events: none;
+}
+
+.gridback {
+	align-self: center;
+	grid-area: 1 / 1 / 2 / 2;
+	justify-self: center;
+	background: none;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	color: #fff;
+	opacity: 0;
+}
+
+.gridback:hover {
+	color: var(--color-link-hover);
+}
+
+.gridback:focus {
+	outline: none;
+}
+
+.grid--open ~ .gridback {
+	pointer-events: auto;
+}
+
+.grid {
+	grid-area: 2 / 1 / 3 / 2;
+	--gridgap: 3vw;
+	--gridwidth: 100%;
+	--gridheight: calc(100vh - 9.6875rem);
+	display: grid;
+	width: var(--gridwidth);
+	height: var(--gridheight);
+	grid-template-rows: repeat(10,calc(var(--gridheight) / 10 - var(--gridgap)));
+	grid-template-columns: repeat(10,calc(var(--gridwidth) / 10 - var(--gridgap)));
+	grid-gap: var(--gridgap);
+	align-content: center;
+    justify-content: center;
+	
+}
+
+.grid__item {
+	opacity: 0;
+	position: relative;
+	  background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.grid--open .grid__item {
+	 background-size: contain !important; /* Mantiene la foto intera */
+    
+    max-height: 25vh !important; /* Limita l'altezza di ogni foto al 25% dello schermo  DOPO*/
+	   border-radius: 12px !important;
+    /* Sostituisce il nero con uno sfondo grigio-vetro semitrasparente */
+    background-color: rgba(255, 255, 255, 0.15) !important; 
+    /* Sfoca lo sfondo dietro le strisce per eliminare lo stacco netto */
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+}
+
+.grid__item::after {
+	content: '';
+	 /* 
+       EFFETTO VETRO APANNATO ROSSO APPLE:
+       Invece del nero fisso (0,0,0,0.7), usiamo un rosso scuro semitrasparente 
+       e applichiamo il backdrop-filter per sfocare l'immagine sottostante.
+    */
+	background: rgba(40, 2, 2, 0.4); 
+    /* Sfocatura forte interna (Liquid Glass) + saturazione del rosso */
+    backdrop-filter: blur(2px) saturate(1.4);
+    -webkit-backdrop-filter: blur(2px) saturate(1.4); /* Supporto Safari/iPhone */
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	transition: background 1s cubic-bezier(1,0,0,1);
+}
+
+.grid--open .grid__item::after {
+	border: 2px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 
+        inset 0 0 20px rgba(255, 255, 255, 0.4),  /* Bagliore liquido sui bordi */
+        inset 0 6px 12px rgba(255, 255, 255, 0.5), /* Riflesso di luce superiore */
+        0 12px 24px rgba(0, 0, 0, 0.3) !important; /* Ombra 3D del widget */
+    background: transparent !important;
+	/* Spegne istantaneamente la sfocatura quando l'immagine si espande al centro */
+    backdrop-filter: blur(0px) saturate(1);
+    -webkit-backdrop-filter: blur(0px) saturate(1);
+}
+
+/* Layout 1 */
+.grid--layout-1 .grid__item:first-child {grid-area: 3 / 1 / 6 / 4;}
+.grid--layout-1 .grid__item:nth-child(2) {grid-area: 1 / 1 /4 / 4;}/* grid legge */
+.grid--layout-1 .grid__item:nth-child(3) {grid-area: 5 / 4 / 8 / 7; }
+.grid--layout-1 .grid__item:nth-child(4) {grid-area: 2 / 7 / 5 / 10;}
+.grid--layout-1 .grid__item:nth-child(5) {grid-area: 1 / 4 / 5 / 7;}/* grid vac */
+.grid--layout-1 .grid__item:nth-child(6) {grid-area: 3 / 5 / 7 / 8;}
+.grid--layout-1 .grid__item:nth-child(7) {grid-area: 10 / 9 / 8 / 11;}
+.grid--layout-1 .grid__item:nth-child(8) {grid-area: 5 / 8 / 8 / 10;}
+.grid--layout-1 .grid__item:nth-child(9) {grid-area: 8 / 5 / 11 / 9;}
+
+
+/* Layout 2 */
+.grid--layout-2 .grid__item:first-child { grid-area: 2 / 1 / 5 / 4; }
+.grid--layout-2 .grid__item:nth-child(2) { grid-area: 1 / 4 / 4 / 7; }
+.grid--layout-2 .grid__item:nth-child(3) {grid-area: 1 / 7 / 5 / 10;}
+.grid--layout-2 .grid__item:nth-child(4) {grid-area: 5 / 1 / 7 / 4;}
+.grid--layout-2 .grid__item:nth-child(5) {grid-area: 4 / 4 / 7 / 7;}
+.grid--layout-2 .grid__item:nth-child(6) {grid-area: 7 / 7 / 11 / 4;}
+.grid--layout-2 .grid__item:nth-child(7) {grid-area: 5 / 7 / 8 / 11;}
+.grid--layout-2 .grid__item:nth-child(8) {grid-area: 7 / 2 / 9 / 4;}
+
+/* Layout 3 */
+.grid--layout-3 .grid__item:first-child {grid-area: 1 / 2 / 3 / 5;}
+.grid--layout-3 .grid__item:nth-child(2) {grid-area: 3 / 1 / 6 / 5;}
+.grid--layout-3 .grid__item:nth-child(3) {grid-area: 1 / 5 / 5 / 8;}
+.grid--layout-3 .grid__item:nth-child(4) {grid-area: 2 / 8 / 6 / 11;}
+.grid--layout-3 .grid__item:nth-child(5) {grid-area: 5 / 5 / 8 / 8;}
+.grid--layout-3 .grid__item:nth-child(6) {grid-area: 6 / 8 / 8 / 11;}
+.grid--layout-3 .grid__item:nth-child(7) {grid-area: 6 / 2 / 8 / 5;}
+.grid--layout-3 .grid__item:nth-child(8) {grid-area: 11 / 4 / 8 / 7;}
+.grid--layout-3 .grid__item:nth-child(9) {grid-area: 8 / 9 / 11 / 7;}
+
+/* Layout 4 */
+.grid--layout-4 .grid__item:first-child {grid-area: 2 / 1 / 4 / 4;}
+.grid--layout-4 .grid__item:nth-child(2) {grid-area: 1 / 4 / 3 / 7;}
+.grid--layout-4 .grid__item:nth-child(3) {grid-area: 3 / 4 / 5 / 7;}
+.grid--layout-4 .grid__item:nth-child(4) {grid-area: 1 / 7 / 4 / 11;}
+.grid--layout-4 .grid__item:nth-child(5) {grid-area: 4 / 2 / 7 / 4;}
+.grid--layout-4 .grid__item:nth-child(6) {grid-area: 5 / 7 / 8 / 4;}
+.grid--layout-4 .grid__item:nth-child(7) {grid-area: 4 / 7 / 8 / 11;}
+.grid--layout-4 .grid__item:nth-child(8) {grid-area: 8 / 9 / 11 / 4;}
+
+/* Layout 5 */
+.grid--layout-5 .grid__item:first-child {grid-area: 2 / 1 / 5 / 4;}
+.grid--layout-5 .grid__item:nth-child(2) {grid-area: 1 / 4 / 5 / 7;}
+.grid--layout-5 .grid__item:nth-child(3) {grid-area: 5 / 2 / 7 / 5;}
+.grid--layout-5 .grid__item:nth-child(4) {grid-area: 1 / 7 / 4 / 11;}
+.grid--layout-5 .grid__item:nth-child(5) {grid-area: 5 / 7 / 7 / 5;}
+.grid--layout-5 .grid__item:nth-child(6) {grid-area: 5 / 5 / 8 / 1;}
+.grid--layout-5 .grid__item:nth-child(7) {grid-area: 4 / 7 / 7 / 9;}
+.grid--layout-5 .grid__item:nth-child(8) {grid-area: 4 / 9 / 9 / 11;}
+.grid--layout-5 .grid__item:nth-child(9) {grid-area: 7 / 5 / 11 / 9;}
+
+
+.content {
+    display: none !important;
+	 height: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+	}
+	
+.page--preview {
+	position: relative;
+	overflow: hidden;
+	height: 100vh;
+}
+
+@media screen and (min-width: 53em) {  /* Layout 5 schermi da 848 pixel in su (inclusi gli schermi esattamente di 848 pixel).*/
+	.content {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 0 auto;
+		min-height: 60vh;
+		text-align: left;
+	}
+	.frame {
+		position: fixed;
+		text-align: left;
+		display: grid;
+		align-content: space-between;
+		max-width: none;
+		height: 100vh;
+		padding: 2rem;
+		pointer-events: none;
+		grid-template-columns: 50% 50%;
+		grid-template-rows: auto auto auto;
+		grid-template-areas: 'pageheader menutop'
+							'... ...'
+							'... frameheader';
+	}
+	.frame-header {
+		grid-area: frameheader;
+		padding: 0;
+		justify-self: end;
+		text-align: right;
+	}
+	.frame-links {
+		margin: 0;
+	}
+	.frame a {
+		pointer-events: auto;
+	}
+	.pageheader {
+		grid-area: pageheader;
+		margin: 0;
+	}
+	.menutop {
+		grid-area: menutop;
+		justify-self: end;
+		width: 100%;
+		display: grid;
+		grid-template-rows: 100%;
+		grid-auto-flow: column;
+		justify-content: end;
+		grid-gap: 1rem;
+	}
+	.menutop__item:nth-child(2) {
+		margin: 0 2rem 0 0;
+	}
+	.menu {
+		
+		height: 100%;
+
+	}
+	.menu__item {
+		margin: 1rem 0;
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+	}
+	.menu__item-number {
+		display: block;
+	}
+	.menu__item-text {
+		font-size: 8vh;
+	}
+	.menu__item-link {
+		text-align: left;
+		width: auto;
+	}
+	.gridwrap {
+		grid-gap: 3rem;
+		padding: 2rem 5vw;
+	}
+	.grid {
+		--gridheight: 1100px;
+	}
+	
+	.content__item {
+		font-size: 1.5rem;
+		padding: 10vh 1rem;
+	}
+}
+
+
+
+
+/* Bottone con effetto Apple Liquid Glass completo */
+.grid__item .btn-overlay-apple {
+    position: absolute;
+     bottom: 20px; /* Bottone con effetto Apple Liquid Glass completo IN MEZZO top: 50%; */
+    left: 50%;
+    transform: translate(-50%, 0) scale(0.8);/* Bottone con effetto Apple Liquid Glass completo IN MEZZO -50% AL POSTO DI 0 */
+    padding: 10px 22px;
+    
+    /* 1. Testo nitido e moderno in stile Apple */
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4); /* Rende il testo leggibile su foto chiare */
+    
+    /* 2. Angoli molto curvi tipici dei pulsanti iOS */
+    border-radius: 24px;
+    
+    /* 3. Base vitrea semitrasparente e riflesso diagonale lucido */
+    background: rgba(255, 255, 255, 0.1) !important;
+    background-image: linear-gradient(
+        135deg, 
+        rgba(255, 255, 255, 0.45) 0%, 
+        rgba(255, 255, 255, 0.15) 25%, 
+        rgba(255, 255, 255, 0) 60%
+    ) !important;
+    
+    /* 4. Micro-bordo perimetrale brillante (effetto cristallo) */
+    border: 1px solid rgba(255, 255, 255, 0.55) !important;
+    
+    /* 5. Effetto sfocatura Frosted Glass sullo sfondo sottostante */
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    
+    /* 6. Doppia ombra interna (luce sopra, ombra sotto) + ombra esterna 3D */
+    box-shadow: 
+        inset 0 3px 6px rgba(255, 255, 255, 0.4),   /* Luce liquida sul bordo alto */
+        inset 0 -3px 6px rgba(0, 0, 0, 0.15),       /* Ombra sul bordo basso */
+        0 8px 20px rgba(0, 0, 0, 0.35) !important;  /* Ombra proiettata sulla foto */
+        
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    pointer-events: auto !important;
+   
+}
+
+
+
+
+
+
+
+
+/* Mostra il bottone liquido quando la griglia è aperta */
+/* ==========================================
+   CODICE ORIGINALE AGGIORNATO (Stato Aperto)
+   ========================================== */
+.grid--open .grid__item .btn-overlay-apple {
+    opacity: 1;
+    visibility: visible;
+    /* Manteniamo scale(1) come base desktop */
+    transform: translate(-50%, 0) scale(1); /* Bottone con effetto Apple Liquid Glass completo IN MEZZO-50% AL POSTO DI 0; */
+}
+
+/* Effetto interattivo al passaggio del mouse AGG*/
+.grid__item .btn-overlay-apple:hover {
+    background: rgba(255, 255, 255, 0.25) !important;
+    color: #ffffff !important;
+    box-shadow: 
+        inset 0 3px 8px rgba(255, 255, 255, 0.6),
+        inset 0 -3px 6px rgba(0, 0, 0, 0.1),
+        0 12px 28px rgba(0, 0, 0, 0.45) !important;
+    /* Si solleva leggermente verso l'alto cambiando lo 0 in -4px */
+    transform: translate(-50%, -4px) scale(1.03); 
+}
+/* ==========================================
+   MEDIA QUERY: TABLET (Schermi sotto i 768px)
+   ========================================== */
+@media screen and (max-width: 768px) {
+    .grid__item .btn-overlay-apple {
+        padding: 8px 18px;          /* Riduce leggermente lo spazio interno */
+        font-size: 11px;            /* Riduce il testo */
+        border-radius: 18px;        /* Adatta la curvatura degli angoli */
+		bottom: 15px; /* Stringe leggermente la distanza dal bordo *//* Bottone con effetto Apple Liquid Glass completo IN MEZZO ELIM  */
+    }
+    
+    /* Gestisce l'animazione di apertura specifica per tablet */
+    .grid--open .grid__item .btn-overlay-apple {
+        transform: translate(-50%, 0) scale(0.95); /* Leggermente più piccolo */bottom: 15px; /* Stringe leggermente la distanza dal bordo *//* Bottone con effetto Apple Liquid Glass completo IN MEZZO AL POSTO 0 SI METTE -50% */
+    }
+
+    /* Adatta l'effetto hover per tablet */
+    .grid__item .btn-overlay-apple:hover {
+        transform: translate(-50%, -2%) scale(0.98);/* Bottone con effetto Apple Liquid Glass completo IN MEZZO AL POSTO -2 SI METTE -52% */
+    }
+}
+
+/* ==========================================
+   MEDIA QUERY: SMARTPHONE (Schermi sotto i 480px)
+   ========================================== */
+@media screen and (max-width: 480px) {
+    .grid__item .btn-overlay-apple {
+        padding: 6px 14px;          /* Compatta al massimo il bottone */
+        font-size: 10px;            /* Testo molto piccolo ma leggibile */
+        font-weight: 500;           /* Testo un filo più sottile per non impastarsi */
+        letter-spacing: 0.2px;      /* Avvicina leggermente le lettere */
+        border-radius: 14px;        /* Angoli proporzionati alle nuove dimensioni */
+        bottom: 12px; /* Avvicina ulteriormente il bottone per non coprire il centro della foto */ /* Bottone con effetto Apple Liquid Glass completo IN MEZZO AL POSTO 0 SI METTE ELIM */
+        /* Riduce leggermente le ombre interne per non scurire troppo il bottone piccolo */
+        box-shadow: 
+            inset 0 2px 4px rgba(255, 255, 255, 0.4),   
+            inset 0 -2px 4px rgba(0, 0, 0, 0.15),       
+            0 5px 12px rgba(0, 0, 0, 0.3) !important;  
+    }
+    
+    /* Gestisce l'animazione di apertura specifica per smartphone */
+    .grid--open .grid__item .btn-overlay-apple {
+        transform: translate(-50%, 0) scale(0.85); /* Scala il bottone all'85% *//* Bottone con effetto Apple Liquid Glass completo IN MEZZO AL POSTO 0 SI METTE -50% */
+    }
+
+    /* Disattiva o limita l'hover sui telefoni (visto che si usa il touch e non il mouse) */
+    .grid__item .btn-overlay-apple:hover {
+        transform: translate(-50%, 0) scale(0.85); /* Evita lo scatto verso l'alto al tocco *//* Bottone con effetto Apple Liquid Glass completo IN MEZZO AL POSTO 0 SI METTE -50% */
+        background: rgba(255, 255, 255, 0.15) !important;
+    }
+}
+
+
+
+
+/* 1. Applica l'effetto cromato e metallico lucido alla freccia originale dell'HTML */
+#icon-arrow, 
+svg use[*|href="#icon-arrow"],
+.btn--close svg, 
+.gridwrap__close svg {
+    fill: none !important; /* Rimuove il colore solido interno */
+    stroke: #ffffff !important; /* Sostituisce il riempimento nero con una linea bianca */
+    stroke-width: 1.5px !important; /* Rende la freccia originale più sottile ed elegante */
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+    
+    /* Effetto Liquid Glass: crea il micro-bagliore bianco e l'ombra 3D sulla linea della freccia */
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6)) 
+            drop-shadow(0 0 1px rgba(255, 255, 255, 0.9)) !important;
+    
+    width: 24px !important;
+    height: 24px !important;
+    transition: transform 0.3s ease !important;
+}
+
+/* 2. Trasforma il pulsante rotondo che contiene la freccia in una lente di vetro trasparente */
+.btn--close, 
+.gridwrap__close,
+button[class*="close"] {
+   background-image: linear-gradient(
+        135deg, 
+        rgba(255, 255, 255, 0.45) 0%, 
+        rgba(255, 255, 255, 0.15) 25%, 
+        rgba(255, 255, 255, 0) 60%
+    ) !important;
+    border: 0.5px solid rgba(255, 255, 255, 0.5) !important; /* Bordo brillante stile display Retina */
+    backdrop-filter: blur(16px) !important; /* Sfoca lo sfondo dietro il tasto */
+    -webkit-backdrop-filter: blur(16px) !important;
+    
+    border-radius: 50% !important; /* Cerchio perfetto */
+    width: 46px !important;
+    height: 46px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: fixed !important;
+    cursor: pointer !important;
+    z-index:  !important; /*CANCELLATO z-index: 99999. Eredita lo z-index 1 dal padre .page */
+    
+    /* Doppia ombra (luce specchiata sopra, ombra scura sotto) */
+    box-shadow: 
+        inset 0 4px 6px rgba(255, 255, 255, 0.4),   
+        inset 0 -3px 6px rgba(0, 0, 0, 0.1),        
+        0 10px 24px rgba(0, 0, 0, 0.3) !important;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+/* 3. Effetto quando passi il mouse sopra il pulsante (Hover) */
+.btn--close:hover, 
+.gridwrap__close:hover,
+button[class*="close"]:hover {
+    background: rgba(255, 255, 255, 0.22) !important;
+    box-shadow: 
+        inset 0 4px 8px rgba(255, 255, 255, 0.5),
+        0 12px 28px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* La freccia originale compie un piccolo scatto dinamico all'indietro all'hover */
+.btn--close:hover svg, 
+.gridwrap__close:hover svg,
+button[class*="close"]:hover svg {
+    transform: translateX(-3px);
+}
+
+/* ==========================================================================
+   1. SCHERMO GRANDE (PC / NOTEBOOK) - Da 1025px in su
+   ========================================================================== */
+@media screen and (min-width: 1025px) {
+  div.grid, .grid {
+    display: grid !important;
+    height: auto !important;
+    --gridheight: auto !important;
+    grid-template-columns: repeat(3, 1fr) !important; /* TRÈ COLONNE */
+    grid-template-rows: auto !important; 
+    grid-gap: 24px !important;
+    row-gap: 24px !important;
+    column-gap: 24px !important;
+    padding: 40px !important;
+  }
+
+  .grid > *, .grid__item {
+    grid-area: auto !important; 
+    grid-column: auto !important;
+    grid-row: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important; 
+    background-size: cover !important;
+    background-position: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    box-sizing: border-box !important;
+    padding: 20px !important;
+  }
+
+  .grid > * .apple, .grid__item .apple {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    padding: 10px 5px !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+    color: #fff !important;
+    font-size: 16px !important;
+    border-radius: 6px !important;
+    text-decoration: none !important;
+  }
+}
+
+/* ==========================================================================
+   2. TABLET E SMARTPHONE (IPHONE / ANDROID) - Da 0px fino a 1024px
+   ========================================================================== */
+@media screen and (max-width: 1024px) {
+  div.grid, .grid {
+    display: grid !important;
+    height: auto !important;
+    --gridheight: auto !important;
+    
+    /* Forza DUE colonne su tutti i dispositivi mobili e tablet */
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-rows: auto !important; 
+    
+    /* Distanziamento generoso per evitare sovrapposizioni */
+    grid-gap: 20px !important; 
+    row-gap: 20px !important;
+    column-gap: 20px !important;
+    padding: 15px !important;
+  }
+
+  .grid > *, .grid__item {
+    grid-area: auto !important; 
+    grid-column: auto !important;
+    grid-row: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    
+    /* Forma quadrata ideale per il touch dei telefoni */
+    aspect-ratio: 1 / 1 !important; 
+    
+    background-size: cover !important;
+    background-position: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    box-sizing: border-box !important;
+    padding: 12px !important;
+    margin: 0 !important;
+  }
+
+  .grid > * .apple, .grid__item .apple {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin: 0 !important;
+    padding: 8px 4px !important;
+    box-sizing: border-box !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+    color: #fff !important;
+    font-size: 13px !important;
+    border-radius: 4px !important;
+  }
+}
