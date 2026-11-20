@@ -4,9 +4,12 @@ exports.handler = async (event) => {
   const pageUrl = event.queryStringParameters.page || '/';
 
   try {
-    const response = await fetch(`https://netlify.com{siteId}/submissions`, {
-      headers: { Authorization: `Bearer ${token}` }
+       const dominio = ["api", "netlify", "com"].join(".");
+    const url = "https://" + dominio + "/api/v1/sites/" + siteId + "/submissions";
+    const response = await fetch(url, {
+      headers: { Authorization: "Bearer " + token }
     });
+
 
     if (!response.ok) {
       throw new Error('Errore nella lettura dei commenti: ' + response.status);
