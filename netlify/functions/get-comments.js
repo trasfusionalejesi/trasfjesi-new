@@ -1,5 +1,5 @@
 exports.handler = async (event) => {
-  const siteId = process.env.NETLIFY_SITE_ID;
+  const siteId = process.env.NETLIFY_SITE_ID || process.env.SITE_ID;
   const token = process.env.NETLIFY_ACCESS_TOKEN;
   const pageUrl = event.queryStringParameters.page || '/';
 
@@ -9,7 +9,7 @@ exports.handler = async (event) => {
     });
 
     if (!response.ok) {
-      throw new Error('Errore API Netlify: ' + response.status);
+      throw new Error('Errore nella lettura dei commenti: ' + response.status);
     }
 
     const submissions = await response.json();
@@ -34,4 +34,5 @@ exports.handler = async (event) => {
     };
   }
 };
+
 
