@@ -9,12 +9,11 @@ exports.handler = async (event) => {
     });
 
     if (!response.ok) {
-      throw new Error('Errore nella lettura dei commenti');
+      throw new Error('Errore API Netlify: ' + response.status);
     }
 
     const submissions = await response.json();
 
-    // Filtra i commenti del form "commenti" relativi alla pagina corrente
     const comments = submissions
       .filter(sub => sub.form_name === 'commenti' && (sub.data.page === pageUrl || (!sub.data.page && pageUrl === '/')))
       .map(sub => ({
@@ -35,3 +34,4 @@ exports.handler = async (event) => {
     };
   }
 };
+
