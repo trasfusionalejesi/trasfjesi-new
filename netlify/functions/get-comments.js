@@ -18,12 +18,13 @@ exports.handler = async (event) => {
     const submissions = await response.json();
 
     const comments = submissions
-      .filter(sub => sub.form_name === 'commenti' && (sub.data.page === pageUrl || (!sub.data.page && pageUrl === '/')))
-      .map(sub => ({
-        nome: sub.data.nome,
-        messaggio: sub.data.messaggio,
-        data: sub.created_at
-      }));
+  .filter(sub => sub.form_name === 'commenti')
+  .map(sub => ({
+    nome: sub.data.nome,
+    messaggio: sub.data.messaggio,
+    data: sub.created_at
+  }));
+
 
     return {
       statusCode: 200,
