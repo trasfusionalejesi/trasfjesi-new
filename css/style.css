@@ -1,0 +1,773 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #111827;
+  --secondary-color: #374151;
+  --accent-color: #2563eb;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --background: #ffffff;
+  --background-alt: #f9fafb;
+  --border-color: #e5e7eb;
+  --nav-height: 72px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background: var(--background-alt);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/*============================
+  Navbar
+==============================*/
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--background);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 32px);
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 20px;
+  z-index: 1001;
+}
+
+.logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+
+.logo-text {
+  letter-spacing: -0.5px;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 4vw, 48px);
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 32px);
+  list-style: none;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--text-primary);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  display: inline-block;
+  text-align: center;
+}
+
+.nav-btn.secondary {
+  color: var(--text-primary);
+  background: transparent;
+  border: 1px solid var(--border-color);
+}
+
+.nav-btn.secondary:hover {
+  background: var(--background-alt);
+}
+
+.nav-btn.primary {
+  color: #ffffff;
+  background: var(--accent-color);
+  border: 1px solid var(--accent-color);
+}
+
+.nav-btn.primary:hover {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+/*============================
+  Hero / Showcase
+==============================*/
+.main-content {
+  margin-top: var(--nav-height);
+}
+
+.showcase {
+  position: relative;
+  overflow: hidden;
+  height: 380px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #111827;
+  color: #ffffff;
+}
+
+.showcase::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(17, 24, 39, 0.8) 0%, rgba(17, 24, 39, 0.4) 100%);
+  z-index: 0;
+}
+
+.showcase-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.showcase-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 32px);
+}
+
+.hero-badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #ffffff;
+  background: var(--accent-color);
+  padding: 5px 12px;
+  border-radius: 6px;
+  margin-bottom: 14px;
+}
+
+.showcase-content h1 {
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 800;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.showcase-content p {
+  max-width: 620px;
+  font-size: clamp(15px, 2.5vw, 18px);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/*============================
+  Griglia & Card
+==============================*/
+.content-section {
+  padding: clamp(40px, 8vw, 72px) clamp(16px, 4vw, 32px);
+}
+
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: clamp(24px, 4vw, 32px);
+}
+
+.feature-card {
+  background: var(--background);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.feature-card-body {
+  padding: clamp(24px, 4vw, 32px);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-icon {
+  width: 52px;
+  height: 52px;
+  background: var(--background-alt);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.feature-icon svg {
+  width: 26px;
+  height: 26px;
+  stroke: var(--accent-color);
+}
+
+.feature-title {
+  font-size: clamp(18px, 3vw, 22px);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.feature-text {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.card-footer-btn {
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+/* Finestrella Orari */
+.schedule-window {
+  background: var(--background-alt);
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--accent-color);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.schedule-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--text-primary);
+  border-bottom: 1px dashed var(--border-color);
+  padding-bottom: 6px;
+}
+
+.schedule-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.schedule-row span {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Riquadro Testuale Sottostante */
+.info-detail-box {
+  margin-top: clamp(24px, 4vw, 32px);
+}
+
+.section-badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--accent-color);
+  margin-bottom: 8px;
+}
+
+.detail-title {
+  font-size: clamp(22px, 3.5vw, 28px);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+  letter-spacing: -0.5px;
+}
+
+.activity-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-color);
+}
+
+.activity-item h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.activity-item p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: min(320px, 85vw);
+    height: 100vh;
+    background: var(--background);
+    flex-direction: column;
+    padding: 100px 32px 32px;
+    gap: 32px;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+    transition: right 0.4s ease;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .nav-item {
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .nav-link {
+    display: block;
+    padding: 16px 0;
+  }
+
+  .nav-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+/*============================
+  Waves & Footer
+==============================*/
+.waves {
+  position: relative;
+  width: 100%;
+  height: 15vh;
+  margin-bottom: -7px;
+  min-height: 80px;
+  max-height: 130px;
+}
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+
+.glass-footer {
+  background: var(--background);
+  border-top: 1px solid var(--border-color);
+  padding: 28px clamp(16px, 4vw, 32px);
+  text-align: center;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.copyright {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+.activity-card-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.col-btn-wrapper {
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+
+/*============================
+  Accordion Ambulatorio
+==============================*/
+html {
+  scroll-behavior: smooth;
+}
+
+button.nav-btn {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.accordion-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.custom-accordion {
+  background: var(--background-alt);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.custom-accordion[open] {
+  background: var(--background);
+  border-color: var(--accent-color);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
+}
+
+.accordion-header {
+  list-style: none;
+  padding: 18px 22px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  user-select: none;
+}
+
+.accordion-header::-webkit-details-marker {
+  display: none;
+}
+
+.accordion-icon {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--accent-color);
+  transition: transform 0.25s ease;
+}
+
+.custom-accordion[open] .accordion-icon {
+  transform: rotate(45deg);
+}
+
+.accordion-body {
+  padding: 0 22px 22px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 18px;
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.accordion-list {
+  margin: 10px 0 14px 20px;
+  color: var(--text-primary);
+}
+
+.accordion-list li {
+  margin-bottom: 6px;
+}
+
+.accordion-alert {
+  background: var(--background-alt);
+  border-left: 3px solid var(--accent-color);
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.prestazione-item {
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.prestazione-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.prestazione-item h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 6px;
+}
+
+.nota-aggiuntiva {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+
+.back-top-wrapper {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: flex-end;
+}
+/*============================
+  Card Orizzontale & Lista Contatti
+==============================*/
+.feature-card.horizontal-card {
+  flex-direction: row;
+  align-items: stretch;
+  margin-top: clamp(24px, 4vw, 32px);
+  overflow: hidden;
+}
+
+.horizontal-card-img {
+  flex: 0 0 42%;
+  min-height: 260px;
+  overflow: hidden;
+  border-right: 1px solid var(--border-color);
+}
+
+.horizontal-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.feature-card.horizontal-card:hover .horizontal-card-img img {
+  transform: scale(1.04);
+}
+
+.horizontal-card-body {
+  flex: 1;
+  padding: clamp(24px, 4vw, 32px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contatti-list {
+  list-style: none;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--text-primary);
+}
+
+.contatti-list li {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.contatti-list a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contatti-list a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .feature-card.horizontal-card {
+    flex-direction: column;
+  }
+
+  .horizontal-card-img {
+    flex: none;
+    height: 200px;
+    min-height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+}
+/*============================
+  Controllo Altezza Immagini Card
+==============================*/
+
+/* 1. Le 3 card superiori: altezza fissa uniforme */
+.feature-card-img {
+  width: 100%;
+  height: 190px; /* Regola questo valore se le vuoi più alte o più basse */
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.feature-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Taglia l'immagine in eccesso senza deformarla */
+  object-position: center;
+  display: block;
+}
+
+/* 2. Card orizzontale (Ambulatorio): l'immagine si adatta all'altezza del testo senza allungare la card */
+.feature-card.horizontal-card {
+  align-items: stretch;
+  max-height: 300px; /* Impedisce alla card orizzontale di diventare troppo alta */
+}
+
+.horizontal-card-img {
+  flex: 0 0 40%;
+  position: relative;
+  overflow: hidden;
+  border-right: 1px solid var(--border-color);
+}
+
+.horizontal-card-img img {
+  position: absolute; /* Stacca l'immagine dal flusso così non forza mai l'altezza della card */
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Su smartphone torna a svilupparsi in verticale con altezza controllata */
+@media (max-width: 768px) {
+  .feature-card.horizontal-card {
+    max-height: none;
+  }
+
+  .horizontal-card-img {
+    position: static;
+    height: 190px;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .horizontal-card-img img {
+    position: static;
+  }
+}

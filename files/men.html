@@ -1,0 +1,564 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 769px) {
+  body {
+    overflow: hidden;
+  }
+}
+body {
+background: #0f0c29;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+#body svg {
+  display: block;
+}
+
+.node circle {
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+.node text {
+  font: 12px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #555;
+  stroke-width: 1.5px;
+}
+
+/* Contenitore Accordion Mobile */
+#mobile-accordion {
+  display: none;
+  font-family: sans-serif;
+  padding: 12px;
+  color: #f5f5f5;
+}
+.acc-item {
+  border-left: 2px solid #4682b4;
+  margin-left: 8px;
+  margin-bottom: 8px;
+  padding-left: 10px;
+}
+#mobile-accordion > .acc-item {
+  border-left: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+.acc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.acc-title {
+  font-weight: bold;
+  font-size: 15px;
+  color: #fff;
+  text-decoration: none;
+}
+.acc-desc {
+  font-size: 13px;
+  color: #ccc;
+  margin-top: 6px;
+  padding: 8px 10px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  display: none;
+}
+.acc-children {
+  display: none;
+  margin-top: 8px;
+}
+.acc-open > .acc-children,
+.acc-open > .acc-desc {
+  display: block;
+}
+.acc-badge {
+  font-size: 12px;
+  background: #4682b4;
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 12px;
+  margin-left: 8px;
+  flex-shrink: 0;
+}
+
+</style>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	
+
+  
+<body>
+<div id="body"></div>
+<div id="mobile-accordion"></div>
+
+
+
+<script src="../js/men2.js" charset="utf-8"></script>
+
+
+<script src="../js/d3.v3.min.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.js" charset="utf-8"></script>
+<div class="popup" id="body">
+  
+</div>
+
+<script>
+var margin = {top: 20, right: 20, bottom: 30, left: 110};
+var maxBoxWidth = 90; // Larghezza massima in pixel prima di andare a capo
+var tastoZPremuto = false;
+
+function getPageDimensions() {
+  var winW = document.documentElement.clientWidth || window.innerWidth;
+  var winH = document.documentElement.clientHeight || window.innerHeight;
+  return {
+    fullW: winW,
+    fullH: winH,
+    w: Math.max(300, winW - margin.left - margin.right),
+    h: Math.max(400, winH - margin.top - margin.bottom)
+  };
+}
+
+var dims = getPageDimensions();
+
+var tree = d3.layout.tree()
+    .size([dims.h, dims.w])
+    .separation(function(a, b) {
+      return a.parent == b.parent ? 1.2 : 1.5;
+    });
+
+var diagonal = d3.svg.diagonal()
+    .projection(function(d) { return [d.y, d.x]; });
+
+var svg = d3.select("#body").append("svg:svg")
+    .attr("width", dims.fullW)
+    .attr("height", dims.fullH);
+
+var vis = svg.append("svg:g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var tooltip = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("position", "absolute")
+    .style("text-align", "left")
+    .style("padding", "10px 14px")
+    .style("font-family", "sans-serif")
+    .style("font-size", "13px")
+    .style("line-height", "1.4")
+    .style("background", "rgba(20, 20, 20, 0.92)")
+    .style("color", "#fff")
+    .style("border", "1px solid #444")
+    .style("border-radius", "6px")
+    .style("pointer-events", "none")
+    .style("max-width", "260px")
+    .style("box-shadow", "0 4px 10px rgba(0, 0, 0, 0.5)")
+    .style("z-index", "1000")
+    .style("opacity", 0);
+
+// Gestione tasto Z per aprire i link senza conflitti con il browser
+window.addEventListener("keydown", function(e) {
+  if ((e.key === "z" || e.key === "Z") && !tastoZPremuto) {
+    tastoZPremuto = true;
+    vis.selectAll("g.node text")
+      .filter(function(d) { return d.url; })
+      .style("fill", "#4fc3f7")
+      .style("text-decoration", "underline");
+    vis.selectAll("g.node rect.node-box")
+      .filter(function(d) { return d.url; })
+      .style("stroke", "#fff")
+      .style("stroke-width", "1.5px");
+  }
+});
+
+function resetTastoZ() {
+  if (tastoZPremuto) {
+    tastoZPremuto = false;
+    vis.selectAll("g.node text")
+      .style("fill", "whitesmoke")
+      .style("text-decoration", "none");
+    vis.selectAll("g.node rect.node-box")
+      .style("stroke", function(d) { return d.url ? "#4fc3f7" : "#555"; })
+      .style("stroke-width", "1px");
+  }
+}
+
+window.addEventListener("keyup", function(e) {
+  if (e.key === "z" || e.key === "Z") resetTastoZ();
+});
+window.addEventListener("blur", resetTastoZ);
+
+function moveTooltip() {
+  if (!d3.event) return;
+  var tooltipNode = tooltip.node();
+  var tooltipWidth = tooltipNode.offsetWidth;
+  var tooltipHeight = tooltipNode.offsetHeight;
+
+  var left = d3.event.pageX + 15;
+  var top = d3.event.pageY - 28;
+
+  if (left + tooltipWidth > window.innerWidth + window.scrollX - 10) {
+    left = d3.event.pageX - tooltipWidth - 15;
+  }
+  if (top + tooltipHeight > window.innerHeight + window.scrollY - 10) {
+    top = d3.event.pageY - tooltipHeight - 10;
+  }
+  if (top < window.scrollY + 10) {
+    top = window.scrollY + 10;
+  }
+
+  tooltip
+    .style("left", left + "px")
+    .style("top", top + "px");
+}
+
+function wrapText(textSelection, widthLimit) {
+  var padX = 6;
+  var padY = 4;
+
+  textSelection.each(function(d) {
+    var text = d3.select(this);
+    var parentNode = d3.select(this.parentNode);
+    var fullText = d.name || "";
+    var words = fullText.split(/\s+/).reverse();
+    var word;
+    var line = new Array();
+    var lineNumber = 0;
+    var lineHeight = 1.15;
+    var x = (d.children || d._children) ? -14 : 14;
+
+    text.text(null);
+
+    var tspan = text.append("tspan")
+        .attr("x", x)
+        .attr("dy", "0em");
+
+    while (word = words.pop()) {
+      line.push(word);
+      tspan.text(line.join(" "));
+      if (tspan.node().getComputedTextLength() > widthLimit && line.length > 1) {
+        line.pop();
+        tspan.text(line.join(" "));
+        line = new Array();
+        line.push(word);
+        tspan = text.append("tspan")
+            .attr("x", x)
+            .attr("dy", lineHeight + "em")
+            .text(word);
+        lineNumber++;
+      }
+    }
+
+    var initialOffset = 0.35 - (lineNumber * lineHeight) / 2;
+    text.select("tspan").attr("dy", initialOffset + "em");
+
+    var bbox = this.getBBox();
+    parentNode.select("rect.node-box")
+        .attr("x", bbox.x - padX)
+        .attr("y", bbox.y - padY)
+        .attr("width", bbox.width + (padX * 2))
+        .attr("height", bbox.height + (padY * 2));
+  });
+}
+
+var i = 0,
+    root = json_data;
+
+root.x0 = dims.h / 2;
+root.y0 = 0;
+
+function getHeight(node) {
+  if (!node) return 0;
+  if (!node.children || node.children.length === 0) return 1;
+  var max = 0;
+  for (var k = 0; k < node.children.length; k++) {
+    var h = getHeight(node.children[k]);
+    if (h > max) max = h;
+  }
+  return 1 + max;
+}
+
+function buildMobileAccordion(data, container) {
+  container.innerHTML = "";
+
+  function createNodeElement(node, depth) {
+    var item = document.createElement("div");
+    item.className = "acc-item";
+
+    if (depth === 0) {
+      item.classList.add("acc-open");
+    }
+
+    var header = document.createElement("div");
+    header.className = "acc-header";
+
+    var childrenList = node.children || node._children;
+    var hasChildren = childrenList && childrenList.length > 0;
+    var hasDesc = node.description && node.description.trim() !== "";
+
+    var titleEl = document.createElement("span");
+    titleEl.className = "acc-title";
+    titleEl.textContent = node.name;
+    header.appendChild(titleEl);
+
+    var actionsBox = document.createElement("div");
+    actionsBox.style.display = "flex";
+    actionsBox.style.alignItems = "center";
+    actionsBox.style.gap = "8px";
+
+    if (node.url) {
+      var linkBtn = document.createElement("a");
+      linkBtn.href = node.url;
+      linkBtn.textContent = "Apri ↗";
+      linkBtn.style.fontSize = "12px";
+      linkBtn.style.padding = "4px 8px";
+      linkBtn.style.backgroundColor = "#0288d1";
+      linkBtn.style.color = "#fff";
+      linkBtn.style.borderRadius = "4px";
+      linkBtn.style.textDecoration = "none";
+      linkBtn.onclick = function(e) { e.stopPropagation(); };
+      actionsBox.appendChild(linkBtn);
+    }
+
+    if (hasChildren || hasDesc) {
+      var badge = document.createElement("span");
+      badge.className = "acc-badge";
+      badge.textContent = hasChildren ? ("+" + childrenList.length) : "info";
+      actionsBox.appendChild(badge);
+    }
+
+    header.appendChild(actionsBox);
+    item.appendChild(header);
+
+    if (hasDesc) {
+      var descDiv = document.createElement("div");
+      descDiv.className = "acc-desc";
+      descDiv.textContent = node.description;
+      item.appendChild(descDiv);
+    }
+
+    if (hasChildren) {
+      var childrenContainer = document.createElement("div");
+      childrenContainer.className = "acc-children";
+      for (var k = 0; k < childrenList.length; k++) {
+        childrenContainer.appendChild(createNodeElement(childrenList[k], depth + 1));
+      }
+      item.appendChild(childrenContainer);
+    }
+
+    header.onclick = function() {
+      if (hasChildren || hasDesc) {
+        item.classList.toggle("acc-open");
+      } else if (node.url) {
+        window.location.href = node.url;
+      }
+    };
+
+    return item;
+  }
+
+  container.appendChild(createNodeElement(data, 0));
+}
+
+function checkResponsiveMode() {
+  var isMobile = window.innerWidth <= 768;
+  var desktopDiv = document.getElementById("body");
+  var mobileDiv = document.getElementById("mobile-accordion");
+
+  if (isMobile) {
+    desktopDiv.style.display = "none";
+    mobileDiv.style.display = "block";
+    buildMobileAccordion(root, mobileDiv);
+  } else {
+    desktopDiv.style.display = "block";
+    mobileDiv.style.display = "none";
+    update(root);
+  }
+}
+function update(source) {
+  var duration = d3.event && d3.event.altKey ? 5000 : 500;
+  var currentDims = getPageDimensions();
+  var currentHeight = getHeight(root);
+
+  tree.size([currentDims.h, currentDims.w]);
+
+  svg.attr("width", currentDims.fullW)
+     .attr("height", currentDims.fullH);
+
+  var nodes = tree.nodes(root).reverse();
+
+  var usableWidth = Math.max(100, currentDims.w - maxBoxWidth - 20);
+  nodes.forEach(function(d) {
+    var denom = currentHeight > 1 ? (currentHeight - 1) : 1;
+    d.y = d.depth * (usableWidth / denom);
+  });
+
+  var node = vis.selectAll("g.node")
+      .data(nodes, function(d) { return d.id || (d.id = ++i); });
+
+  var nodeEnter = node.enter().append("svg:g")
+      .attr("class", "node")
+      .style("cursor", "pointer")
+      .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+      .on("click", function(d) { toggle(d); update(d); })
+      .on("mouseover", function(d) {
+        d3.select(this).select("circle")
+          .transition().duration(150)
+          .attr("r", 9)
+          .style("fill", "#ff9800");
+
+        var desc = d.description ? "<br/><span style='color:#ccc; font-size:12px;'>" + d.description + "</span>" : "";
+        var hint = d.url ? "<br/><span style='color:#4fc3f7; font-size:11px; display:inline-block; margin-top:4px;'>⌨️ Tieni premuto <b>Z</b> + Clic per aprire</span>" : "";
+
+        tooltip.html("<strong>" + d.name + "</strong>" + desc + hint)
+          .transition().duration(200)
+          .style("opacity", 1);
+
+        moveTooltip();
+      })
+      .on("mousemove", moveTooltip)
+      .on("mouseout", function(d) {
+        d3.select(this).select("circle")
+          .transition().duration(150)
+          .attr("r", 6)
+          .style("fill", d._children ? "lightsteelblue" : "#fff");
+
+        tooltip.transition().duration(200)
+          .style("opacity", 0);
+      });
+
+  nodeEnter.append("svg:circle")
+      .attr("r", 1e-6)
+      .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+
+  nodeEnter.append("svg:rect")
+      .attr("class", "node-box")
+      .attr("rx", 5)
+      .attr("ry", 5)
+      .style("fill", "rgba(30, 35, 45, 0.65)")
+      .style("stroke", function(d) { return d.url ? "#4fc3f7" : "#555"; })
+      .style("stroke-width", "1px")
+      .style("fill-opacity", 1e-6)
+      .style("stroke-opacity", 1e-6)
+      .on("click", function(d) {
+        if (tastoZPremuto && d.url) {
+          d3.event.stopPropagation();
+          window.location.href = d.url;
+        }
+      });
+
+  nodeEnter.append("svg:text")
+      .attr("x", function(d) { return d.children || d._children ? -14 : 14; })
+      .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
+      .text(function(d) { return d.name; })
+      .style("fill", "whitesmoke")
+      .style("fill-opacity", 1e-6)
+      .on("click", function(d) {
+        if (tastoZPremuto && d.url) {
+          d3.event.stopPropagation();
+          window.location.href = d.url;
+        }
+      });
+
+  var nodeUpdate = node.transition()
+      .duration(duration)
+      .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
+
+  nodeUpdate.select("circle")
+      .attr("r", 6)
+      .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+
+  node.select("text")
+      .attr("x", function(d) { return d.children || d._children ? -14 : 14; })
+      .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
+      .call(wrapText, maxBoxWidth);
+
+  nodeUpdate.select("text")
+      .style("fill-opacity", 1);
+
+  nodeUpdate.select("rect.node-box")
+      .style("fill-opacity", 1)
+      .style("stroke-opacity", 1);
+
+  var nodeExit = node.exit().transition()
+      .duration(duration)
+      .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+      .remove();
+
+  nodeExit.select("circle").attr("r", 1e-6);
+  nodeExit.select("text").style("fill-opacity", 1e-6);
+  nodeExit.select("rect.node-box")
+      .style("fill-opacity", 1e-6)
+      .style("stroke-opacity", 1e-6);
+
+  var link = vis.selectAll("path.link")
+      .data(tree.links(nodes), function(d) { return d.target.id; });
+
+  link.enter().insert("svg:path", "g")
+      .attr("class", "link")
+      .style("fill", "none")
+      .style("stroke", "#ccc")
+      .style("stroke-width", "1.5px")
+      .attr("d", function(d) {
+        var o = {x: source.x0, y: source.y0};
+        return diagonal({source: o, target: o});
+      })
+    .transition()
+      .duration(duration)
+      .attr("d", diagonal);
+
+  link.transition().duration(duration).attr("d", diagonal);
+
+  link.exit().transition()
+      .duration(duration)
+      .attr("d", function(d) {
+        var o = {x: source.x, y: source.y};
+        return diagonal({source: o, target: o});
+      })
+      .remove();
+
+  nodes.forEach(function(d) {
+    d.x0 = d.x;
+    d.y0 = d.y;
+  });
+}
+
+function toggle(d) {
+  if (d.children) {
+    d._children = d.children;
+    d.children = null;
+  } else {
+    d.children = d._children;
+    d._children = null;
+  }
+}
+
+checkResponsiveMode();
+
+if (typeof _ !== 'undefined' && _.debounce) {
+  window.addEventListener('resize', _.debounce(checkResponsiveMode, 250));
+} else {
+  window.addEventListener('resize', checkResponsiveMode);
+}
+
+		</script>
+	</body>
+</html>

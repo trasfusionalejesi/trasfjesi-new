@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ambulatorio Trasfusionale - Trasfusionale Jesi</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="../index.html" class="nav-logo">
+      <img src="../logo.png" alt="Logo Trasfusionale Jesi" class="logo-img">
+      <span class="logo-text">Trasfusionale Jesi</span>
+    </a>
+
+    <button class="hamburger" id="hamburger" aria-label="Apri menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <div class="nav-menu" id="navMenu">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="../index.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="donazione.html" class="nav-link">Donazione</a>
+        </li>
+        <li class="nav-item">
+          <a href="laboratorio.html" class="nav-link">Laboratorio</a>
+        </li>
+        <li class="nav-item">
+          <a href="emoderivati.html" class="nav-link">Emoderivati</a>
+        </li>
+        <li class="nav-item">
+          <a href="ambulatorio.html" class="nav-link active">Ambulatorio</a>
+        </li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="criteri.html" class="nav-btn secondary">Criteri Donatore</a>
+        <a href="contatti.html" class="nav-btn primary">Contatti e Orari</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="main-content" id="top-ambulatorio">
+  <!-- Hero Section (senza bottoni) -->
+  <section class="hero-section showcase">
+    <img src="../img-ambulatorio-hero.jpg" alt="Ambulatorio di Medicina Trasfusionale Jesi" class="showcase-video">
+    
+    <div class="hero-container showcase-content">
+      <span class="hero-badge">Attività Clinica • Ospedale C. Urbani - Jesi</span>
+      <h1>Ambulatorio di Medicina Trasfusionale</h1>
+      <p>
+        Terapie infusionali, salassi terapeutici, trasfusioni ambulatoriali e visite specialistiche su prenotazione CUP.
+      </p>
+    </div>
+  </section>
+
+  <!-- Sezione Contenuti -->
+  <section class="content-section">
+    <div class="content-container">
+      
+      <!-- Griglia dei 3 riquadri superiori -->
+      <div class="feature-grid" id="cards-ambulatorio">
+        
+        <!-- 1. Card Statistiche Ambulatorio -->
+        <div class="feature-card">
+          <div class="feature-card-body">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M18 20V10M12 20V4M6 20v-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Statistiche Ambulatorio</h3>
+            <p class="feature-text">
+              Consulta i volumi delle prestazioni ambulatoriali erogate: trasfusioni, terapie marziali endovena, infusione di plasmaderivati e salassi terapeutici.
+            </p>
+            <div class="card-footer-btn">
+              <a href="statistiche-ambulatorio.html" class="nav-btn primary">Vedi le Statistiche</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Card Come Prenotare (apre Accordion 1 sotto) -->
+        <div class="feature-card">
+          <div class="feature-card-body">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke-width="2"/>
+                <line x1="16" y1="2" x2="16" y2="6" stroke-width="2" stroke-linecap="round"/>
+                <line x1="8" y1="2" x2="8" y2="6" stroke-width="2" stroke-linecap="round"/>
+                <line x1="3" y1="10" x2="21" y2="10" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Modalità di Prenotazione</h3>
+            <p class="feature-text">
+              L'accesso all'Ambulatorio Trasfusionale avviene tramite prenotazione al <strong>CUP Regionale</strong> (MyCupMarche, App Salute Marche, farmacie abilitate o sportelli CUP).
+            </p>
+            <div class="card-footer-btn">
+              <button type="button" class="nav-btn primary" onclick="apriAccordion('acc-prenotazione')">
+                Dettagli Prenotazione ↓
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Card Cosa si Prenota (apre Accordion 2 sotto) -->
+        <div class="feature-card">
+          <div class="feature-card-body">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="14 2 14 8 20 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="16" y1="13" x2="8" y2="13" stroke-width="2" stroke-linecap="round"/>
+                <line x1="16" y1="17" x2="8" y2="17" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Cosa si Prenota e Impegnative</h3>
+            <p class="feature-text">
+              Elenco delle prestazioni eseguibili in ambulatorio (trasfusioni, immunoglobuline/albumina, ferro endovena, salasso) con le relative impegnative richieste.
+            </p>
+            <div class="card-footer-btn">
+              <button type="button" class="nav-btn primary" onclick="apriAccordion('acc-prestazioni')">
+                Vedi Prestazioni e Impegnative ↓
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+	        <!-- Card Orizzontale: Dove Siamo e Contatti -->
+      <div class="feature-card horizontal-card">
+        <div class="horizontal-card-img">
+          <img src="../img-ospedale-jesi.jpg" alt="Stabilimento Ospedaliero Carlo Urbani Jesi">
+        </div>
+        <div class="horizontal-card-body">
+          <span class="section-badge">Sede e Riferimenti</span>
+          <h3 class="feature-title">Dove Siamo e Contatti del Reparto</h3>
+          <p class="feature-text">
+            <strong>Stabilimento Ospedaliero "Carlo Urbani" Jesi</strong><br>
+            Via A. Moro, 25 — 60035 Jesi (AN)
+          </p>
+          <p class="feature-text" style="margin-top: 8px;">
+            Consulta i recapiti telefonici e gli indirizzi email dello Studio Medico, del Coordinatore e dell'Accettazione del Laboratorio di Immunoematologia.
+          </p>
+          <div class="card-footer-btn">
+            <button type="button" class="nav-btn primary" onclick="apriAccordion('acc-contatti')">
+              Vedi Contatti e Medici ↓
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Riquadro Orizzontale con Accordion -->
+      <div class="feature-card info-detail-box" id="sezione-accordion">
+        <div class="feature-card-body">
+          <span class="section-badge">Guida per l'Utenza</span>
+          <h2 class="detail-title">Informazioni per l'Accesso e Prestazioni Ambulatoriali</h2>
+          <p class="feature-text">
+            Seleziona una delle voci qui sotto per consultare le modalità di prenotazione tramite CUP oppure l'elenco dettagliato delle prestazioni e delle impegnative necessarie.
+          </p>
+
+          <div class="accordion-container">
+            
+            <!-- ACCORDION 1: Modalità di Prenotazione -->
+            <details class="custom-accordion" id="acc-prenotazione">
+              <summary class="accordion-header">
+                <span>1. Accesso all'Ambulatorio Trasfusionale e Prenotazione CUP</span>
+                <span class="accordion-icon">+</span>
+              </summary>
+              <div class="accordion-body">
+                <p>
+                  L'accesso all'Ambulatorio Trasfusionale avviene dopo prenotazione tramite il <strong>CUP (Centro Unico di Prenotazione)</strong> con le seguenti modalità:
+                </p>
+                <ul class="accordion-list">
+                  <li><strong>On-line:</strong> tramite il portale <strong>MyCupMarche</strong> o tramite l’<strong>App Salute Marche</strong>;</li>
+                  <li><strong>In farmacia:</strong> presso le farmacie abilitate alla prenotazione delle prestazioni sanitarie (il cui elenco è disponibile nella sezione <em>Farmacie CUP</em> del portale Salute);</li>
+                  <li><strong>Di persona:</strong> presso gli <strong>sportelli CUP territoriali</strong>.</li>
+                </ul>
+                <div class="accordion-alert">
+                  <strong>Documentazione da portare il giorno dell'appuntamento:</strong> ricordarsi di portare con sé tutta la documentazione sanitaria inerente (e non) alla patologia, gli esami ematochimici e strumentali già eseguiti, il documento di identità, la tessera sanitaria e le impegnative richieste.
+                </div>
+              </div>
+            </details>
+
+            <!-- ACCORDION 2: Cosa si Prenota e Impegnative -->
+            <details class="custom-accordion" id="acc-prestazioni">
+              <summary class="accordion-header">
+                <span>2. Cosa si Prenota: Prestazioni e Impegnative Richieste</span>
+                <span class="accordion-icon">+</span>
+              </summary>
+              <div class="accordion-body">
+                
+                <div class="prestazione-item">
+                  <h4>Trasfusione di emocomponenti (Concentrati Eritrocitari, Concentrati Piastrinici)</h4>
+                  <p>Si richiedono: <strong>documento di identità</strong>, <strong>tessera sanitaria</strong> e impegnativa per:</p>
+                  <ul class="accordion-list">
+                    <li>1) Trasfusione emc;</li>
+                    <li>2) Visita trasfusionale;</li>
+                    <li>3) Prove di compatibilità.</li>
+                  </ul>
+                </div>
+
+                <div class="prestazione-item">
+                  <h4>Infusioni endovenose di Medicinali Plasmaderivati (Immunoglobuline per uso endovenoso, Albumina, ecc.)</h4>
+                  <p>Si richiedono: <strong>documento di identità</strong>, <strong>tessera sanitaria</strong> e impegnative per:</p>
+                  <ul class="accordion-list">
+                    <li>1) Infusione di Ig ev;</li>
+                    <li>2) Visita trasfusionale;</li>
+                    <li>3) Prelievo venoso.</li>
+                  </ul>
+                  <p class="nota-aggiuntiva"><em>Nota: in caso di premedicazione si richiede anche impegnativa per infusione di altre sostanze.</em></p>
+                </div>
+
+                <div class="prestazione-item">
+                  <h4>Infusioni endovenose di preparati a base di ferro (Ferinject, Ferlixit)</h4>
+                  <p>Si richiedono: <strong>documento di identità</strong>, <strong>tessera sanitaria</strong> e impegnative per:</p>
+                  <ul class="accordion-list">
+                    <li>1) Infusioni di altre sostanze terapeutiche/ferro;</li>
+                    <li>2) Visita trasfusionale.</li>
+                  </ul>
+                </div>
+
+                <div class="prestazione-item">
+                  <h4>Salasso terapeutico</h4>
+                  <p>Si richiedono: <strong>documento di identità</strong>, <strong>tessera sanitaria</strong> e impegnative per:</p>
+                  <ul class="accordion-list">
+                    <li>1) Salasso (massimo per 8 salassi);</li>
+                    <li>2) Visita trasfusionale.</li>
+                  </ul>
+                </div>
+
+              </div>
+            </details>
+            <!-- ACCORDION 3: Dove Siamo e Contatti -->
+            <details class="custom-accordion" id="acc-contatti">
+              <summary class="accordion-header">
+                <span>3. Dove Siamo, Studio Medico e Contatti</span>
+                <span class="accordion-icon">+</span>
+              </summary>
+              <div class="accordion-body">
+                
+                <div class="accordion-alert" style="margin-top: 0; margin-bottom: 18px;">
+                  <strong>Sede:</strong> Stabilimento Ospedaliero "Carlo Urbani" Jesi — Via A. Moro, 25, 60035, Jesi (AN)
+                </div>
+
+                <div class="prestazione-item">
+                  <h4>Studio Medico</h4>
+                  <ul class="contatti-list">
+                    <li>
+                      <strong>Dr. Giuseppe Furlò</strong> (Direttore) — Tel: <a href="tel:0731534229">0731/534229</a> • Email: <a href="mailto:giuseppe.furlo@sanita.marche.it">giuseppe.furlo@sanita.marche.it</a>
+                    </li>
+                    <li>
+                      <strong>Dr.ssa Lucia Canafoglia</strong> — Tel: <a href="tel:0731534241">0731/534241</a> • Email: <a href="mailto:lucia.canafoglia@sanita.marche.it">lucia.canafoglia@sanita.marche.it</a>
+                    </li>
+                    <li>
+                      <strong>Dr. Ioanis Giannulis</strong> — Tel: <a href="tel:0731534230">0731/534230</a> • Email: <a href="mailto:ioanis.giannulis@sanita.marche.it">ioanis.giannulis@sanita.marche.it</a>
+                    </li>
+                    <li>
+                      <strong>Dr.ssa Laura Maracci</strong> — Tel: <a href="tel:0731534252">0731/534252</a> • Email: <a href="mailto:laura.maracci@sanita.marche.it">laura.maracci@sanita.marche.it</a>
+                    </li>
+                    <li>
+                      <strong>Dr. Pietro Romeo</strong> — Tel: <a href="tel:0731534233">0731/534233</a> • Email: <a href="mailto:pietro.romeo@sanita.marche.it">pietro.romeo@sanita.marche.it</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="prestazione-item">
+                  <h4>Coordinatore</h4>
+                  <ul class="contatti-list">
+                    <li>
+                      <strong>Dr.ssa Maura Pandolfi</strong> — Tel: <a href="tel:0731534234">0731/534234</a> • Email: <a href="mailto:maura.pandolfi@sanita.marche.it">maura.pandolfi@sanita.marche.it</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="prestazione-item">
+                  <h4>Laboratorio Immunoematologia - Accettazione</h4>
+                  <ul class="contatti-list">
+                    <li>
+                      <strong>Segreteria / Accettazione:</strong> Tel: <a href="tel:0731534228">0731/534228</a> ; <a href="tel:0731534231">0731/534231</a>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+            </details>
+
+          </div>
+
+          <!-- Bottone di ritorno alle card superiori -->
+          <div class="back-top-wrapper">
+            <a href="#cards-ambulatorio" class="nav-btn secondary">↑ Torna alle schede sopra</a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+  <!-- Onde SVG -->
+  <svg class="waves" xmlns="http://w3.org" xmlns:xlink="http://w3.org"
+    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+      <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+    </defs>
+    <g class="parallax">
+      <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
+      <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+      <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+      <use xlink:href="#gentle-wave" x="48" y="7" fill="#ffffff" />
+    </g>
+  </svg>
+
+  <footer class="glass-footer">
+    <div class="footer-bottom">
+      <p class="copyright">© 2026 Jesi UO - Servizio Immunotrasfusionale. Tutti i diritti riservati.</p>
+    </div>
+  </footer>
+
+  <!-- Script per apertura automatica e scorrimento verso l'accordion -->
+    <script>
+    // Apertura tramite i bottoni delle card superiori + scorrimento fluido
+    function apriAccordion(idTarget) {
+      document.querySelectorAll('.custom-accordion').forEach(acc => {
+        acc.open = (acc.id === idTarget);
+      });
+
+      const elemento = document.getElementById(idTarget);
+      if (elemento) {
+        elemento.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    // Chiude automaticamente gli altri accordion anche quando l'utente clicca direttamente sul titolo
+    document.querySelectorAll('.custom-accordion').forEach(acc => {
+      acc.addEventListener('toggle', () => {
+        if (acc.open) {
+          document.querySelectorAll('.custom-accordion').forEach(altro => {
+            if (altro !== acc) {
+              altro.open = false;
+            }
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donazione - Trasfusionale Jesi</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="../index.html" class="nav-logo">
+      <img src="../images/logo.png" alt="Logo Trasfusionale Jesi" class="logo-img">
+      <span class="logo-text">Trasfusionale Jesi</span>
+    </a>
+
+    <button class="hamburger" id="hamburger" aria-label="Apri menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <div class="nav-menu" id="navMenu">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="../index.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="donazione.html" class="nav-link active">Donazione</a>
+        </li>
+        <li class="nav-item">
+          <a href="laboratorio.html" class="nav-link">Laboratorio</a>
+        </li>
+        <li class="nav-item">
+          <a href="emoderivati.html" class="nav-link">Emoderivati</a>
+        </li>
+        <li class="nav-item">
+          <a href="ambulatorio.html" class="nav-link">Ambulatorio</a>
+        </li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="criteri.html" class="nav-btn secondary">Criteri Donatore</a>
+        <a href="contatti.html" class="nav-btn primary">Contatti e Orari</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="main-content">
+  <!-- Hero Section (senza bottoni) -->
+  <section class="hero-section showcase">
+    <img src="../img-donazione-hero.jpg" alt="Sala Donazioni Trasfusionale Jesi" class="showcase-video">
+    
+    <div class="hero-container showcase-content">
+      <span class="hero-badge">Area Donatori • Jesi</span>
+      <h1>Donazione di Sangue ed Emocomponenti</h1>
+      <p>
+        Un gesto semplice, sicuro e fondamentale per garantire le terapie trasfusionali ai pazienti del nostro territorio.
+      </p>
+    </div>
+  </section>
+
+  <!-- Sezione Contenuti -->
+  <section class="content-section">
+    <div class="content-container">
+      
+      <!-- Griglia dei 3 riquadri -->
+      <div class="feature-grid">
+        
+        <!-- 1. Card Statistiche (porta a statistiche.html) -->
+        <div class="feature-card">
+          <div class="feature-card-body">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M18 20V10M12 20V4M6 20v-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Statistiche Donazioni</h3>
+            <p class="feature-text">
+              Consulta i dati aggiornati sull'attività di raccolta del Centro Trasfusionale di Jesi: sangue intero, plasmaferesi e andamento annuale.
+            </p>
+            <div class="card-footer-btn">
+              <a href="statistiche.html" class="nav-btn primary">Vedi le Statistiche</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Card Prima Donazione + Bottone Criteri -->
+        <div class="feature-card">
+          <div class="feature-card-body">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Prima Donazione</h3>
+            <p class="feature-text">
+              Vuoi iniziare a donare? Prima del prelievo effettuerai una visita medica gratuita, gli esami del sangue di controllo e un colloquio con il medico trasfusionista.
+            </p>
+            <div class="card-footer-btn">
+              <a href="criteri.html" class="nav-btn primary">Criteri per la selezione</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Card Orari con finestra interna -->
+        <div class="feature-card">
+          <div class="feature-card-body">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="12" cy="12" r="10" stroke-width="2"/>
+                <polyline points="12 6 12 12 16 14" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Orari e Accesso</h3>
+            <p class="feature-text">
+              Le donazioni si effettuano su prenotazione tramite le associazioni (AVIS) o la segreteria del reparto:
+            </p>
+            
+            <div class="schedule-window">
+              <div class="schedule-row">
+                <strong>Lun - Sab:</strong>
+                <span>08:00 - 11:30</span>
+              </div>
+              <div class="schedule-row">
+                <strong>Aferesi:</strong>
+                <span>Su appuntamento</span>
+              </div>
+              <div class="schedule-row">
+                <strong>Sede:</strong>
+                <span>Ospedale C. Urbani (Piano 1)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Div sottostante che raggruppa l'attività di donazione -->
+      <div class="feature-card info-detail-box">
+        <div class="feature-card-body">
+          <span class="section-badge">Approfondimento Attività</span>
+          <h2 class="detail-title">L'attività di donazione al Trasfusionale di Jesi</h2>
+          <p class="feature-text">
+            Il Servizio Immunotrasfusionale dell'Ospedale "Carlo Urbani" di Jesi garantisce la raccolta di sangue intero ed emocomponenti mediante aferesi produttiva (plasmaferesi e piastrinoaferesi), operando in stretta collaborazione con le associazioni di volontariato del territorio.
+          </p>
+          
+          <div class="activity-columns">
+            <div class="activity-item">
+              <h4>1. Accoglienza e Questionario</h4>
+              <p>Al momento dell'arrivo in reparto il donatore compila il questionario anamnestico. Prima della donazione è consigliata una leggera colazione (evitando latte e derivati).</p>
+            </div>
+            <div class="activity-item">
+              <h4>2. Visita Medica ed Emoglobina</h4>
+              <p>Il medico valuta l'idoneità clinica, misura la pressione arteriosa e controlla il valore dell'emoglobina tramite una piccola puntura sul polpastrello.</p>
+            </div>
+            <div class="activity-item">
+              <h4>3. Prelievo in Sicurezza</h4>
+              <p>La donazione di sangue intero dura circa 10-15 minuti utilizzando materiale sterile e monouso. La plasmaferesi richiede invece circa 40-45 minuti.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+  <!-- Onde SVG -->
+  <svg class="waves" xmlns="http://w3.org" xmlns:xlink="http://w3.org"
+    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+      <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+    </defs>
+    <g class="parallax">
+      <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
+      <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+      <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+      <use xlink:href="#gentle-wave" x="48" y="7" fill="#ffffff" />
+    </g>
+  </svg>
+
+  <!-- Footer -->
+  <footer class="glass-footer">
+    <div class="footer-bottom">
+      <p class="copyright">© 2026 Jesi UO - Servizio Immunotrasfusionale. Tutti i diritti riservati.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
